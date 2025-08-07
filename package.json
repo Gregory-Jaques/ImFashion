@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx http-server . -p 3000 -c-1",
     "dev": "npx http-server . -p 3000 -c-1 -o",
-    "build": "echo 'No build process needed for static site'",
+    "build": "node -e \"const fs=require('fs');const path=require('path');if(!fs.existsSync('public'))fs.mkdirSync('public');fs.copyFileSync('index.html','public/index.html');if(!fs.existsSync('public/images'))fs.mkdirSync('public/images',{recursive:true});fs.readdirSync('images').forEach(f=>fs.copyFileSync(path.join('images',f),path.join('public/images',f)));\"",
     "deploy": "vercel --prod"
   },
   "keywords": [

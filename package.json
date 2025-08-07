@@ -1,0 +1,40 @@
+{
+  "name": "fashion-landing-page",
+  "version": "1.0.0",
+  "description": "Landing page para Immoral Fashion - Página web moderna y responsiva",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -c-1",
+    "dev": "npx http-server . -p 3000 -c-1 -o",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "fashion",
+    "landing-page",
+    "html",
+    "css",
+    "javascript",
+    "tailwind",
+    "responsive"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/fashion-landing-page.git"
+  },
+  "homepage": "https://tu-usuario.github.io/fashion-landing-page",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

@@ -10,33 +10,99 @@
 </head>
 <body class="font-inter bg-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-[2px]">
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-[500] bg-transparent backdrop-blur-[2px] transition-all duration-300">
         <div class="w-full h-20 px-16 py-4">
-            <div class="w-full h-px bg-white mt-1 mb-4"></div>
+            <div id="nav-line" class="w-full h-px bg-white mt-1 mb-4 transition-colors duration-300"></div>
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="h-10">
+                    <img src="images/imfashion-logo-menu.svg" alt="ImFashion Logo" class="h-10">
                 </div>
                 
                 <!-- Menu Items -->
                 <div class="flex items-center space-x-20">
                     <div class="relative group">
-                        <button class="text-white text-lg font-medium hover:text-red-300 transition-colors">SERVICIOS</button>
-                        <div class="absolute top-full right-0 mt-2 bg-white border border-black p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a href="#llamada" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Agenda una llamada</a>
-                            <a href="#escribenos" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Escríbenos</a>
+                        <button id="servicios-btn" class="text-white text-lg font-medium">SERVICIOS</button>
+                        <div class="absolute top-full right-0 mt-2 w-[483px] h-80 bg-white border border-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <!-- Left section - Test de diagnostico -->
+                            <div class="absolute left-0 top-0 w-[292px] h-80 bg-white border-r border-black">
+                                <div class="px-4 py-2 absolute left-[21px] top-[19px] inline-flex flex-col justify-center items-center">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-xl font-extralight leading-none">Test de diagnostico</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-60 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </div>
+                                <div class="absolute left-[30px] top-[60px] text-neutral-500 text-sm font-normal leading-snug">
+                                    Descubre en menos de 1 minuto en<br/>qué punto está tu marca
+                                </div>
+                                <img class="w-60 h-40 absolute left-[30px] top-[130px]" src="https://placehold.co/240x155" alt="Test diagnostico" />
+                            </div>
+                            
+                            <!-- Right section - Services -->
+                            <div class="absolute left-[292px] top-0 w-48 h-80 bg-white">
+                                <!-- Foundation -->
+                                <a href="#foundation" class="px-4 py-2 absolute left-[18px] top-[17px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Foundation</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Expansion -->
+                                <a href="#expansion" class="px-4 py-2 absolute left-[18px] top-[70px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Expansion</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Rebuild -->
+                                <a href="#rebuild" class="px-4 py-2 absolute left-[17px] top-[124px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Rebuild</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-28 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Amplify -->
+                                <a href="#amplify" class="px-4 py-2 absolute left-[18px] top-[179px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Amplify</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-28 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Embedded -->
+                                <a href="#embedded" class="px-4 py-2 absolute left-[16px] top-[234px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Embedded</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <a href="#casos-exito" class="text-white text-lg font-medium hover:text-red-300 transition-colors">CASOS DE ÉXITO</a>
-                    <a href="#equipo" class="text-white text-lg font-medium hover:text-red-300 transition-colors">EL EQUIPO</a>
+                    <a id="casos-btn" href="#casos-exito" class="text-white text-lg font-medium">CASOS DE ÉXITO</a>
+                    <a id="equipo-btn" href="#equipo" class="text-white text-lg font-medium">EL EQUIPO</a>
                     
                     <!-- Contact Dropdown -->
                     <div class="relative group">
-                        <button class="text-white text-lg font-medium hover:text-red-300 transition-colors">CONTACTO</button>
-                        <div class="absolute top-full right-0 mt-2 bg-white border border-black p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a href="#llamada" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Agenda una llamada</a>
-                            <a href="#escribenos" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Escríbenos</a>
+                        <button id="contacto-btn" class="text-white text-lg font-medium">CONTACTO</button>
+                        <div class="absolute top-full w-[220px] right-0 mt-2 bg-white border border-black p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="#" id="agenda-llamada-menu" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Agenda una llamada</a>
+                            <a href="#" id="escribenos-menu" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Escríbenos</a>
                         </div>
                     </div>
                 </div>
@@ -45,11 +111,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative w-full h-screen overflow-hidden bg-white">
-        <img src="images/hero-start-bg.jpg" alt="Hero Background" class="absolute top-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gray-500 bg-opacity-50"></div>
-        
-        <div class="relative z-10 flex items-center justify-start h-full px-16">
+    <section class="absolute w-full h-[200dvh] bg-black z-10">
+        <img src="images/hero-end-bg.jpg" alt="Hero Background" class="w-full sticky top-0">
+    </section>
+
+    <section class="relative w-full h-[200dvh] z-50">    
+        <div class="relative z-10 flex items-center justify-start h-dvh px-16">
             <div class="max-w-4xl">
                 <h1 class="text-white text-6xl font-normal uppercase leading-tight mb-8">
                     ¿Tu marca está <br>
@@ -58,14 +125,8 @@
                 </h1>
             </div>
         </div>
-    </section>
 
-    <!-- Problem Statement Section -->
-    <section class="relative w-full h-screen overflow-hidden">
-        <img src="images/hero-end-bg.jpg" alt="Problem Background" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        
-        <div class="relative z-10 flex items-end justify-start h-full px-16 pb-32">
+        <div class="relative z-10 flex items-end justify-start h-dvh px-16 pb-32">
             <div class="max-w-5xl">
                 <h2 class="text-white text-6xl font-bold uppercase leading-tight mb-6">
                     El ROAS cae. El CPA sube.
@@ -78,7 +139,7 @@
                 </p>
             </div>
         </div>
-    </section>
+    </section>    
 
     <!-- Brand Showcase Section -->
     <section class="relative w-full h-screen overflow-hidden bg-white">
@@ -174,7 +235,7 @@
 
     <!-- Services Section -->
     <section id="servicios" class="w-full py-24">
-        <div class="mx-auto">
+        <div class="max-w-7xl mx-auto">
             <div class="text-left mb-16 px-16">
                 <p class="text-[#D4B996] text-3xl font-medium leading-9">Servicios</p>
                 <h2 class="text-black text-6xl font-bold leading-tight mb-8">Un método para cada momento</h2>
@@ -185,85 +246,86 @@
                     Descubre en que punto estás
                 </button>
             </div>
-            
-            <div class="relative h-[600px] overflow-hidden">
+        </div>
+        
+        <div class="relative h-[600px] overflow-hidden w-full">
                 <!-- Service Cards -->
                 <div class="flex h-full">
                     <!-- Foundation -->
-                    <div class="w-[33.3%] relative overflow-hidden">
-                        <img src="images/bgFound.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-right object-cover">
+                    <div class="service-item w-[33.3%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="foundation">
+                        <img src="images/bgFound.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-right object-cover transition-all duration-500 ease-in-out">
                         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
                             <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Foundation</h3>
-                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md">
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md opacity-100 transition-all duration-500 ease-in-out">
                                 ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
                                 Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
                             </p>
-                            <a href="#" class="text-white text-base font-medium underline uppercase">
+                            <a href="#" class="text-white text-base font-medium underline uppercase opacity-100 transition-all duration-500 ease-in-out">
                                 Quiero estructurar mi crecimiento
                             </a>
                         </div>
                     </div>
                     
                     <!-- Expansion -->
-                    <div class="w-[16.6%] relative overflow-hidden">
-                        <img src="images/bgExpand.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="expansion">
+                        <img src="images/bgExpand.jpg" alt="Expansion" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
                         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
                             <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Expansion</h3>
-                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md  hidden">
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
                                 ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
                                 Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
                             </p>
-                            <a href="#" class="text-white text-base font-medium underline uppercase hidden">
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
                                 Quiero estructurar mi crecimiento
                             </a>
                         </div>
                     </div>
                     
                     <!-- Rebuild -->
-                    <div class="w-[16.6%] relative overflow-hidden">
-                        <img src="images/bgRebui.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="rebuild">
+                        <img src="images/bgRebui.jpg" alt="Rebuild" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
                         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
                             <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Rebuild</h3>
-                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden">
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
                                 ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
                                 Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
                             </p>
-                            <a href="#" class="text-white text-base font-medium underline uppercase hidden">
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
                                 Quiero estructurar mi crecimiento
                             </a>
                         </div>
                     </div>
                     
                     <!-- Amplify -->
-                    <div class="w-[16.6%] relative overflow-hidden">
-                        <img src="images/bgAmpli.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="amplify">
+                        <img src="images/bgAmpli.jpg" alt="Amplify" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
                         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
                             <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Amplify</h3>
-                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden">
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
                                 ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
                                 Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
                             </p>
-                            <a href="#" class="text-white text-base font-medium underline uppercase hidden">
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
                                 Quiero estructurar mi crecimiento
                             </a>
                         </div>
                     </div>
                     
                     <!-- Embedded -->
-                    <div class="w-[16.6%] relative overflow-hidden">
-                        <img src="images/bgEmbed.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="embedded">
+                        <img src="images/bgEmbed.jpg" alt="Embedded" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
                         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
                             <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Embedded</h3>
-                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden">
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
                                 ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
                                 Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
                             </p>
-                            <a href="#" class="text-white text-base font-medium underline uppercase hidden">
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
                                 Quiero estructurar mi crecimiento
                             </a>
                         </div>
@@ -327,21 +389,23 @@
             
         </div>
         <!-- Brand Logos -->
-            <div class="flex justify-center items-center space-x-8 mb-16 w-full">
-                <img src="images/amlul-logo.svg" alt="Amlul Logo" class="h-[60px]">
-                <img src="images/la-manso-logo.svg" alt="La Manso" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/angela-logo.svg" alt="Angela" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/bl-logo.svg" alt="BL" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/bobo-logo.svg" alt="Bobo Choses" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/gabriel-logo.svg" alt="Gabriel" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity">
+            <div class="carousel-container mb-16 w-full overflow-hidden">
+                <div class="logos-container flex items-center space-x-8 whitespace-nowrap">
+                    <img src="images/amlul-logo.svg" alt="Amlul Logo" class="h-[60px] flex-shrink-0">
+                    <img src="images/la-manso-logo.svg" alt="La Manso" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/angela-logo.svg" alt="Angela" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/bl-logo.svg" alt="BL" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/bobo-logo.svg" alt="Bobo Choses" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/gabriel-logo.svg" alt="Gabriel" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                </div>
             </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="w-full bg-white py-24">
-        <div class="max-w-7xl mx-auto px-16">
-            <div class="flex items-center">
-                <div class="w-1/2 pr-16">
+        <div class="max-w-[1600px] mx-auto px-16">
+            <div class="flex items-center h-96">
+                <div class="w-[40%]">
                     <h2 class="text-black text-5xl font-normal leading-10 mb-8">
                         Lo que más valoran no <br>
                         es solo lo que hacemos, <br>
@@ -349,16 +413,16 @@
                     </h2>
                 </div>
                 
-                <div class="w-1/2 relative">
-                    <img src="images/testimonials-bg.svg" alt="Testimonials" class="w-full">
+                <div class="w-[60%] relative h-full">
+                    <img src="images/testimonials-bg.svg" alt="Testimonials" class="w-full hidden">
                     
                     <!-- Testimonial Card -->
-                    <div class="absolute top-8 left-8 bg-neutral-100 p-8 max-w-md">
+                    <div class="absolute top-0 right-8 bg-neutral-100 p-8 max-w-[70%]">
                         <blockquote class="text-red-900 text-4xl font-medium leading-10 mb-8">
                             No es fácil encontrar un equipo externo tan comprometido, proactivo y resolutivo.
                         </blockquote>
                         
-                        <p class="text-black text-xl font-medium leading-snug mb-8">
+                        <p class="text-black text-base font-medium leading-snug mb-8">
                             Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer que la marca crezca les han convertido en partners fundamentales para el crecimiento de negocio online, la estrategia de marketing digital y nuestra inversión en medios publicitarios.
                         </p>
                         
@@ -383,7 +447,9 @@
                         </div>
                         
                         <div class="flex items-center">
-                            <div class="w-12 h-10 bg-gray-300 rounded mr-4"></div>
+                            <div class="w-12 h-10 items-center justify-center flex mr-4">
+                                <img src="images/bobo-logo.svg" alt="logo de Bobo Choses">
+                            </div>
                             <div>
                                 <p class="text-black text-sm font-black">AINARA SIMÓN</p>
                                 <p class="text-black text-xs font-medium">Chief Digital Manager, Bobo Choses</p>
@@ -424,11 +490,11 @@
                 </div>
                 
                 <div class="flex space-x-4">
-                    <button class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
+                    <button id="agenda-llamada-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                         Agenda una llamada
                     </button>
                     <div class="w-16 h-px bg-[#D4B996] rotate-90 self-center"></div>
-                    <button class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
+                    <button id="escribenos-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                         Escríbenos
                     </button>
                 </div>
@@ -437,15 +503,15 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-zinc-900 py-24">
-        <div class="max-w-7xl mx-auto px-16">
+    <footer class="bg-zinc-900 pt-24 pb-8">
+        <div class="w-full mx-auto px-16">
             <div class="flex justify-between items-start mb-16">
                 <div class="flex flex-col">
                     <div class="mb-8">
                         <p class="text-white text-xl font-extralight leading-snug mb-4">(+34) 93 122 62 54</p>
                         <p class="text-white text-xl font-extralight leading-snug mb-2">Pg. de Gràcia, 21,</p>
                         <p class="text-white text-xl font-extralight leading-snug mb-4">08007 Barcelona</p>
-                        <a href="#" class="text-white text-xl font-extralight underline leading-snug hover:text-red-300 transition-colors">
+                        <a href="#" class="text-white text-xl font-extralight underline leading-snug hover:text-[#D4B996] transition-colors">
                             Ver en mapa
                         </a>
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline ml-2">
@@ -455,17 +521,17 @@
                 </div>
                 
                 <div class="text-center">
-                    <img src="images/fashion-logo-footer-68f403.svg" alt="Fashion Logo" class="mb-8">
-                    <p class="text-red-300 text-xl font-extralight leading-snug mb-2">Somos parte de</p>
+                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8">
+                    <p class="text-[#D4B996] text-xl font-extralight leading-snug mb-2">Somos parte de</p>
                     <img src="images/immoral-logo-white.svg" alt="Immoral Logo" class="mx-auto">
                 </div>
                 
                 <div>
                     <p class="text-white text-xl font-extralight leading-snug mb-4">Síguenos</p>
                     <div class="space-y-2">
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-red-300 transition-colors">tiktok</a>
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-red-300 transition-colors">instagram</a>
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-red-300 transition-colors">linkedin</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">tiktok</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">instagram</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">linkedin</a>
                     </div>
                 </div>
             </div>
@@ -478,5 +544,85 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Agenda una llamada -->
+    <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
+        <div class="relative w-[1000px] h-[900px] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] transform scale-95 transition-all duration-300">
+            <!-- Close button -->
+            <button id="close-agenda-modal" class="absolute top-4 right-4 text-black text-2xl font-bold hover:text-red-900 transition-colors z-10">
+                ×
+            </button>
+            
+            <!-- Content -->
+            <div class="w-[480px] h-32 absolute left-[420px] top-[300px]">
+                <span class="text-red-900 text-lg font-normal font-['Inter'] leading-7">Esto no es un "call para conocernos".<br/></span>
+                <span class="text-black text-lg font-normal font-['Inter'] leading-7">Es una conversación estratégica para entender si lo que hacemos tiene sentido para ti.</span>
+            </div>
+            
+            <!-- Principio del widget integrado de Calendly -->
+            <div class="absolute left-[30px] top-[30px] w-[320px] h-[840px] bg-white">
+                <div class="calendly-inline-widget w-full h-full" data-url="https://calendly.com/d/cmvg-s3x-wqy/haz-que-tu-marca-crezca-de-verdad?hide_gdpr_banner=1&primary_color=3980e4" style="min-width:320px;height:840px;padding:0;margin:0;"></div>
+            </div>
+            <!-- Final del widget integrado de Calendly -->
+            
+            <div class="w-[480px] absolute left-[420px] top-[120px]">
+                <span class="text-black text-3xl font-bold font-['Inter'] leading-[40px]">No te vamos a prometer resultados. </span>
+                <span class="text-red-900 text-3xl font-bold font-['Inter'] leading-[40px]">Vamos a planear cómo conseguirlos.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Escríbenos -->
+    <div id="escribenos-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
+        <div class="w-[820px] h-[629px] bg-white rounded-md relative transform scale-95 transition-all duration-300">
+            <!-- Botón cerrar -->
+            <button id="close-escribenos-modal" class="w-16 h-11 absolute top-0 right-0 text-center text-red-900 text-2xl font-normal font-['Inter'] lowercase leading-7">
+                X
+            </button>
+            
+            <!-- Título -->
+            <div class="w-[603px] h-32 absolute left-[109px] top-[4px] text-center">
+                <div class="text-black text-4xl font-light font-['Inter'] uppercase leading-9">
+                    <br/>Una <span class="text-red-900">conversación honesta<br/></span>puede cambiarlo todo.
+                </div>
+            </div>
+            
+            <!-- Subtítulo -->
+            <div class="w-[498px] h-12 absolute left-[161px] top-[147px] text-center text-black text-xl font-light font-['Inter'] leading-7">
+                Cuéntanos lo que necesitas, y te responderemos de forma personalizada, como tú te mereces.
+            </div>
+            
+            <!-- Formulario -->
+                <form class="absolute left-[109px] top-[271px]">
+                    <!-- Primera fila -->
+                    <div class="flex gap-6 mb-6">
+                        <input type="text" placeholder="Nombre" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                        <input type="email" placeholder="Email" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <!-- Segunda fila -->
+                    <div class="flex gap-6 mb-6">
+                        <input type="tel" placeholder="Teléfono" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                        <input type="text" placeholder="Asunto" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <!-- Mensaje -->
+                    <div class="mb-8">
+                        <textarea placeholder="Mensaje" class="w-[587px] h-24 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 resize-none focus:outline-none focus:border-gray-400"></textarea>
+                    </div>
+                    
+                    <!-- Botón enviar -->
+                    <div class="text-center">
+                        <button type="submit" class="text-red-900 text-xl font-light font-['Inter'] underline uppercase leading-7 hover:text-red-700 transition-colors">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <!-- Script del widget de Calendly -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>

@@ -52,9 +52,45 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.addEventListener('mouseenter', pauseCarousel);
         logo.addEventListener('mouseleave', resumeCarousel);
     });
+
+// Testimonials Carousel
+function initTestimonialsCarousel() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    console.log('Found testimonial slides:', slides.length);
+    
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+        console.log('Showing slide:', index);
+        // Hide all slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Show current slide
+        slides[index].classList.add('active');
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        console.log('Next slide:', currentSlide);
+        showSlide(currentSlide);
+    }
+    
+    // Initialize first slide
+    showSlide(0);
+    
+    // Auto-advance slides every 2 seconds
+    setInterval(nextSlide, 2000);
+}
     
     // Iniciar la animación
     animateCarousel();
+    
+    // Initialize testimonials carousel
+    initTestimonialsCarousel();
     
     // Limpiar la animación cuando se cierre la página
     window.addEventListener('beforeunload', function() {

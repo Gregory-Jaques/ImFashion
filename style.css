@@ -1,1 +1,15 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+/* Add any additional custom styles here */
+
+/* Testimonials Carousel Styles */
+.testimonial-slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial-slide.active {
+    display: block;
+    opacity: 1;
+}

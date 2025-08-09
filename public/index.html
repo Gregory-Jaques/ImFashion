@@ -3,46 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immoral Fashion - Growth Atelier</title>
-    <link rel="stylesheet" href="../src/output.css">
+    <title>ImFashion - Growth Atelier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="font-inter bg-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-transparent">
-        <div class="w-full h-28 px-16 py-4">
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-[500] bg-transparent backdrop-blur-[2px] transition-all duration-300">
+        <div class="w-full h-20 px-16 py-4">
+            <div id="nav-line" class="w-full h-px bg-white mt-1 mb-4 transition-colors duration-300"></div>
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="h-10">
+                    <img src="images/imfashion-logo-menu.svg" alt="ImFashion Logo" class="h-10">
                 </div>
                 
                 <!-- Menu Items -->
-                <div class="flex items-center space-x-8">
-                    <a href="#servicios" class="text-white text-lg font-medium hover:text-red-300 transition-colors">SERVICIOS</a>
-                    <a href="#casos-exito" class="text-white text-lg font-medium hover:text-red-300 transition-colors">CASOS DE ÉXITO</a>
-                    <a href="#equipo" class="text-white text-lg font-medium hover:text-red-300 transition-colors">EL EQUIPO</a>
+                <div class="flex items-center space-x-20">
+                    <div class="relative group">
+                        <button id="servicios-btn" class="text-white text-lg font-medium">SERVICIOS</button>
+                        <div class="absolute top-full right-0 mt-2 w-[483px] h-80 bg-white border border-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <!-- Left section - Test de diagnostico -->
+                            <div class="absolute left-0 top-0 w-[292px] h-80 bg-white border-r border-black">
+                                <div class="px-4 py-2 absolute left-[21px] top-[19px] inline-flex flex-col justify-center items-center">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-xl font-extralight leading-none">Test de diagnostico</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-60 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </div>
+                                <div class="absolute left-[30px] top-[60px] text-neutral-500 text-sm font-normal leading-snug">
+                                    Descubre en menos de 1 minuto en<br/>qué punto está tu marca
+                                </div>
+                                <img class="w-60 h-40 absolute left-[30px] top-[130px]" src="https://placehold.co/240x155" alt="Test diagnostico" />
+                            </div>
+                            
+                            <!-- Right section - Services -->
+                            <div class="absolute left-[292px] top-0 w-48 h-80 bg-white">
+                                <!-- Foundation -->
+                                <a href="#foundation" class="px-4 py-2 absolute left-[18px] top-[17px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Foundation</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Expansion -->
+                                <a href="#expansion" class="px-4 py-2 absolute left-[18px] top-[70px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Expansion</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Rebuild -->
+                                <a href="#rebuild" class="px-4 py-2 absolute left-[17px] top-[124px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Rebuild</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-28 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Amplify -->
+                                <a href="#amplify" class="px-4 py-2 absolute left-[18px] top-[179px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Amplify</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-28 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Embedded -->
+                                <a href="#embedded" class="px-4 py-2 absolute left-[16px] top-[234px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Embedded</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a id="casos-btn" href="#casos-exito" class="text-white text-lg font-medium">CASOS DE ÉXITO</a>
+                    <a id="equipo-btn" href="#equipo" class="text-white text-lg font-medium">EL EQUIPO</a>
                     
                     <!-- Contact Dropdown -->
                     <div class="relative group">
-                        <button class="text-white text-lg font-medium hover:text-red-300 transition-colors">CONTACTO</button>
-                        <div class="absolute top-full right-0 mt-2 bg-white border border-black p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a href="#llamada" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Agenda una llamada</a>
-                            <a href="#escribenos" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Escríbenos</a>
+                        <button id="contacto-btn" class="text-white text-lg font-medium">CONTACTO</button>
+                        <div class="absolute top-full w-[220px] right-0 mt-2 bg-white border border-black p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="#" id="agenda-llamada-menu" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Agenda una llamada</a>
+                            <a href="#" id="escribenos-menu" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Escríbenos</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="w-full h-px bg-white mt-4"></div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative w-full h-screen overflow-hidden bg-white">
-        <img src="images/hero-start-bg.jpg" alt="Hero Background" class="absolute top-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gray-500 bg-opacity-50"></div>
-        
-        <div class="relative z-10 flex items-center justify-start h-full px-16">
+    <section class="absolute w-full h-[200dvh] bg-black z-10">
+        <img src="images/hero-end-bg.jpg" alt="Hero Background" class="w-full sticky top-0">
+    </section>
+
+    <section class="relative w-full h-[200dvh] z-50">    
+        <div class="relative z-10 flex items-center justify-start h-dvh px-16">
             <div class="max-w-4xl">
                 <h1 class="text-white text-6xl font-normal uppercase leading-tight mb-8">
                     ¿Tu marca está <br>
@@ -51,14 +125,8 @@
                 </h1>
             </div>
         </div>
-    </section>
 
-    <!-- Problem Statement Section -->
-    <section class="relative w-full h-screen overflow-hidden">
-        <img src="images/hero-end-bg.jpg" alt="Problem Background" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        
-        <div class="relative z-10 flex items-end justify-start h-full px-16 pb-32">
+        <div class="relative z-10 flex items-end justify-start h-dvh px-16 pb-32">
             <div class="max-w-5xl">
                 <h2 class="text-white text-6xl font-bold uppercase leading-tight mb-6">
                     El ROAS cae. El CPA sube.
@@ -71,46 +139,41 @@
                 </p>
             </div>
         </div>
-    </section>
+    </section>    
 
     <!-- Brand Showcase Section -->
     <section class="relative w-full h-screen overflow-hidden bg-white">
         <div class="absolute inset-0 flex">
-            <img src="images/brand-img-1.jpg" alt="Brand Image 1" class="w-1/3 h-full object-cover">
-            <img src="images/brand-img-2.jpg" alt="Brand Image 2" class="w-1/3 h-full object-cover">
+            <img src="images/brand-img-2.jpg" alt="Brand Image 1" class="w-1/3 h-full object-cover">
+            <img src="images/brand-img-1.jpg" alt="Brand Image 2" class="w-1/3 h-full object-cover">
             <img src="images/brand-img-3.jpg" alt="Brand Image 3" class="w-1/3 h-full object-cover">
         </div>
         <div class="absolute inset-0 bg-black bg-opacity-70"></div>
         
-        <div class="relative z-10 flex flex-col items-center justify-center h-full">
-            <img src="images/fashion-logo-2-growth-center.png" alt="Fashion Logo 2" class="mb-16 w-1/3">
+        <div class="relative z-10 flex flex-col gap-7 items-center justify-center h-full">
+            <img src="images/fashion-logo-2-growth-center.png" alt="Fashion Logo 2" class="mb-24 w-1/3">
             
             <div class="flex justify-between gap-50 items-center w-full space-x-16 mb-16">
                 <div class="text-center w-1/3">
-                    <h3 class="text-white text-4xl font-light uppercase leading-10">Moda<br>que vende</h3>
+                    <h3 class="text-white text-3xl font-light uppercase leading-16">Moda<br>que vende</h3>
                 </div>
                 <div class="text-center w-1/3">
-                    <h3 class="text-white text-4xl font-light uppercase leading-10">Estrategia<br>que escala</h3>
+                    <h3 class="text-white text-3xl font-light uppercase leading-16">Estrategia<br>que escala</h3>
                 </div>
                 <div class="text-center w-1/3">
-                    <h3 class="text-white text-4xl font-light uppercase leading-10">Creatividad<br>que convierte</h3>
+                    <h3 class="text-white text-3xl font-light uppercase leading-16">Creatividad<br>que convierte</h3>
                 </div>
             </div>
             
-            <div class="text-center mb-8">
-                <h2 class="text-red-900 text-5xl font-medium leading-tight">Growth Atelier</h2>
-            </div>
-            
-            <div class="text-center">
-                <p class="text-white text-2xl font-light leading-7 mb-8">Encuentra tu solución</p>
-                <button class="px-8 py-4 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors">
-                    Descubre más
+            <div class="text-center mt-24">
+                <button class="font-light text-2xl px-8 py-4 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors">
+                    Encuentra tu solución
                 </button>
             </div>
         </div>
     </section>
+<!--
 
-    <!-- Value Proposition Section -->
     <section class="relative w-full h-screen overflow-hidden bg-white">
         <div class="flex items-center justify-center h-full">
             <div class="flex items-center space-x-16">
@@ -123,17 +186,16 @@
             <h2 class="text-red-900 text-5xl font-medium leading-tight text-right">Growth Atelier</h2>
         </div>
     </section>
-
+-->
     <!-- Understanding Section -->
-    <section class="w-full bg-white py-24 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-16">
-            <div class="flex">
-                <div class="w-1/2 pr-16">
-                    <h2 class="text-black text-6xl font-bold leading-tight mb-8">Te entendemos</h2>
+    <section class="w-full h-[250vh] bg-white py-24 relative">
+        <div class="max-w-[1200px] h-full mx-auto flex flex-wrap relative">
+            <div class="w-1/2 h-full">
+                <h2 class="text-black text-5xl font-bold leading-tight mb-8 mt-[250px]">Te entendemos</h2>
                     
                     <div class="mb-12">
                         <p class="text-black text-3xl font-light leading-9 mb-6">Sabemos lo que es:</p>
-                        <ul class="text-black text-2xl font-light leading-loose space-y-2">
+                        <ul class="text-black text-1xl font-light leading-loose space-y-0">
                             <li>• Tener campañas que antes funcionaban y hoy apenas aguantan.</li>
                             <li>• Ver cómo sube el gasto publicitario, pero no los márgenes.</li>
                             <li>• Producir contenido y que no pase nada.</li>
@@ -141,97 +203,131 @@
                         </ul>
                     </div>
                     
-                    <h3 class="text-red-900 text-5xl font-light leading-tight mb-8">¿Necesitas que tu marca evolucione?</h3>
+                    <h3 class="text-red-900 text-4xl font-light leading-tight mb-8">¿Necesitas que tu marca evolucione?</h3>
                     
                     <a href="#test" class="text-black text-2xl font-medium underline uppercase hover:text-red-900 transition-colors">
                         Descubre en qué punto está
                     </a>
-                    
-                    <div class="mt-24">
-                        <p class="text-red-300 text-3xl font-medium leading-9 mb-4">Nuestra forma de trabajar</p>
-                        <h2 class="text-black text-6xl font-bold leading-tight mb-8">Somos tu growth atelier</h2>
-                        <p class="text-black text-2xl font-light leading-7">
+                <div class="w-full sticky top-0">
+                    <div class="w-full h-[450px]"></div>
+                    <p class="text-[#D4B996] text-3xl font-medium leading-9">Nuestra forma de trabajar</p>
+                    <h2 class="text-black text-5xl font-bold leading-tight mb-8">Somos tu growth atelier</h2>
+                    <p class="text-black text-2xl font-light leading-7">
                             Hacemos más que campañas bonitas. <br>
-                            Construimos sistemas de crecimiento que combinan marca, datos y rentabilidad.
-                        </p>
-                    </div>
+                            Construimos sistemas de crecimiento que<br>combinan marca, datos y rentabilidad.
+                    </p>
+                    <div class="w-full h-[450px] "></div>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative">
+                <div class="w-full sticky top-0">
+                    <div class="w-full h-[100px]"></div>
+                    <img src="images/ph1-home.png" alt="photo de un hombre 1" class="w-11/12 m-10">
                 </div>
                 
-                <div class="w-1/2 relative">
-                    <div class="relative">
-                        <img src="images/brand-img-2.jpg" alt="Team Photo 1" class="w-full mb-8">
-                        <div class="absolute -left-20 top-48">
-                            <div class="w-4 h-4 bg-yellow-400 bg-opacity-40 rounded-full mb-2"></div>
-                            <div class="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-16">
-                        <img src="images/brand-img-3.jpg" alt="Team Photo 2" class="w-full">
-                    </div>
+                <div class="w-full sticky top-0">
+                    <div class="w-full h-[150px]"></div>
+                    <img src="images/ph2-home.png" alt="photo de un hombre 1" class="w-11/12 m-5">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="w-full bg-white py-24">
-        <div class="max-w-7xl mx-auto px-16">
-            <div class="text-center mb-16">
-                <p class="text-red-300 text-3xl font-medium leading-9 mb-4">Servicios</p>
+    <section id="servicios" class="w-full py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-left mb-16 px-16">
+                <p class="text-[#D4B996] text-3xl font-medium leading-9">Servicios</p>
                 <h2 class="text-black text-6xl font-bold leading-tight mb-8">Un método para cada momento</h2>
-                <p class="text-black text-2xl font-light leading-7 max-w-3xl mx-auto">
+                <p class="text-black text-2xl font-light leading-7 max-w-3xl">
                     Porque cada marca necesita cosas distintas y en diferentes momentos, en Immoral tenemos sistemas pensados para ti.
                 </p>
                 <button class="mt-8 px-7 py-2 rounded-full border border-black text-black text-sm font-normal hover:bg-black hover:text-white transition-colors">
                     Descubre en que punto estás
                 </button>
             </div>
-            
-            <div class="relative h-96 overflow-hidden rounded-lg">
+        </div>
+        
+        <div class="relative h-[600px] overflow-hidden w-full">
                 <!-- Service Cards -->
                 <div class="flex h-full">
                     <!-- Foundation -->
-                    <div class="w-1/5 relative overflow-hidden">
-                        <img src="images/financial-bg.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="service-item w-[33.3%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="foundation">
+                        <img src="images/bgFound.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-right object-cover transition-all duration-500 ease-in-out">
                         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
-                            <h3 class="text-red-300 text-3xl font-semibold mb-4">Foundation</h3>
-                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md">
+                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Foundation</h3>
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md opacity-100 transition-all duration-500 ease-in-out">
                                 ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
                                 Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
                             </p>
-                            <a href="#" class="text-white text-base font-medium underline uppercase">
+                            <a href="#" class="text-white text-base font-medium underline uppercase opacity-100 transition-all duration-500 ease-in-out">
                                 Quiero estructurar mi crecimiento
                             </a>
                         </div>
                     </div>
                     
                     <!-- Expansion -->
-                    <div class="w-1/5 bg-red-300 relative">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="expansion">
+                        <img src="images/bgExpand.jpg" alt="Expansion" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
-                            <h3 class="text-white text-3xl font-semibold">Expansion</h3>
+                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Expansion</h3>
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
+                                ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
+                                Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
+                            </p>
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
+                                Quiero estructurar mi crecimiento
+                            </a>
                         </div>
                     </div>
                     
                     <!-- Rebuild -->
-                    <div class="w-1/5 bg-red-900 relative">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="rebuild">
+                        <img src="images/bgRebui.jpg" alt="Rebuild" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
-                            <h3 class="text-white text-3xl font-semibold">Rebuild</h3>
+                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Rebuild</h3>
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
+                                ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
+                                Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
+                            </p>
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
+                                Quiero estructurar mi crecimiento
+                            </a>
                         </div>
                     </div>
                     
                     <!-- Amplify -->
-                    <div class="w-1/5 bg-red-300 relative">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="amplify">
+                        <img src="images/bgAmpli.jpg" alt="Amplify" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
-                            <h3 class="text-white text-3xl font-semibold">Amplify</h3>
+                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Amplify</h3>
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
+                                ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
+                                Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
+                            </p>
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
+                                Quiero estructurar mi crecimiento
+                            </a>
                         </div>
                     </div>
                     
                     <!-- Embedded -->
-                    <div class="w-1/5 bg-zinc-300 relative">
+                    <div class="service-item w-[16.6%] relative overflow-hidden transition-all duration-500 ease-in-out" data-service="embedded">
+                        <img src="images/bgEmbed.jpg" alt="Embedded" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                         <div class="absolute bottom-8 left-8">
-                            <h3 class="text-white text-3xl font-semibold">Embedded</h3>
+                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Embedded</h3>
+                            <p class="text-white text-xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
+                                ¿Tu marca ya vende, pero sientes que no está ordenada para crecer?<br>
+                                Consolidamos lo que funciona, organizamos tus operaciones digitales y preparamos la base para escalar.
+                            </p>
+                            <a href="#" class="text-white text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
+                                Quiero estructurar mi crecimiento
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -243,7 +339,7 @@
     <section id="casos-exito" class="w-full bg-white py-24">
         <div class="max-w-7xl mx-auto px-16">
             <div class="text-center mb-16">
-                <p class="text-red-300 text-3xl font-medium leading-9 mb-4">Resultados reales</p>
+                <p class="text-[#D4B996] text-3xl font-medium leading-9">Resultados reales</p>
                 <h2 class="text-black text-6xl font-bold leading-tight mb-8">Lo que conseguirás</h2>
                 <p class="text-black text-2xl font-light leading-7 max-w-3xl mx-auto">
                     Llevamos más de 15 años optimizando campañas. <br>
@@ -252,7 +348,7 @@
             </div>
             
             <!-- Results Grid -->
-            <div class="grid grid-cols-4 gap-8 mb-16">
+            <div class="grid grid-cols-4 gap-8 mb-48 mt-32">
                 <div class="text-center">
                     <div class="w-20 h-20 bg-zinc-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -290,23 +386,26 @@
                 </div>
             </div>
             
-            <!-- Brand Logos -->
-            <div class="flex justify-center items-center space-x-8 mb-16">
-                <img src="images/amlul-logo.svg" alt="Amlul Logo" class="h-16">
-                <img src="images/la-manso-logo.svg" alt="La Manso" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/angela-logo.svg" alt="Angela" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/bl-logo.svg" alt="BL" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/bobo-logo.svg" alt="Bobo Choses" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
-                <img src="images/gabriel-logo.svg" alt="Gabriel" class="h-8 opacity-60 hover:opacity-100 transition-opacity">
-            </div>
+            
         </div>
+        <!-- Brand Logos -->
+            <div class="carousel-container mb-16 w-full overflow-hidden">
+                <div class="logos-container flex items-center space-x-8 whitespace-nowrap">
+                    <img src="images/amlul-logo.svg" alt="Amlul Logo" class="h-[60px] flex-shrink-0">
+                    <img src="images/la-manso-logo.svg" alt="La Manso" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/angela-logo.svg" alt="Angela" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/bl-logo.svg" alt="BL" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/bobo-logo.svg" alt="Bobo Choses" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                    <img src="images/gabriel-logo.svg" alt="Gabriel" class="h-[60px] opacity-60 hover:opacity-100 transition-opacity flex-shrink-0">
+                </div>
+            </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="w-full bg-white py-24">
-        <div class="max-w-7xl mx-auto px-16">
-            <div class="flex items-center">
-                <div class="w-1/2 pr-16">
+        <div class="max-w-[1600px] mx-auto px-16">
+            <div class="flex items-center h-96">
+                <div class="w-[40%]">
                     <h2 class="text-black text-5xl font-normal leading-10 mb-8">
                         Lo que más valoran no <br>
                         es solo lo que hacemos, <br>
@@ -314,44 +413,131 @@
                     </h2>
                 </div>
                 
-                <div class="w-1/2 relative">
-                    <img src="images/testimonials-bg.svg" alt="Testimonials" class="w-full">
+                <div class="w-[60%] relative h-full">
+                    <img src="images/testimonials-bg.svg" alt="Testimonials" class="w-full hidden">
                     
-                    <!-- Testimonial Card -->
-                    <div class="absolute top-8 left-8 bg-neutral-100 p-8 max-w-md">
-                        <blockquote class="text-red-900 text-4xl font-medium leading-10 mb-8">
-                            No es fácil encontrar un equipo externo tan comprometido, proactivo y resolutivo.
-                        </blockquote>
-                        
-                        <p class="text-black text-xl font-medium leading-snug mb-8">
-                            Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer que la marca crezca les han convertido en partners fundamentales para el crecimiento de negocio online, la estrategia de marketing digital y nuestra inversión en medios publicitarios.
-                        </p>
-                        
-                        <div class="flex items-center mb-4">
-                            <div class="flex space-x-1">
-                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
-                                </svg>
-                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
-                                </svg>
-                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
-                                </svg>
-                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
-                                </svg>
-                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
-                                </svg>
+                    <!-- Testimonials Carousel -->
+                    <div id="testimonials-carousel" class="absolute top-0 right-8 bg-neutral-100 p-8 max-w-[70%] overflow-hidden">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide active">
+                            <blockquote class="text-red-900 text-4xl font-medium leading-10 mb-8">
+                                No es fácil encontrar un equipo externo tan comprometido, proactivo y resolutivo.
+                            </blockquote>
+                            
+                            <p class="text-black text-base font-medium leading-snug mb-8">
+                                Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer que la marca crezca les han convertido en partners fundamentales para el crecimiento de negocio online, la estrategia de marketing digital y nuestra inversión en medios publicitarios.
+                            </p>
+                            
+                            <div class="flex items-center mb-4">
+                                <div class="flex space-x-1">
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-10 items-center justify-center flex mr-4">
+                                    <img src="images/bobo-logo.svg" alt="logo de Bobo Choses">
+                                </div>
+                                <div>
+                                    <p class="text-black text-sm font-black">AINARA SIMÓN</p>
+                                    <p class="text-black text-xs font-medium">Chief Digital Manager, Bobo Choses</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center">
-                            <div class="w-12 h-10 bg-gray-300 rounded mr-4"></div>
-                            <div>
-                                <p class="text-black text-sm font-black">AINARA SIMÓN</p>
-                                <p class="text-black text-xs font-medium">Chief Digital Manager, Bobo Choses</p>
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide">
+                            <blockquote class="text-red-900 text-4xl font-medium leading-10 mb-8">
+                                Trabajar con este equipo ha sido una experiencia transformadora para nuestra marca.
+                            </blockquote>
+                            
+                            <p class="text-black text-base font-medium leading-snug mb-8">
+                                Su enfoque estratégico y su capacidad de ejecución nos han permitido alcanzar objetivos que parecían imposibles. La comunicación constante y su dedicación hacen que se sientan como parte de nuestro equipo interno.
+                            </p>
+                            
+                            <div class="flex items-center mb-4">
+                                <div class="flex space-x-1">
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-10 items-center justify-center flex mr-4">
+                                    <img src="images/angela-logo.svg" alt="logo de Angela">
+                                </div>
+                                <div>
+                                    <p class="text-black text-sm font-black">MARÍA GARCÍA</p>
+                                    <p class="text-black text-xs font-medium">Marketing Director, Angela</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-slide">
+                            <blockquote class="text-red-900 text-4xl font-medium leading-10 mb-8">
+                                La profesionalidad y creatividad de este equipo superó todas nuestras expectativas.
+                            </blockquote>
+                            
+                            <p class="text-black text-base font-medium leading-snug mb-8">
+                                Desde el primer día demostraron un entendimiento profundo de nuestro sector y necesidades. Los resultados hablan por sí solos: incremento en ventas, mejor posicionamiento de marca y una estrategia digital sólida.
+                            </p>
+                            
+                            <div class="flex items-center mb-4">
+                                <div class="flex space-x-1">
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-10 items-center justify-center flex mr-4">
+                                    <img src="images/la-manso-logo.svg" alt="logo de La Manso">
+                                </div>
+                                <div>
+                                    <p class="text-black text-sm font-black">CARLOS RODRÍGUEZ</p>
+                                    <p class="text-black text-xs font-medium">CEO, La Manso</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -361,25 +547,25 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="relative w-full h-screen bg-zinc-900 overflow-hidden">
+    <section class="relative w-full h-[60dvh] bg-zinc-900 overflow-hidden">
         <img src="images/cta-bg-main.jpg" alt="CTA Background" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-80"></div>
         
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center">
-            <h2 class="text-red-300 text-6xl font-bold leading-tight mb-8">¿Dónde está tu marca hoy?</h2>
-            <p class="text-white text-2xl font-light leading-7 max-w-3xl mb-12">
+            <h2 class="text-[#D4B996] text-6xl font-bold leading-tight mb-8">¿Dónde está tu marca hoy?</h2>
+            <p class="text-white text-2xl font-light leading-7 max-w-3xl mb-16">
                 ¡Enhorabuena! Este es el primer paso para crecer. <br>
                 Descúbrelo con este breve test de diagnóstico.
             </p>
-            <button class="px-24 py-3.5 rounded-full border border-red-300 text-red-300 text-2xl font-light hover:bg-red-300 hover:text-white transition-colors">
+            <button class="px-24 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-2xl font-light hover:bg-[#D4B996] hover:text-white transition-colors">
                 Hacer test
             </button>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="w-full bg-white py-24">
-        <div class="max-w-7xl mx-auto px-16">
+    <section id="contacto" class="w-full bg-white py-16">
+        <div class=" mx-auto px-16">
             <div class="flex justify-between items-center">
                 <div>
                     <h2 class="text-black text-6xl font-bold uppercase leading-tight mb-8">¿Hablamos?</h2>
@@ -388,12 +574,12 @@
                     </p>
                 </div>
                 
-                <div class="flex space-x-8">
-                    <div class="w-16 h-px bg-red-300 rotate-90 self-center"></div>
-                    <button class="px-24 py-3.5 rounded-full border border-red-300 text-red-300 text-2xl font-semibold hover:bg-red-300 hover:text-white transition-colors">
+                <div class="flex space-x-4">
+                    <button id="agenda-llamada-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                         Agenda una llamada
                     </button>
-                    <button class="px-24 py-3.5 rounded-full border border-red-300 text-red-300 text-2xl font-semibold hover:bg-red-300 hover:text-white transition-colors">
+                    <div class="w-16 h-px bg-[#D4B996] rotate-90 self-center"></div>
+                    <button id="escribenos-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                         Escríbenos
                     </button>
                 </div>
@@ -402,15 +588,15 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-zinc-900 py-24">
-        <div class="max-w-7xl mx-auto px-16">
+    <footer class="bg-zinc-900 pt-24 pb-8">
+        <div class="w-full mx-auto px-16">
             <div class="flex justify-between items-start mb-16">
                 <div class="flex flex-col">
                     <div class="mb-8">
                         <p class="text-white text-xl font-extralight leading-snug mb-4">(+34) 93 122 62 54</p>
                         <p class="text-white text-xl font-extralight leading-snug mb-2">Pg. de Gràcia, 21,</p>
                         <p class="text-white text-xl font-extralight leading-snug mb-4">08007 Barcelona</p>
-                        <a href="#" class="text-white text-xl font-extralight underline leading-snug hover:text-red-300 transition-colors">
+                        <a href="#" class="text-white text-xl font-extralight underline leading-snug hover:text-[#D4B996] transition-colors">
                             Ver en mapa
                         </a>
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline ml-2">
@@ -420,17 +606,17 @@
                 </div>
                 
                 <div class="text-center">
-                    <img src="images/fashion-logo-footer-68f403.svg" alt="Fashion Logo" class="mb-8">
-                    <p class="text-red-300 text-xl font-extralight leading-snug mb-2">Somos parte de</p>
+                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8">
+                    <p class="text-[#D4B996] text-xl font-extralight leading-snug mb-2">Somos parte de</p>
                     <img src="images/immoral-logo-white.svg" alt="Immoral Logo" class="mx-auto">
                 </div>
                 
                 <div>
                     <p class="text-white text-xl font-extralight leading-snug mb-4">Síguenos</p>
                     <div class="space-y-2">
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-red-300 transition-colors">tiktok</a>
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-red-300 transition-colors">instagram</a>
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-red-300 transition-colors">linkedin</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">tiktok</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">instagram</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">linkedin</a>
                     </div>
                 </div>
             </div>
@@ -443,5 +629,85 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Agenda una llamada -->
+    <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
+        <div class="relative w-[1000px] h-[900px] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] transform scale-95 transition-all duration-300">
+            <!-- Close button -->
+            <button id="close-agenda-modal" class="absolute top-4 right-4 text-black text-2xl font-bold hover:text-red-900 transition-colors z-10">
+                ×
+            </button>
+            
+            <!-- Content -->
+            <div class="w-[480px] h-32 absolute left-[420px] top-[300px]">
+                <span class="text-red-900 text-lg font-normal font-['Inter'] leading-7">Esto no es un "call para conocernos".<br/></span>
+                <span class="text-black text-lg font-normal font-['Inter'] leading-7">Es una conversación estratégica para entender si lo que hacemos tiene sentido para ti.</span>
+            </div>
+            
+            <!-- Principio del widget integrado de Calendly -->
+            <div class="absolute left-[30px] top-[30px] w-[320px] h-[840px] bg-white">
+                <div class="calendly-inline-widget w-full h-full" data-url="https://calendly.com/d/cmvg-s3x-wqy/haz-que-tu-marca-crezca-de-verdad?hide_gdpr_banner=1&primary_color=3980e4" style="min-width:320px;height:840px;padding:0;margin:0;"></div>
+            </div>
+            <!-- Final del widget integrado de Calendly -->
+            
+            <div class="w-[480px] absolute left-[420px] top-[120px]">
+                <span class="text-black text-3xl font-bold font-['Inter'] leading-[40px]">No te vamos a prometer resultados. </span>
+                <span class="text-red-900 text-3xl font-bold font-['Inter'] leading-[40px]">Vamos a planear cómo conseguirlos.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Escríbenos -->
+    <div id="escribenos-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
+        <div class="w-[820px] h-[629px] bg-white rounded-md relative transform scale-95 transition-all duration-300">
+            <!-- Botón cerrar -->
+            <button id="close-escribenos-modal" class="w-16 h-11 absolute top-0 right-0 text-center text-red-900 text-2xl font-normal font-['Inter'] lowercase leading-7">
+                X
+            </button>
+            
+            <!-- Título -->
+            <div class="w-[603px] h-32 absolute left-[109px] top-[4px] text-center">
+                <div class="text-black text-4xl font-light font-['Inter'] uppercase leading-9">
+                    <br/>Una <span class="text-red-900">conversación honesta<br/></span>puede cambiarlo todo.
+                </div>
+            </div>
+            
+            <!-- Subtítulo -->
+            <div class="w-[498px] h-12 absolute left-[161px] top-[147px] text-center text-black text-xl font-light font-['Inter'] leading-7">
+                Cuéntanos lo que necesitas, y te responderemos de forma personalizada, como tú te mereces.
+            </div>
+            
+            <!-- Formulario -->
+                <form class="absolute left-[109px] top-[271px]">
+                    <!-- Primera fila -->
+                    <div class="flex gap-6 mb-6">
+                        <input type="text" placeholder="Nombre" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                        <input type="email" placeholder="Email" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <!-- Segunda fila -->
+                    <div class="flex gap-6 mb-6">
+                        <input type="tel" placeholder="Teléfono" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                        <input type="text" placeholder="Asunto" class="w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <!-- Mensaje -->
+                    <div class="mb-8">
+                        <textarea placeholder="Mensaje" class="w-[587px] h-24 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 resize-none focus:outline-none focus:border-gray-400"></textarea>
+                    </div>
+                    
+                    <!-- Botón enviar -->
+                    <div class="text-center">
+                        <button type="submit" class="text-red-900 text-xl font-light font-['Inter'] underline uppercase leading-7 hover:text-red-700 transition-colors">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <!-- Script del widget de Calendly -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>

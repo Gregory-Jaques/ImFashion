@@ -53,6 +53,64 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.addEventListener('mouseleave', resumeCarousel);
     });
 
+// Mobile menu functionality
+function setupMobileMenu() {
+    const hamburgerBtn = document.getElementById('mobile-menu-btn');
+    const mobileModal = document.getElementById('mobile-menu-modal');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const serviciosBtn = document.getElementById('mobile-servicios-btn');
+    const serviciosSubmenu = document.getElementById('mobile-servicios-submenu');
+    const contactoBtn = document.getElementById('mobile-contacto-btn');
+    const contactoSubmenu = document.getElementById('mobile-contacto-submenu');
+    
+    // Open mobile menu
+    if (hamburgerBtn && mobileModal) {
+        hamburgerBtn.addEventListener('click', function() {
+            mobileModal.classList.remove('hidden', 'translate-x-full');
+            mobileModal.classList.add('translate-x-0');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    }
+    
+    // Close mobile menu
+    if (closeBtn && mobileModal) {
+        closeBtn.addEventListener('click', function() {
+            mobileModal.classList.add('translate-x-full');
+            mobileModal.classList.remove('translate-x-0');
+            setTimeout(() => {
+                mobileModal.classList.add('hidden');
+            }, 300); // Wait for animation to complete
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+    }
+    
+    // Toggle servicios submenu
+    if (serviciosBtn && serviciosSubmenu) {
+        serviciosBtn.addEventListener('click', function() {
+            serviciosSubmenu.classList.toggle('hidden');
+        });
+    }
+    
+    // Toggle contacto submenu
+    if (contactoBtn && contactoSubmenu) {
+        contactoBtn.addEventListener('click', function() {
+            contactoSubmenu.classList.toggle('hidden');
+        });
+    }
+    
+    // Close menu when clicking outside
+    if (mobileModal) {
+        mobileModal.addEventListener('click', function(e) {
+            if (e.target === mobileModal) {
+                mobileModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+}
+
+
+
 // Testimonials Carousel
 function initTestimonialsCarousel() {
     const slides = document.querySelectorAll('.testimonial-slide');
@@ -91,6 +149,9 @@ function initTestimonialsCarousel() {
     
     // Initialize testimonials carousel
     initTestimonialsCarousel();
+    
+    // Initialize mobile menu
+    setupMobileMenu();
     
     // Limpiar la animación cuando se cierre la página
     window.addEventListener('beforeunload', function() {

@@ -274,8 +274,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             agendaLlamadaModal.classList.remove('opacity-0');
             agendaLlamadaModal.classList.add('opacity-100');
-            modalContent.classList.remove('scale-95');
-            modalContent.classList.add('scale-100');
+            modalContent.classList.remove('translate-y-4', 'opacity-95');
+            modalContent.classList.add('translate-y-0', 'opacity-100');
         }, 10);
     }
     
@@ -285,8 +285,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         agendaLlamadaModal.classList.remove('opacity-100');
         agendaLlamadaModal.classList.add('opacity-0');
-        modalContent.classList.remove('scale-100');
-        modalContent.classList.add('scale-95');
+        modalContent.classList.remove('translate-y-0', 'opacity-100');
+        modalContent.classList.add('translate-y-4', 'opacity-95');
         
         // Wait for transition to complete before hiding
         setTimeout(() => {
@@ -315,8 +315,8 @@ document.addEventListener('DOMContentLoaded', function() {
             escribenosModal.classList.remove('opacity-0');
             escribenosModal.classList.add('opacity-100');
             if (modalContent) {
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
+                modalContent.classList.remove('translate-y-4', 'opacity-95');
+                modalContent.classList.add('translate-y-0', 'opacity-100');
             }
         }, 10);
     }
@@ -328,8 +328,8 @@ document.addEventListener('DOMContentLoaded', function() {
         escribenosModal.classList.remove('opacity-100');
         escribenosModal.classList.add('opacity-0');
         if (modalContent) {
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
+            modalContent.classList.remove('translate-y-0', 'opacity-100');
+            modalContent.classList.add('translate-y-4', 'opacity-95');
         }
         
         // Wait for transition to complete before hiding

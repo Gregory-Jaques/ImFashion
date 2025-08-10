@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImFashion - Growth Atelier</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="font-inter bg-white">
@@ -111,14 +111,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="absolute w-full h-[200dvh] bg-black z-10">
-        <img src="images/hero-end-bg.jpg" alt="Hero Background" class="w-full sticky top-0">
+    <section class="absolute w-full h-[200dvh] bg-amber-300 z-10">
+        <img src="images/hero-end-bg.jpg" alt="Hero Background" class="h-dvh max-w-none sticky top-0 xl:w-full">
     </section>
 
     <section class="relative w-full h-[200dvh] z-50">    
-        <div class="relative z-10 flex items-center justify-start h-dvh px-16">
-            <div class="max-w-4xl">
-                <h1 class="text-white text-6xl font-normal uppercase leading-tight mb-8">
+        <div class="relative z-10 flex items-center justify-start h-dvh px-4 xl:px-16">
+            <div class="max-w-72 xl:max-w-4xl">
+                <h1 class="text-white font-normal uppercase leading-tight text-4xl mb-4 xl:text-6xl xl:mb-8">
                     ¿Tu marca está <br>
                     <span class="text-red-900">creciendo</span> o simplemente 
                     <span class="text-red-900">sobreviviendo</span>?
@@ -143,34 +143,42 @@
 
     <!-- Brand Showcase Section -->
     <section class="relative w-full h-screen overflow-hidden bg-white">
-        <div class="absolute inset-0 flex">
-            <img src="images/brand-img-2.jpg" alt="Brand Image 1" class="w-1/3 h-full object-cover">
-            <img src="images/brand-img-1.jpg" alt="Brand Image 2" class="w-1/3 h-full object-cover">
-            <img src="images/brand-img-3.jpg" alt="Brand Image 3" class="w-1/3 h-full object-cover">
+        <div class="absolute inset-0 flex flex-col xl:flex-row">
+            <img src="images/brand-img-2.jpg" alt="Brand Image 1" class="w-full h-1/3 xl:w-1/3 xl:h-full object-cover">
+            <img src="images/brand-img-1.jpg" alt="Brand Image 2" class="w-full h-1/3 xl:w-1/3 xl:h-full object-cover">
+            <img src="images/brand-img-3.jpg" alt="Brand Image 3" class="w-full h-1/3 xl:w-1/3 xl:h-full object-cover">
         </div>
         <div class="absolute inset-0 bg-black bg-opacity-70"></div>
         
         <div class="relative z-10 flex flex-col gap-7 items-center justify-center h-full">
-            <img src="images/fashion-logo-2-growth-center.png" alt="Fashion Logo 2" class="mb-24 w-1/3">
+            <img src="images/fashion-logo-2-growth-center.png" alt="Fashion Logo 2" class="mb-24 w-1/3 hidden xl:block">
             
-            <div class="flex justify-between gap-50 items-center w-full space-x-16 mb-16">
-                <div class="text-center w-1/3">
+            <div class="flex justify-between gap-50 items-center w-full xl:space-x-16 mb-16 flex-col xl:flex-row h-full xl:h-auto">
+                <div class="text-center w-full h-1/3 xl:w-1/3 xl:h-auto flex items-center justify-center">
                     <h3 class="text-white text-3xl font-light uppercase leading-16">Moda<br>que vende</h3>
                 </div>
-                <div class="text-center w-1/3">
+                <div class="text-center w-full h-1/3 xl:w-1/3 xl:h-auto flex items-center justify-center">
                     <h3 class="text-white text-3xl font-light uppercase leading-16">Estrategia<br>que escala</h3>
                 </div>
-                <div class="text-center w-1/3">
+                <div class="text-center w-full h-1/3 xl:w-1/3 xl:h-auto flex items-center justify-center">
                     <h3 class="text-white text-3xl font-light uppercase leading-16">Creatividad<br>que convierte</h3>
                 </div>
             </div>
             
-            <div class="text-center mt-24">
+            <div class="text-center mt-24 hidden xl:block">
                 <button class="font-light text-2xl px-8 py-4 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors">
                     Encuentra tu solución
                 </button>
             </div>
         </div>
+    </section>
+    <section class="relative w-full h-56 xl:hidden">
+        <img src="images/fashion-logo-2-growth-center-black.png" alt="Fashion Logo 2" class="mt-5 w-4/5 mx-auto">
+        <div class="text-center mt-10">
+                <button class="font-light text-2xl px-8 py-4 rounded-full border border-[#800020] text-[#800020] hover:bg-[#800020] hover:text-white transition-colors">
+                    Encuentra tu solución
+                </button>
+            </div>
     </section>
 <!--
 
@@ -188,14 +196,15 @@
     </section>
 -->
     <!-- Understanding Section -->
-    <section class="w-full h-[250vh] bg-white py-24 relative">
+    <section class="w-full xl:h-[250vh] bg-white py-24 relative">
         <div class="max-w-[1200px] h-full mx-auto flex flex-wrap relative">
-            <div class="w-1/2 h-full">
-                <h2 class="text-black text-5xl font-bold leading-tight mb-8 mt-[250px]">Te entendemos</h2>
+            <div class="w-full xl:w-1/2 xl:h-full">
+                <img src="images/ph1-home.png" alt="photo de un hombre 1" class="w-11/12 mx-auto xl:hidden">
+                <h2 class="text-black text-5xl font-bold leading-tight mb-8 mt-10 ml-5 xl:ml-0 xl:mt-[250px]">Te entendemos</h2>
                     
-                    <div class="mb-12">
+                    <div class="mb-12 ml-5 xl:ml-0 w-4/5 xl:w-auto">
                         <p class="text-black text-3xl font-light leading-9 mb-6">Sabemos lo que es:</p>
-                        <ul class="text-black text-1xl font-light leading-loose space-y-0">
+                        <ul class="text-black text-[20px] xl:text-1xl font-light xl:leading-loose space-y-6 xl:space-y-0">
                             <li>• Tener campañas que antes funcionaban y hoy apenas aguantan.</li>
                             <li>• Ver cómo sube el gasto publicitario, pero no los márgenes.</li>
                             <li>• Producir contenido y que no pase nada.</li>
@@ -203,23 +212,24 @@
                         </ul>
                     </div>
                     
-                    <h3 class="text-red-900 text-4xl font-light leading-tight mb-8">¿Necesitas que tu marca evolucione?</h3>
+                    <h3 class="text-red-900 text-4xl font-light leading-tight mb-8 text-center xl:text-left">¿Necesitas que tu marca evolucione?</h3>
                     
-                    <a href="#test" class="text-black text-2xl font-medium underline uppercase hover:text-red-900 transition-colors">
+                    <a href="#test" class="text-black text-2xl font-medium underline uppercase hover:text-red-900 transition-colors ml-5 xl:ml-0">
                         Descubre en qué punto está
                     </a>
-                <div class="w-full sticky top-0">
-                    <div class="w-full h-[450px]"></div>
-                    <p class="text-[#D4B996] text-3xl font-medium leading-9">Nuestra forma de trabajar</p>
+                    <img src="images/ph2-home.png" alt="photo de un hombre 1" class="w-11/12 mx-auto mt-40 xl:hidden">
+                <div class="ml-5 xl:ml-0 w-4/5 mt-10 xl:mt-0 xl:w-full xl:sticky xl:top-0">
+                    <div class="w-full xl:h-[450px] hidden xl:block"></div>
+                    <p class="text-[#D4B996] text-2xl xl:text-3xl font-medium leading-9">Nuestra forma de trabajar</p>
                     <h2 class="text-black text-5xl font-bold leading-tight mb-8">Somos tu growth atelier</h2>
-                    <p class="text-black text-2xl font-light leading-7">
+                    <p class="text-black text-xl xl:text-2xl font-light leading-7">
                             Hacemos más que campañas bonitas. <br>
-                            Construimos sistemas de crecimiento que<br>combinan marca, datos y rentabilidad.
+                            Construimos sistemas de crecimiento que <br class="hidden xl:block">combinan marca, datos y rentabilidad.
                     </p>
-                    <div class="w-full h-[450px] "></div>
+                    <div class="w-full h-[450px] hidden xl:block"></div>
                 </div>
             </div>
-            <div class="w-1/2 h-full relative">
+            <div class="w-1/2 h-full relative hidden xl:block">
                 <div class="w-full sticky top-0">
                     <div class="w-full h-[100px]"></div>
                     <img src="images/ph1-home.png" alt="photo de un hombre 1" class="w-11/12 m-10">
@@ -236,10 +246,10 @@
     <!-- Services Section -->
     <section id="servicios" class="w-full py-24">
         <div class="max-w-7xl mx-auto">
-            <div class="text-left mb-16 px-16">
+            <div class="text-left mb-16 ml-5 xl:ml-0 xl:px-16">
                 <p class="text-[#D4B996] text-3xl font-medium leading-9">Servicios</p>
                 <h2 class="text-black text-6xl font-bold leading-tight mb-8">Un método para cada momento</h2>
-                <p class="text-black text-2xl font-light leading-7 max-w-3xl">
+                <p class="text-black text-xl xl:text-2xl font-light leading-7 max-w-3xl">
                     Porque cada marca necesita cosas distintas y en diferentes momentos, en Immoral tenemos sistemas pensados para ti.
                 </p>
                 <button class="mt-8 px-7 py-2 rounded-full border border-black text-black text-sm font-normal hover:bg-black hover:text-white transition-colors">
@@ -632,7 +642,7 @@
 
     <!-- Modal Agenda una llamada -->
     <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
-        <div class="relative w-[1000px] h-[900px] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] transform scale-95 transition-all duration-300">
+        <div class="relative w-[1000px] h-[900px] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] translate-y-4 opacity-95 transition-all duration-300">
             <!-- Close button -->
             <button id="close-agenda-modal" class="absolute top-4 right-4 text-black text-2xl font-bold hover:text-red-900 transition-colors z-10">
                 ×
@@ -659,7 +669,7 @@
 
     <!-- Modal Escríbenos -->
     <div id="escribenos-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
-        <div class="w-[820px] h-[629px] bg-white rounded-md relative transform scale-95 transition-all duration-300">
+        <div class="w-[820px] h-[629px] bg-white rounded-md relative translate-y-4 opacity-95 transition-all duration-300">
             <!-- Botón cerrar -->
             <button id="close-escribenos-modal" class="w-16 h-11 absolute top-0 right-0 text-center text-red-900 text-2xl font-normal font-['Inter'] lowercase leading-7">
                 X

@@ -106,17 +106,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!serviceItems.length) return;
     
+    // Función para detectar si estamos en desktop (xl breakpoint)
+    function isDesktop() {
+        return window.innerWidth >= 1280;
+    }
+    
     // Función para activar un servicio
     function activateService(activeItem) {
+        const desktop = isDesktop();
+        
         serviceItems.forEach(item => {
             const img = item.querySelector('img');
             const paragraph = item.querySelector('p');
             const link = item.querySelector('a');
             
             if (item === activeItem) {
-                // Servicio activo - primero expandir el ancho
-                item.classList.remove('w-[16.6%]');
-                item.classList.add('w-[33.3%]');
+                if (desktop) {
+                    // Desktop: expandir ancho
+                    item.classList.remove('xl:w-[16.6%]');
+                    item.classList.add('xl:w-[33.3%]');
+                } else {
+                    // Mobile: expandir altura
+                    item.classList.remove('h-[120px]');
+                    item.classList.add('h-[300px]');
+                }
                 
                 // Remover blur y grayscale de la imagen
                 img.classList.remove('blur-sm', 'grayscale');
@@ -129,9 +142,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     link.classList.remove('hidden');
                     link.classList.remove('opacity-0');
                     link.classList.add('opacity-100');
-                }, 250); // Delay de 250ms para que se expanda primero
+                }, 250);
             } else {
-                // Servicios inactivos - ocultar contenido instantáneamente sin animación
+                // Servicios inactivos - ocultar contenido instantáneamente
                 paragraph.classList.add('hidden');
                 paragraph.classList.remove('opacity-100');
                 paragraph.classList.add('opacity-0');
@@ -139,24 +152,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.remove('opacity-100');
                 link.classList.add('opacity-0');
                 
-                // Contraer inmediatamente
-                item.classList.remove('w-[33.3%]');
-                item.classList.add('w-[16.6%]');
+                if (desktop) {
+                    // Desktop: contraer ancho
+                    item.classList.remove('xl:w-[33.3%]');
+                    item.classList.add('xl:w-[16.6%]');
+                } else {
+                    // Mobile: contraer altura
+                    item.classList.remove('h-[300px]');
+                    item.classList.add('h-[120px]');
+                }
                 
-                // Agregar blur y grayscale a la imagen
+                // Aplicar blur y grayscale
                 img.classList.add('blur-sm', 'grayscale');
             }
         });
     }
     
-    // Agregar event listeners para hover
-    serviceItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            activateService(item);
+    // Event listeners según el dispositivo
+    function setupEventListeners() {
+        const desktop = isDesktop();
+        
+        serviceItems.forEach(item => {
+            // Remover listeners previos
+            item.removeEventListener('mouseenter', item._hoverHandler);
+            item.removeEventListener('click', item._clickHandler);
+            
+            if (desktop) {
+                // Desktop: usar hover
+                item._hoverHandler = () => activateService(item);
+                item.addEventListener('mouseenter', item._hoverHandler);
+            } else {
+                // Mobile: usar click/touch
+                item._clickHandler = () => activateService(item);
+                item.addEventListener('click', item._clickHandler);
+            }
         });
-    });
+    }
     
-    // Establecer Foundation como activo por defecto al cargar la página
+    // Configurar listeners iniciales
+    setupEventListeners();
+    
+    // Reconfigurar en resize
+    window.addEventListener('resize', setupEventListeners);
+    
+    // Establecer Foundation como activo por defecto
     const foundationService = document.querySelector('[data-service="foundation"]');
     if (foundationService) {
         activateService(foundationService);

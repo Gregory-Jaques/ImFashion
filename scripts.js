@@ -151,6 +151,40 @@ function setupMobileMenu() {
         });
     }
     
+    // Mobile menu modal buttons
+    const mobileAgendaBtn = document.getElementById('mobile-agenda-llamada-btn');
+    const mobileEscribenosBtn = document.getElementById('mobile-escribenos-btn');
+    
+    if (mobileAgendaBtn) {
+        mobileAgendaBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Close mobile menu first
+            mobileModal.classList.add('translate-x-full');
+            mobileModal.classList.remove('translate-x-0');
+            setTimeout(() => {
+                mobileModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // Open agenda modal
+                openAgendaModal();
+            }, 300);
+        });
+    }
+    
+    if (mobileEscribenosBtn) {
+        mobileEscribenosBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Close mobile menu first
+            mobileModal.classList.add('translate-x-full');
+            mobileModal.classList.remove('translate-x-0');
+            setTimeout(() => {
+                mobileModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // Open escribenos modal
+                openEscribenosModal();
+            }, 300);
+        });
+    }
+    
     // Close menu when clicking outside
     if (mobileModal) {
         mobileModal.addEventListener('click', function(e) {
@@ -358,6 +392,47 @@ function setupServiceEvents() {
     updateNavColors();
 }
 
+// Global modal functions
+function openAgendaModal() {
+    const agendaLlamadaModal = document.getElementById('agenda-llamada-modal');
+    if (!agendaLlamadaModal) return;
+    
+    const modalContent = agendaLlamadaModal.querySelector('div');
+    
+    agendaLlamadaModal.classList.remove('hidden');
+    agendaLlamadaModal.classList.add('flex');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Trigger transition
+    setTimeout(() => {
+        agendaLlamadaModal.classList.remove('opacity-0');
+        agendaLlamadaModal.classList.add('opacity-100');
+        modalContent.classList.remove('translate-y-4', 'opacity-95');
+        modalContent.classList.add('translate-y-0', 'opacity-100');
+    }, 10);
+}
+
+function openEscribenosModal() {
+    const escribenosModal = document.getElementById('escribenos-modal');
+    if (!escribenosModal) return;
+    
+    const modalContent = escribenosModal.querySelector('div > div');
+    
+    escribenosModal.classList.remove('hidden');
+    escribenosModal.classList.add('flex');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Trigger transition
+    setTimeout(() => {
+        escribenosModal.classList.remove('opacity-0');
+        escribenosModal.classList.add('opacity-100');
+        if (modalContent) {
+            modalContent.classList.remove('translate-y-4', 'opacity-95');
+            modalContent.classList.add('translate-y-0', 'opacity-100');
+        }
+    }, 10);
+}
+
 // Modal functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Modal functionality for "Agenda una llamada"
@@ -365,23 +440,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const agendaLlamadaBtn = document.getElementById('agenda-llamada-btn');
     const agendaLlamadaMenu = document.getElementById('agenda-llamada-menu');
     const closeAgendaModal = document.getElementById('close-agenda-modal');
-    
-    // Function to open modal
-    function openAgendaModal() {
-        const modalContent = agendaLlamadaModal.querySelector('div');
-        
-        agendaLlamadaModal.classList.remove('hidden');
-        agendaLlamadaModal.classList.add('flex');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        
-        // Trigger transition
-        setTimeout(() => {
-            agendaLlamadaModal.classList.remove('opacity-0');
-            agendaLlamadaModal.classList.add('opacity-100');
-            modalContent.classList.remove('translate-y-4', 'opacity-95');
-            modalContent.classList.add('translate-y-0', 'opacity-100');
-        }, 10);
-    }
     
     // Function to close modal
     function closeAgendaModalFunc() {
@@ -405,25 +463,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const escribenosBtn = document.getElementById('escribenos-btn');
     const escribenosMenu = document.getElementById('escribenos-menu');
     const closeEscribenosModal = document.getElementById('close-escribenos-modal');
-    
-    // Function to open Escríbenos modal
-    function openEscribenosModal() {
-        const modalContent = escribenosModal.querySelector('div > div');
-        
-        escribenosModal.classList.remove('hidden');
-        escribenosModal.classList.add('flex');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        
-        // Trigger transition
-        setTimeout(() => {
-            escribenosModal.classList.remove('opacity-0');
-            escribenosModal.classList.add('opacity-100');
-            if (modalContent) {
-                modalContent.classList.remove('translate-y-4', 'opacity-95');
-                modalContent.classList.add('translate-y-0', 'opacity-100');
-            }
-        }, 10);
-    }
     
     // Function to close Escríbenos modal
     function closeEscribenosModalFunc() {

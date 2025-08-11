@@ -53,6 +53,59 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.addEventListener('mouseleave', resumeCarousel);
     });
 
+// Testimonials Carousel
+function initTestimonialsCarousel() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    console.log('Found testimonial slides:', slides.length);
+    
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+        console.log('Showing slide:', index);
+        // Hide all slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Show current slide
+        slides[index].classList.add('active');
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        console.log('Next slide:', currentSlide);
+        showSlide(currentSlide);
+    }
+    
+    // Initialize first slide
+    showSlide(0);
+    
+    // Auto-advance slides every 2 seconds
+    setInterval(nextSlide, 2000);
+}
+    
+    // Iniciar la animación
+    animateCarousel();
+    
+    // Initialize testimonials carousel
+    initTestimonialsCarousel();
+    
+    // Initialize mobile menu
+    setupMobileMenu();
+    
+    // Initialize service events
+    setupServiceEvents();
+    
+    // Limpiar la animación cuando se cierre la página
+    window.addEventListener('beforeunload', function() {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+        }
+    });
+});
+
 // Mobile menu functionality
 function setupMobileMenu() {
     const hamburgerBtn = document.getElementById('mobile-menu-btn');
@@ -98,6 +151,40 @@ function setupMobileMenu() {
         });
     }
     
+    // Mobile menu modal buttons
+    const mobileAgendaBtn = document.getElementById('mobile-agenda-llamada-btn');
+    const mobileEscribenosBtn = document.getElementById('mobile-escribenos-btn');
+    
+    if (mobileAgendaBtn) {
+        mobileAgendaBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Close mobile menu first
+            mobileModal.classList.add('translate-x-full');
+            mobileModal.classList.remove('translate-x-0');
+            setTimeout(() => {
+                mobileModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // Open agenda modal
+                openAgendaModal();
+            }, 300);
+        });
+    }
+    
+    if (mobileEscribenosBtn) {
+        mobileEscribenosBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Close mobile menu first
+            mobileModal.classList.add('translate-x-full');
+            mobileModal.classList.remove('translate-x-0');
+            setTimeout(() => {
+                mobileModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // Open escribenos modal
+                openEscribenosModal();
+            }, 300);
+        });
+    }
+    
     // Close menu when clicking outside
     if (mobileModal) {
         mobileModal.addEventListener('click', function(e) {
@@ -109,60 +196,8 @@ function setupMobileMenu() {
     }
 }
 
-
-
-// Testimonials Carousel
-function initTestimonialsCarousel() {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    console.log('Found testimonial slides:', slides.length);
-    
-    if (slides.length === 0) return;
-    
-    let currentSlide = 0;
-    
-    function showSlide(index) {
-        console.log('Showing slide:', index);
-        // Hide all slides
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        
-        // Show current slide
-        slides[index].classList.add('active');
-    }
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        console.log('Next slide:', currentSlide);
-        showSlide(currentSlide);
-    }
-    
-    // Initialize first slide
-    showSlide(0);
-    
-    // Auto-advance slides every 2 seconds
-    setInterval(nextSlide, 2000);
-}
-    
-    // Iniciar la animación
-    animateCarousel();
-    
-    // Initialize testimonials carousel
-    initTestimonialsCarousel();
-    
-    // Initialize mobile menu
-    setupMobileMenu();
-    
-    // Limpiar la animación cuando se cierre la página
-    window.addEventListener('beforeunload', function() {
-        if (animationId) {
-            cancelAnimationFrame(animationId);
-        }
-    });
-});
-
 // Efecto hover dinámico para los servicios
-document.addEventListener('DOMContentLoaded', function() {
+function setupServiceEvents() {
     const serviceItems = document.querySelectorAll('.service-item');
     
     if (!serviceItems.length) return;
@@ -355,29 +390,56 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial check
     updateNavColors();
+}
+
+// Global modal functions
+function openAgendaModal() {
+    const agendaLlamadaModal = document.getElementById('agenda-llamada-modal');
+    if (!agendaLlamadaModal) return;
     
+    const modalContent = agendaLlamadaModal.querySelector('div');
+    
+    agendaLlamadaModal.classList.remove('hidden');
+    agendaLlamadaModal.classList.add('flex');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Trigger transition
+    setTimeout(() => {
+        agendaLlamadaModal.classList.remove('opacity-0');
+        agendaLlamadaModal.classList.add('opacity-100');
+        modalContent.classList.remove('translate-y-4', 'opacity-95');
+        modalContent.classList.add('translate-y-0', 'opacity-100');
+    }, 10);
+}
+
+function openEscribenosModal() {
+    const escribenosModal = document.getElementById('escribenos-modal');
+    if (!escribenosModal) return;
+    
+    const modalContent = escribenosModal.querySelector('div > div');
+    
+    escribenosModal.classList.remove('hidden');
+    escribenosModal.classList.add('flex');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Trigger transition
+    setTimeout(() => {
+        escribenosModal.classList.remove('opacity-0');
+        escribenosModal.classList.add('opacity-100');
+        if (modalContent) {
+            modalContent.classList.remove('translate-y-4', 'opacity-95');
+            modalContent.classList.add('translate-y-0', 'opacity-100');
+        }
+    }, 10);
+}
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
     // Modal functionality for "Agenda una llamada"
     const agendaLlamadaModal = document.getElementById('agenda-llamada-modal');
     const agendaLlamadaBtn = document.getElementById('agenda-llamada-btn');
     const agendaLlamadaMenu = document.getElementById('agenda-llamada-menu');
     const closeAgendaModal = document.getElementById('close-agenda-modal');
-    
-    // Function to open modal
-    function openAgendaModal() {
-        const modalContent = agendaLlamadaModal.querySelector('div');
-        
-        agendaLlamadaModal.classList.remove('hidden');
-        agendaLlamadaModal.classList.add('flex');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        
-        // Trigger transition
-        setTimeout(() => {
-            agendaLlamadaModal.classList.remove('opacity-0');
-            agendaLlamadaModal.classList.add('opacity-100');
-            modalContent.classList.remove('translate-y-4', 'opacity-95');
-            modalContent.classList.add('translate-y-0', 'opacity-100');
-        }, 10);
-    }
     
     // Function to close modal
     function closeAgendaModalFunc() {
@@ -401,25 +463,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const escribenosBtn = document.getElementById('escribenos-btn');
     const escribenosMenu = document.getElementById('escribenos-menu');
     const closeEscribenosModal = document.getElementById('close-escribenos-modal');
-    
-    // Function to open Escríbenos modal
-    function openEscribenosModal() {
-        const modalContent = escribenosModal.querySelector('div > div');
-        
-        escribenosModal.classList.remove('hidden');
-        escribenosModal.classList.add('flex');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        
-        // Trigger transition
-        setTimeout(() => {
-            escribenosModal.classList.remove('opacity-0');
-            escribenosModal.classList.add('opacity-100');
-            if (modalContent) {
-                modalContent.classList.remove('translate-y-4', 'opacity-95');
-                modalContent.classList.add('translate-y-0', 'opacity-100');
-            }
-        }, 10);
-    }
     
     // Function to close Escríbenos modal
     function closeEscribenosModalFunc() {

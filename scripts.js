@@ -1,5 +1,5 @@
 // Carrusel infinito para los logos de marcas
-document.addEventListener('DOMContentLoaded', function() {
+function initCarousel() {
     const carousel = document.querySelector('.carousel-container');
     const logosContainer = document.querySelector('.logos-container');
     
@@ -52,6 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.addEventListener('mouseenter', pauseCarousel);
         logo.addEventListener('mouseleave', resumeCarousel);
     });
+    
+    // Iniciar la animación
+    animateCarousel();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize carousel if it exists
+    initCarousel();
 
 // Testimonials Carousel
 function initTestimonialsCarousel() {
@@ -85,9 +93,6 @@ function initTestimonialsCarousel() {
     // Auto-advance slides every 2 seconds
     setInterval(nextSlide, 2000);
 }
-    
-    // Iniciar la animación
-    animateCarousel();
     
     // Initialize testimonials carousel
     initTestimonialsCarousel();

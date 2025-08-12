@@ -192,367 +192,227 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="absolute w-screen xl:w-full h-[200vh] bg-black">
-        <img src="images/hero-end-bg.jpg" alt="Hero Background" class="w-full h-screen object-cover sticky top-0 object-right xl: object-center">
-    </section>
-
-    <section class="relative w-full h-[200vh] z-50">    
-        <div class="relative z-10 flex items-center justify-start h-screen px-4 xl:px-16">
-            <div class="max-w-72 xl:max-w-4xl">
-                <h1 class="text-white font-normal uppercase leading-tight text-4xl mb-4 xl:text-6xl xl:mb-8">
-                    ¿Tu marca está <br>
-                    <span class="text-red-900">creciendo</span> o simplemente 
-                    <span class="text-red-900">sobreviviendo</span>?
-                </h1>
-            </div>
-        </div>
-
-        <div class="relative z-10 flex items-end justify-start h-screen px-16 pb-32">
-            <div class="max-w-5xl">
-                <h2 class="text-white text-6xl font-bold uppercase leading-tight mb-6">
-                    El ROAS cae. El CPA sube.
-                </h2>
-                <p class="text-white text-3xl font-light leading-relaxed mb-4">
-                    Tu contenido ya no convierte. Y tu equipo interno no da abasto.
-                </p>
-                <p class="text-red-900 text-3xl font-light leading-relaxed">
-                    Si esto te suena, has llegado al sitio adecuado.
-                </p>
-            </div>
-        </div>
-    </section>    
-
-    <!-- Brand Showcase Section -->
-    <section class="relative w-full h-screen overflow-hidden bg-white">
-        <div class="absolute inset-0 flex flex-col xl:flex-row">
-            <img src="images/brand-img-2.jpg" alt="Brand Image 1" class="w-full h-1/3 xl:w-1/3 xl:h-full object-cover">
-            <img src="images/brand-img-1.jpg" alt="Brand Image 2" class="w-full h-1/3 xl:w-1/3 xl:h-full object-cover">
-            <img src="images/brand-img-3.jpg" alt="Brand Image 3" class="w-full h-1/3 xl:w-1/3 xl:h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+    
+    <!-- start Section modal result -->
+    <section id="test-result-modal" class="fixed inset-0 bg-zinc-900 bg-opacity-95 flex flex-col items-center justify-center z-50 px-4 py-8 hidden backdrop-blur-sm">
+      <!-- Background image -->
+      <div class="absolute inset-0 w-full h-full">
+        <img class="w-full h-full object-cover blur-[20.40px] scale-110 opacity-45" src="images/bgampli-big.jpg" alt="Background" />
+      </div>
+      
+      <!-- Content container -->
+      <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8 xl:space-y-12">
+        <!-- Result title -->
+        <header>
+          <h1 class="text-white text-2xl xl:text-4xl font-extrabold font-['Inter'] uppercase leading-tight">
+            Resultado
+          </h1>
+        </header>
         
-        <div class="relative z-10 flex flex-col gap-7 items-center justify-center h-full">
-            <img src="images/fashion-logo-2-growth-center.png" alt="Fashion Logo 2" class="mb-24 w-1/3 hidden xl:block">
-            
-            <div class="flex justify-between gap-50 items-center w-full xl:space-x-16 mb-16 flex-col xl:flex-row h-full xl:h-auto">
-                <div class="text-center w-full h-1/3 xl:w-1/3 xl:h-auto flex items-center justify-center">
-                    <h3 class="text-white text-3xl font-light uppercase leading-16">Moda<br>que vende</h3>
-                </div>
-                <div class="text-center w-full h-1/3 xl:w-1/3 xl:h-auto flex items-center justify-center">
-                    <h3 class="text-white text-3xl font-light uppercase leading-16">Estrategia<br>que escala</h3>
-                </div>
-                <div class="text-center w-full h-1/3 xl:w-1/3 xl:h-auto flex items-center justify-center">
-                    <h3 class="text-white text-3xl font-light uppercase leading-16">Creatividad<br>que convierte</h3>
-                </div>
-            </div>
-            
-            <div class="text-center mt-24 hidden xl:block">
-                <button class="font-light text-2xl px-8 py-4 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors">
-                    Encuentra tu solución
-                </button>
-            </div>
-        </div>
-    </section>
-    <section class="relative w-full h-56 xl:hidden">
-        <img src="images/fashion-logo-2-growth-center-black.png" alt="Fashion Logo 2" class="mt-5 w-4/5 mx-auto">
-        <div class="text-center mt-10">
-                <button class="font-light text-2xl px-8 py-4 rounded-full border border-[#800020] text-[#800020] hover:bg-[#800020] hover:text-white transition-colors">
-                    Encuentra tu solución
-                </button>
-            </div>
-    </section>
-<!--
-
-    <section class="relative w-full h-screen overflow-hidden bg-white">
-        <div class="flex items-center justify-center h-full">
-            <div class="flex items-center space-x-16">
-                <img src="images/brand-img-1.jpg" alt="Fashion Model" class="">
-                <img src="images/fashion-brand.svg" alt="Fashion Brand" class="">
-            </div>
+        <!-- Level title -->
+        <div class="space-y-2">
+        <h2 class="text-[#D4B996] text-3xl xl:text-6xl font-black font-['Inter'] leading-tight">
+            Nivel 2:
+          </h2>
+          <h3 class="text-[#D4B996] text-3xl xl:text-6xl font-black font-['Inter'] leading-tight">
+            Immoral Growth Engine Core
+          </h3>
         </div>
         
-        <div class="absolute bottom-32 right-16">
-            <h2 class="text-red-900 text-5xl font-medium leading-tight text-right">Growth Atelier</h2>
-        </div>
-    </section>
--->
-    <!-- Understanding Section -->
-    <section class="w-full xl:h-[250vh] bg-white py-24 relative">
-        <div class="max-w-[1200px] h-full mx-auto flex flex-wrap relative">
-            <div class="w-full xl:w-1/2 xl:h-full">
-                <img src="images/ph1-home.png" alt="photo de un hombre 1" class="w-11/12 mx-auto xl:hidden">
-                <h2 class="text-black text-5xl font-bold leading-tight mb-8 mt-10 ml-5 xl:ml-0 xl:mt-[250px]">Te entendemos</h2>
-                    
-                    <div class="mb-12 ml-5 xl:ml-0 w-4/5 xl:w-auto">
-                        <p class="text-black text-3xl font-light leading-9 mb-6">Sabemos lo que es:</p>
-                        <ul class="text-black text-[20px] xl:text-1xl font-light xl:leading-loose space-y-6 xl:space-y-0">
-                            <li>• Tener campañas que antes funcionaban y hoy apenas aguantan.</li>
-                            <li>• Ver cómo sube el gasto publicitario, pero no los márgenes.</li>
-                            <li>• Producir contenido y que no pase nada.</li>
-                            <li>• Tener un equipo con talento, pero sin dirección ni foco.</li>
-                        </ul>
-                    </div>
-                    
-                    <h3 class="text-red-900 text-4xl font-light leading-tight mb-8 text-center xl:text-left">¿Necesitas que tu marca evolucione?</h3>
-                    
-                    <a href="#test" class="text-black text-2xl font-medium underline uppercase hover:text-red-900 transition-colors ml-5 xl:ml-0">
-                        Descubre en qué punto está
-                    </a>
-                    <img src="images/ph2-home.png" alt="photo de un hombre 1" class="w-11/12 mx-auto mt-40 xl:hidden">
-                <div class="ml-5 xl:ml-0 w-4/5 mt-10 xl:mt-0 xl:w-full xl:sticky xl:top-0">
-                    <div class="w-full xl:h-[450px] hidden xl:block"></div>
-                    <p class="text-[#D4B996] text-2xl xl:text-3xl font-medium leading-9">Nuestra forma de trabajar</p>
-                    <h2 class="text-black text-5xl font-bold leading-tight mb-8">Somos tu growth atelier</h2>
-                    <p class="text-black text-xl xl:text-2xl font-light leading-7">
-                            Hacemos más que campañas bonitas. <br>
-                            Construimos sistemas de crecimiento que <br class="hidden xl:block">combinan marca, datos y rentabilidad.
-                    </p>
-                    <div class="w-full h-[450px] hidden xl:block"></div>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative hidden xl:block">
-                <div class="w-full sticky top-0">
-                    <div class="w-full h-[100px]"></div>
-                    <img src="images/ph1-home.png" alt="photo de un hombre 1" class="w-11/12 m-10">
-                </div>
-                
-                <div class="w-full sticky top-0">
-                    <div class="w-full h-[150px]"></div>
-                    <img src="images/ph2-home.png" alt="photo de un hombre 1" class="w-11/12 m-5">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="w-full py-24">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-left mb-16 ml-5 xl:ml-0 xl:px-16">
-                <p class="text-[#D4B996] text-3xl font-medium leading-9">Servicios</p>
-                <h2 class="text-black text-5xl xl:text-6xl font-bold leading-tight mb-8">Un método para cada momento</h2>
-                <p class="text-black text-xl xl:text-2xl font-light leading-7 max-w-3xl w-10/12 xl:w-auto">
-                    Porque cada marca necesita cosas distintas y en diferentes momentos, en Immoral tenemos sistemas pensados para ti.
-                </p>
-                <button class="mt-8 px-7 py-2 rounded-full border border-black text-black text-sm font-normal hover:bg-black hover:text-white transition-colors">
-                    Descubre en que punto estás
-                </button>
-            </div>
-        </div>
+        <!-- Description -->
+        <p class="text-white text-lg xl:text-3xl font-extralight font-['Inter'] leading-relaxed max-w-3xl mx-auto">
+          Has crecido, pero necesitas dirección. Lo que antes funcionaba ya no basta.
+        </p>
         
-        <div class="relative h-auto xl:h-[600px] overflow-hidden w-full">
-                <!-- Service Cards -->
-                <div class="flex flex-col xl:flex-row h-full">
-                    <!-- Foundation -->
-                    <div class="service-item w-full xl:w-[33.3%] h-[300px] xl:h-full relative overflow-hidden transition-all duration-500 ease-in-out" data-service="foundation">
-                        <img src="images/bgFound.jpg" alt="Foundation" class="absolute inset-0 w-full h-full object-right object-cover transition-all duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                        <div class="absolute bottom-8 left-8">
-                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Foundation</h3>
-                            <p class="w-10/12 xl:w-11/12 text-white text-2xl font-light leading-snug mb-4 max-w-md opacity-100 transition-all duration-500 ease-in-out">
-                                Consolida lo que funciona.<br>Escala con confianza.
-                            </p>
-                            <a href="foundation.html" class="text-white hover:text-[#D4B996] text-base font-medium underline uppercase opacity-100 transition-all duration-500 ease-in-out">
-                                Quiero estructurar mi crecimiento
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Expansion -->
-                    <div class="service-item w-full xl:w-[16.6%] h-[120px] xl:h-full relative overflow-hidden transition-all duration-500 ease-in-out" data-service="expansion">
-                        <img src="images/bgExpand.jpg" alt="Expansion" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                        <div class="absolute bottom-8 left-8">
-                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Expansion</h3>
-                            <p class="text-white text-2xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Estructura para escalar.<br>Crece con control.
-                            </p>
-                            <a href="expansion.html" class="text-white hover:text-[#D4B996] text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Quiero escalar con sistema
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Rebuild -->
-                    <div class="service-item w-full xl:w-[16.6%] h-[120px] xl:h-full relative overflow-hidden transition-all duration-500 ease-in-out" data-service="rebuild">
-                        <img src="images/bgRebui.jpg" alt="Rebuild" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                        <div class="absolute bottom-8 left-8">
-                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Rebuild</h3>
-                            <p class="text-white text-2xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Para marcas que necesitan un reinicio estratégico
-                            </p>
-                            <a href="rebuild.html" class="text-white hover:text-[#D4B996] text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Quiero reconstruir con criterio
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Amplify -->
-                    <div class="service-item w-full xl:w-[16.6%] h-[120px] xl:h-full relative overflow-hidden transition-all duration-500 ease-in-out" data-service="amplify">
-                        <img src="images/bgAmpli.jpg" alt="Amplify" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                        <div class="absolute bottom-8 left-8">
-                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Amplify</h3>
-                            <p class="text-white text-2xl font-light leading-snug mb-4 max-w-md hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Crece rentablemente equilibrando marca + performance
-                            </p>
-                            <a href="amplify.html" class="text-white hover:text-[#D4B996] text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Quiero escalar con propósito
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Embedded -->
-                    <div class="service-item w-full xl:w-[16.6%] h-[120px] xl:h-full relative overflow-hidden transition-all duration-500 ease-in-out" data-service="embedded">
-                        <img src="images/bgEmbed.jpg" alt="Embedded" class="absolute inset-0 w-full h-full object-cover object-right blur-sm grayscale transition-all duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                        <div class="absolute bottom-8 left-8">
-                            <h3 class="text-[#D4B996] text-3xl font-semibold mb-4">Embedded</h3>
-                            <p class="text-white text-2xl font-light leading-snug mb-4 max-w-xs hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Tu equipo extendido para llegar más lejos
-                            </p>
-                            <a href="embedded.html" class="text-white hover:text-[#D4B996] text-base font-medium underline uppercase hidden opacity-0 transition-all duration-500 ease-in-out">
-                                Quiero integrar mi marca
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Call to action -->
+        <div class="pt-4">
+          <a href="#" class="inline-block text-[#D4B996] text-xl xl:text-4xl font-light font-['Inter'] underline uppercase leading-relaxed hover:text-red-200 transition-colors duration-300">
+            Quiero escalar con sistema
+          </a>
         </div>
+      </div>
     </section>
+    <!-- end Section modal result -->
 
-    <!-- Results Section -->
-    <section id="casos-exito" class="w-full bg-white py-12 xl:py-24">
-        <div class="w-10/12 xl:max-w-7xl mx-auto px-0 xl:px-16">
-            <div class="text-center mb-16">
-                <p class="text-[#D4B996] text-3xl font-medium leading-9">Resultados reales</p>
-                <h2 class="text-black text-5xl xl:text-6xl font-bold leading-tight mb-8">Lo que conseguirás</h2>
-                <p class="text-black text-xl xl:text-2xl font-light leading-7 max-w-3xl mx-auto">
-                    Llevamos más de 15 años optimizando campañas. <br>
-                    Sabemos cómo exprimir al máximo cada euro del presupuesto.
-                </p>
-            </div>
-            
-            <!-- Results Grid -->
-            <div class="grid grid-cols-1 xl:grid-cols-4 gap-16 xl:gap-8 mb-48 mt-32">
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-zinc-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.75 4.75V30.0833C4.75 30.9232 5.08363 31.7286 5.6775 32.3225C6.27136 32.9164 7.07681 33.25 7.91667 33.25H33.25M25.3333 7.91667H28.5C29.3745 7.91667 30.0833 8.62555 30.0833 9.5V25.3333C30.0833 26.2078 29.3745 26.9167 28.5 26.9167H25.3333C24.4589 26.9167 23.75 26.2078 23.75 25.3333V9.5C23.75 8.62555 24.4589 7.91667 25.3333 7.91667ZM12.6667 12.6667H15.8333C16.7078 12.6667 17.4167 13.3755 17.4167 14.25V25.3333C17.4167 26.2078 16.7078 26.9167 15.8333 26.9167H12.6667C11.7922 26.9167 11.0833 26.2078 11.0833 25.3333V14.25C11.0833 13.3755 11.7922 12.6667 12.6667 12.6667Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="w-2/3 m-auto text-black text-2xl font-normal leading-snug">Escalados que convierten</h3>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-zinc-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3.5874 3.5874H7.0874L11.7424 25.3224C11.9132 26.1184 12.3561 26.83 12.9949 27.3347C13.6337 27.8393 14.4285 28.1055 15.2424 28.0874H32.3574C33.154 28.0861 33.9262 27.8132 34.5467 27.3136C35.1671 26.8141 35.5986 26.1178 35.7699 25.3399L38.6574 12.3374H8.9599M15.7499 36.7499C15.7499 37.7164 14.9664 38.4999 13.9999 38.4999C13.0334 38.4999 12.2499 37.7164 12.2499 36.7499C12.2499 35.7834 13.0334 34.9999 13.9999 34.9999C14.9664 34.9999 15.7499 35.7834 15.7499 36.7499ZM34.9999 36.7499C34.9999 37.7164 34.2164 38.4999 33.2499 38.4999C32.2834 38.4999 31.4999 37.7164 31.4999 36.7499C31.4999 35.7834 32.2834 34.9999 33.2499 34.9999C34.2164 34.9999 34.9999 35.7834 34.9999 36.7499Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="w-2/3 m-auto text-black text-2xl font-normal leading-snug">Tasa de recompra x3 en 3 meses</h3>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-zinc-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21.25 31.75H7.25C6.32174 31.75 5.4315 31.3813 4.77513 30.7249C4.11875 30.0685 3.75 29.1783 3.75 28.25V14.25C3.75 13.3217 4.11875 12.4315 4.77513 11.7751C5.4315 11.1187 6.32174 10.75 7.25 10.75H35.25C36.1783 10.75 37.0685 11.1187 37.7249 11.7751C38.3813 12.4315 38.75 13.3217 38.75 14.25V23M31.75 21.25H31.7675M33.5 38.75V28.25M33.5 28.25L38.75 33.5M33.5 28.25L28.25 33.5M10.75 21.25H10.7675M24.75 21.25C24.75 23.183 23.183 24.75 21.25 24.75C19.317 24.75 17.75 23.183 17.75 21.25C17.75 19.317 19.317 17.75 21.25 17.75C23.183 17.75 24.75 19.317 24.75 21.25Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="w-2/3 m-auto text-black text-2xl font-normal leading-snug">+87% de CTR con el método Immoral</h3>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-zinc-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.4999 34.1667C17.4997 34.4841 17.5902 34.7954 17.7611 35.0654C17.9321 35.3355 18.1767 35.5537 18.4676 35.6956L21.9676 37.404C22.2345 37.5341 22.531 37.5956 22.829 37.5824C23.1271 37.5692 23.4167 37.4819 23.6704 37.3287C23.9241 37.1755 24.1335 36.9615 24.2787 36.7071C24.4239 36.4527 24.5 36.1662 24.4999 35.875V23.9167C24.5003 23.07 24.8227 22.2536 25.4046 21.6258L38.0449 7.97792C38.2714 7.73287 38.4204 7.429 38.4738 7.10305C38.5272 6.7771 38.4827 6.44303 38.3457 6.14124C38.2087 5.83946 37.9851 5.58287 37.7019 5.40252C37.4187 5.22217 37.088 5.12578 36.7499 5.125H5.24986C4.91142 5.12512 4.58028 5.22103 4.29654 5.40113C4.01281 5.58122 3.78866 5.83777 3.65124 6.13969C3.51382 6.44161 3.46903 6.77595 3.5223 7.10221C3.57557 7.42847 3.7246 7.73266 3.95136 7.97792L16.5951 21.6258C17.177 22.2536 17.4995 23.07 17.4999 23.9167V34.1667Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="w-2/3 m-auto text-black text-2xl font-normal leading-snug">Funnels y CRM del colapso a la rentabilidad</h3>
-                </div>
-            </div>
-            
-            
+
+    <!-- Test Section -->
+<section class="min-h-screen bg-black flex flex-col">
+  <!-- Hero Section -->
+  <div class="bg-white flex-1 flex flex-col justify-center items-center px-4 py-24">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl xl:text-7xl font-light font-['Inter'] uppercase leading-tight mb-8">
+        <span class="text-red-900">¿En qué punto está tu </span>
+        <span class="text-black">marca</span>
+        <span class="text-red-900">?</span>
+      </h1>
+      <p class="text-xl xl:text-2xl font-extralight font-['Inter'] leading-relaxed mb-12 max-w-2xl mx-auto">
+        Descubre en menos de 1 minuto en qué punto está tu marca y cómo podemos ayudarte
+      </p>
+      <button class="text-xl xl:text-2xl font-medium font-['Inter'] underline uppercase text-black hover:text-red-900 transition-colors">
+        Empieza el test
+      </button>
+    </div>
+  </div>
+
+  <!-- Test Questions Section -->
+  <div class="bg-white flex-1 py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <form class="space-y-16">
+        
+        <!-- Question 1 -->
+        <div class="space-y-6">
+          <div class="text-center">
+            <h2 class="text-xl xl:text-2xl font-black font-['Inter'] leading-snug mb-4">1. Tu crecimiento actual</h2>
+            <p class="text-lg xl:text-2xl font-light font-['Inter'] leading-7">¿Cómo describirías tu situación de crecimiento en los últimos 3 meses?</p>
+          </div>
+          <div class="space-y-4 max-w-2xl mx-auto">
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question1" value="option1" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Estamos creciendo a buen ritmo. Todo parece "fácil".</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question1" value="option2" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Empezamos a notar que cuesta más crecer, pero seguimos en positivo.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question1" value="option3" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Nos hemos estancado o estamos bajando.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question1" value="option4" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Tenemos un crecimiento sostenido y controlado. No dependemos solo de ads.</span>
+            </label>
+          </div>
         </div>
 
-    </section>
+        <!-- Separator -->
+        <hr class="border-black border-t">
 
-
-    <!-- Contact Section -->
-    <section id="contacto" class="w-full bg-white py-16">
-        <div class=" mx-auto px-8 xl:px-16">
-            <div class="flex xl:justify-between items-center flex-col xl:flex-row">
-                <div>
-                    <h2 class="text-black text-5xl xl:text-6xl font-bold uppercase leading-tight mb-8 text-center xl:text-left">¿Hablamos?</h2>
-                    <p class="text-black text-xl font-light leading-snug max-w-2xl text-center xl:text-left">
-                        Si has llegado hasta aquí es porque tu marca está en un momento clave. Veamos juntos como podemos evolucionar al siguiente nivel.
-                    </p>
-                </div>
-                
-                <div class="flex xl:space-x-4 flex-col xl:flex-row mt-10 xl:mt-0 gap-4 xl:gap-0 items-center">
-                    <button id="agenda-llamada-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
-                        Agenda una llamada
-                    </button>
-                    <div class="w-16 h-px bg-[#D4B996] rotate-0 xl:rotate-90 self-center"></div>
-                    <button id="escribenos-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
-                        Escríbenos
-                    </button>
-                </div>
-            </div>
+        <!-- Question 2 -->
+        <div class="space-y-6">
+          <div class="text-center">
+            <h2 class="text-xl xl:text-2xl font-black font-['Inter'] leading-snug mb-4">2. Tus campañas y adquisición</h2>
+            <p class="text-lg xl:text-2xl font-light font-['Inter'] leading-7">¿Qué pasa cuando lanzas una campaña de paid media?</p>
+          </div>
+          <div class="space-y-4 max-w-2xl mx-auto">
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question2" value="option1" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">ROAS alto, CPA bajo. No optimizamos mucho, pero funciona.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question2" value="option2" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Necesitamos promos y creatividad nueva cada semana para mantener ventas.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question2" value="option3" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Cada vez cuesta más. Ya no vemos resultados, aunque invertimos igual o más.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question2" value="option4" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Escala bien, pero es solo una parte del sistema. También vendemos sin ads.</span>
+            </label>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-zinc-900 pt-12 xl:pt-24 pb-8">
-        <div class="w-full mx-auto px-8 xl:px-16">
-            <div class="flex justify-between items-start mb-16 flex-col xl:flex-row gap-6 xl:gap-0">
-                <div class="text-center">
-                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8 xl:hidden">
-                </div>
-                <div class="flex flex-col">
-                    <div class="mb-8">
-                        <p class="text-white text-xl font-extralight leading-snug mb-4">(+34) 93 122 62 54</p>
-                        <p class="text-white text-xl font-extralight leading-snug mb-2">Pg. de Gràcia, 21,</p>
-                        <p class="text-white text-xl font-extralight leading-snug mb-4">08007 Barcelona</p>
-                        <a href="#" class="text-white text-xl font-extralight underline leading-snug hover:text-[#D4B996] transition-colors">
-                            Ver en mapa
-                        </a>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline ml-2">
-                            <path d="M12 1C12 0.447714 11.5523 -7.61451e-07 11 -3.39982e-07L2 -2.13542e-07C1.44772 -5.50717e-07 1 0.447715 1 0.999999C1 1.55228 1.44772 2 2 2L10 2L10 10C10 10.5523 10.4477 11 11 11C11.5523 11 12 10.5523 12 10L12 1ZM1 11L1.70711 11.7071L11.7071 1.70711L11 0.999999L10.2929 0.292893L0.292893 10.2929L1 11Z" fill="white"/>
-                        </svg>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8 hidden xl:block">
-                    <p class="text-[#D4B996] text-xl font-extralight leading-snug mb-2 hidden xl:block">Somos parte de</p>
-                    <img src="images/immoral-logo-white.svg" alt="Immoral Logo" class="mx-auto hidden xl:block">
-                </div>
-                
-                <div>
-                    <p class="text-white text-xl font-extralight leading-snug mb-4">Síguenos</p>
-                    <div class="space-y-2">
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">tiktok</a>
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">instagram</a>
-                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">linkedin</a>
-                    </div>
-                </div>
+        <!-- Separator -->
+        <hr class="border-black border-t">
 
-                <div class="text-center">
-                    <p class="text-[#D4B996] text-xl font-extralight leading-snug mt-8 mb-2 xl:hidden">Somos parte de</p>
-                    <img src="images/immoral-logo-white.svg" alt="Immoral Logo" class="mx-auto xl:hidden">
-                </div>
-            </div>
-            
-            <div class="border-t border-white pt-6">
-                <div class="flex flex-col xl:flex-row xl:justify-between items-center">
-                    <p class="text-white text-base font-light">©2025 Immoral Fashion</p>
-                    <p class="text-white text-base font-light">Privacidad      Legal      Cookies</p>
-                </div>
-            </div>
+        <!-- Question 3 -->
+        <div class="space-y-6">
+          <div class="text-center">
+            <h2 class="text-xl xl:text-2xl font-black font-['Inter'] leading-snug mb-4">3. Tu equipo y estructura</h2>
+            <p class="text-lg xl:text-2xl font-light font-['Inter'] leading-7">¿Cómo describirías tu equipo actual?</p>
+          </div>
+          <div class="space-y-4 max-w-2xl mx-auto">
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question3" value="option1" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Somos pocos. Hacemos de todo.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question3" value="option2" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Hemos sumado freelancers o perfiles clave, pero aún falta dirección.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question3" value="option3" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Somos varios, pero hay desgaste, caos o falta de foco.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question3" value="option4" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Roles claros, procesos definidos, equipo profesional y alineado.</span>
+            </label>
+          </div>
         </div>
-    </footer>
+
+        <!-- Separator -->
+        <hr class="border-black border-t">
+
+        <!-- Question 4 -->
+        <div class="space-y-6">
+          <div class="text-center">
+            <h2 class="text-xl xl:text-2xl font-black font-['Inter'] leading-snug mb-4">4. Tus métricas y control</h2>
+            <p class="text-lg xl:text-2xl font-light font-['Inter'] leading-7">¿Qué tan claro tienes tus métricas clave (LTV, CAC, márgenes)?</p>
+          </div>
+          <div class="space-y-4 max-w-2xl mx-auto">
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question4" value="option1" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Solo vemos ROAS, seguidores e ingresos.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question4" value="option2" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Empezamos a medir más cosas, pero aún es parcial.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question4" value="option3" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Tenemos data, pero nadie sabe bien qué hacer con ella.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question4" value="option4" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Lo tenemos controlado. Medimos lo que importa y actuamos en consecuencia.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Separator -->
+        <hr class="border-black border-t">
+
+        <!-- Question 5 -->
+        <div class="space-y-6">
+          <div class="text-center">
+            <h2 class="text-xl xl:text-2xl font-black font-['Inter'] leading-snug mb-4">5. Tus canales de venta y tráfico</h2>
+            <p class="text-lg xl:text-2xl font-light font-['Inter'] leading-7">¿Qué pasaría si apagas los anuncios una semana?</p>
+          </div>
+          <div class="space-y-4 max-w-2xl mx-auto">
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question5" value="option1" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Las ventas caerían a cero.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question5" value="option2" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Bajarían mucho, pero algo entra por orgánico o email.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question5" value="option3" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Lo hemos hecho. Y dolió.</span>
+            </label>
+            <label class="flex items-start space-x-3 p-4 border border-red-300 rounded-lg hover:bg-red-50 cursor-pointer transition-colors">
+              <input type="checkbox" name="question5" value="option4" class="mt-1 h-5 w-5 text-red-600 border-red-300 rounded focus:ring-red-500">
+              <span class="text-sm xl:text-base font-normal font-['Inter'] leading-normal">Se sostiene. Hay base sólida de tráfico orgánico, CRM y comunidad.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center pt-8">
+          <button type="submit" class="text-xl xl:text-2xl font-medium font-['Inter'] underline uppercase text-black hover:text-red-900 transition-colors px-8 py-4">
+            Ver el resultado
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+    
 
     <!-- Modal Agenda una llamada -->
     <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
@@ -631,6 +491,7 @@
     </div>
 
     <script src="scripts.js"></script>
+    <script src="test-logic.js"></script>
     <!-- Script del widget de Calendly -->
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>

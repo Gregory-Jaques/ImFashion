@@ -10,10 +10,10 @@
 </head>
 <body class="font-inter bg-white overflow-visible">
     <!-- Desktop Navigation -->
-    <nav id="main-nav" class="hidden xl:block fixed top-0 left-0 w-screen xl:w-full z-[500] bg-transparent backdrop-blur-[2px] transition-all duration-300">
-        <div class="w-full h-20 px-16 py-4">
+    <nav id="main-nav" class="hidden xl:block fixed top-0 left-0 w-screen xl:w-full z-[500] bg-transparent backdrop-blur-lg transition-all duration-300">
+        <div class="w-full h-20 px-16 py-2">
             <div id="nav-line" class="w-full h-px bg-white mt-1 mb-4 transition-colors duration-300"></div>
-            <div class="flex justify-between items-center h-full">
+            <div class="flex justify-between items-center h-full pb-2.5">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <img src="images/imfashion-logo-menu.svg" alt="ImFashion Logo" class="h-10">
@@ -111,9 +111,9 @@
     </nav>
 
     <!-- Mobile Navigation -->
-    <nav id="mobile-nav" class="xl:hidden fixed top-0 left-0 w-full z-[500] bg-transparent backdrop-blur-[2px] transition-all duration-300">
+    <nav id="mobile-nav" class="xl:hidden fixed top-0 left-0 w-full z-[500] bg-transparent backdrop-blur-lg transition-all duration-300">
         <div class="w-full h-20 px-4 py-4">
-            <div id="mobile-nav-line" class="w-full h-px bg-white mt-1 mb-4 transition-colors duration-300"></div>
+            <div id="mobile-nav-line" class="w-full h-px bg-black mt-0 mb-2 transition-colors duration-300"></div>
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
                 <div class="flex items-center">
@@ -122,9 +122,9 @@
                 
                 <!-- Hamburger Menu -->
                 <button id="mobile-menu-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1">
-                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
-                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
-                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
                 </button>
             </div>
         </div>
@@ -194,13 +194,14 @@
 
     <!-- Hero Section -->
     <section class="absolute w-screen xl:w-full h-[200vh] bg-black">
-        <img src="images/hero-end-bg.jpg" alt="Hero Background" class="w-full h-screen object-cover sticky top-0 object-right xl: object-center">
+        <img src="images/hero-end-bg.jpg" alt="Hero Background" class="w-full h-screen object-cover sticky top-0 object-right xl: object-center hidden xl:block">
+        <img src="images/hero-end-mobile.jpg" alt="Hero Background" class="w-full h-screen object-cover sticky top-0 object-right xl: object-center xl:hidden">
     </section>
 
     <section class="relative w-full h-[200vh] z-50">    
         <div class="relative z-10 flex items-center justify-start h-screen px-4 xl:px-16">
-            <div class="max-w-72 xl:max-w-4xl">
-                <h1 class="text-white font-normal uppercase leading-tight text-4xl mb-4 xl:text-6xl xl:mb-8">
+            <div class="max-w-96 xl:max-w-4xl">
+                <h1 class="text-white font-normal uppercase leading-tight text-5xl mb-4 xl:text-6xl xl:mb-8">
                     ¿Tu marca está <br>
                     <span class="text-red-900">creciendo</span> o simplemente 
                     <span class="text-red-900">sobreviviendo</span>?
@@ -208,15 +209,15 @@
             </div>
         </div>
 
-        <div class="relative z-10 flex items-end justify-start h-screen px-16 pb-32">
-            <div class="max-w-5xl">
+        <div class="relative z-10 flex items-end justify-start h-screen px-6 xl:px-16 pb-32">
+            <div class="max-w-4/5 xl:max-w-5xl">
                 <h2 class="text-white text-6xl font-bold uppercase leading-tight mb-6">
                     El ROAS cae. El CPA sube.
                 </h2>
                 <p class="text-white text-3xl font-light leading-relaxed mb-4">
                     Tu contenido ya no convierte. Y tu equipo interno no da abasto.
                 </p>
-                <p class="text-red-900 text-3xl font-light leading-relaxed">
+                <p class="text-white xl:text-red-900 text-2xl xl:text-3xl font-extralight xl:font-light leading-relaxed mt-12 xl:mt-0">
                     Si esto te suena, has llegado al sitio adecuado.
                 </p>
             </div>
@@ -312,12 +313,12 @@
                 </div>
             </div>
             <div class="w-1/2 h-full relative hidden xl:block">
-                <div class="w-full sticky top-0">
+                <div class="w-full sticky top-0 overflow-hidden max-h-[50%]">
                     <div class="w-full h-[100px]"></div>
                     <img src="images/ph1-home.png" alt="photo de un hombre 1" class="w-11/12 m-10">
                 </div>
                 
-                <div class="w-full sticky top-0">
+                <div class="w-full sticky top-0 overflow-hidden max-h-[50%]">
                     <div class="w-full h-[150px]"></div>
                     <img src="images/ph2-home.png" alt="photo de un hombre 1" class="w-11/12 m-5">
                 </div>

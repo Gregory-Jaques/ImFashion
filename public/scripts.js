@@ -1,3 +1,6 @@
+// Variables globales para el carrusel
+let animationId;
+
 // Carrusel infinito para los logos de marcas
 function initCarousel() {
     const carousel = document.querySelector('.carousel-container');
@@ -10,7 +13,6 @@ function initCarousel() {
     logosContainer.innerHTML = originalLogos + originalLogos;
     
     // Variables para controlar la animación
-    let animationId;
     let currentPosition = 0;
     const speed = 0.5; // Velocidad del movimiento (píxeles por frame)
     let isPaused = false;
@@ -103,6 +105,9 @@ function initTestimonialsCarousel() {
     // Initialize service events
     setupServiceEvents();
     
+    // Navigation scroll effect - Initialize for all pages
+    initNavigationColorSystem();
+    
     // Modal functionality for "Agenda una llamada" - moved here to avoid duplicate DOMContentLoaded
     const agendaLlamadaModal = document.getElementById('agenda-llamada-modal');
     const agendaLlamadaBtn = document.getElementById('agenda-llamada-btn');
@@ -124,6 +129,7 @@ function initTestimonialsCarousel() {
             setTimeout(() => {
                 agendaLlamadaModal.classList.add('hidden');
                 agendaLlamadaModal.classList.remove('flex');
+                document.body.style.overflow = 'auto'; // Restore scrolling
             }, 300);
         }
     }
@@ -180,6 +186,7 @@ function initTestimonialsCarousel() {
         closeEscribenosModal.addEventListener('click', function() {
             escribenosModal.classList.add('hidden');
             escribenosModal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // Restore scrolling
         });
     }
     
@@ -188,6 +195,7 @@ function initTestimonialsCarousel() {
             if (e.target === escribenosModal) {
                 escribenosModal.classList.add('hidden');
                 escribenosModal.classList.remove('flex');
+                document.body.style.overflow = 'auto'; // Restore scrolling
             }
         });
     }
@@ -422,100 +430,6 @@ function setupServiceEvents() {
     if (foundationService) {
         activateService(foundationService);
     }
-    
-    // Navigation scroll effect
-    const nav = document.getElementById('main-nav');
-    const navLine = document.getElementById('nav-line');
-    const serviciosBtn = document.getElementById('servicios-btn');
-    const casosBtn = document.getElementById('casos-btn');
-    const equipoBtn = document.getElementById('equipo-btn');
-    const contactoBtn = document.getElementById('contacto-btn');
-    
-    // Function to get background color brightness
-    function getBackgroundBrightness() {
-        // Get the element behind the nav (at nav position)
-        const navRect = nav.getBoundingClientRect();
-        const elementBehind = document.elementFromPoint(navRect.left + navRect.width / 2, navRect.top + navRect.height + 10);
-        
-        if (!elementBehind) return 255; // Default to light
-        
-        // Get computed background color
-        const computedStyle = window.getComputedStyle(elementBehind);
-        let backgroundColor = computedStyle.backgroundColor;
-        
-        // If transparent, check parent elements
-        let currentElement = elementBehind;
-        while (backgroundColor === 'rgba(0, 0, 0, 0)' || backgroundColor === 'transparent') {
-            currentElement = currentElement.parentElement;
-            if (!currentElement || currentElement === document.body) {
-                backgroundColor = 'rgb(255, 255, 255)'; // Default to white
-                break;
-            }
-            backgroundColor = window.getComputedStyle(currentElement).backgroundColor;
-        }
-        
-        // Parse RGB values
-        const rgbMatch = backgroundColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-        if (!rgbMatch) return 255; // Default to light
-        
-        const r = parseInt(rgbMatch[1]);
-        const g = parseInt(rgbMatch[2]);
-        const b = parseInt(rgbMatch[3]);
-        
-        // Calculate brightness using luminance formula
-        const brightness = (r * 0.299 + g * 0.587 + b * 0.114);
-        return brightness;
-    }
-    
-    // Function to change nav colors based on background
-    function updateNavColors() {
-        const brightness = getBackgroundBrightness();
-        const isDarkBackground = brightness < 128; // Threshold for dark/light
-        
-        if (isDarkBackground) {
-            // Dark background - use light colors
-            navLine.classList.remove('bg-black');
-            navLine.classList.add('bg-white');
-            serviciosBtn.classList.remove('text-black');
-            serviciosBtn.classList.add('text-white');
-            casosBtn.classList.remove('text-black');
-            casosBtn.classList.add('text-white');
-            equipoBtn.classList.remove('text-black');
-            equipoBtn.classList.add('text-white');
-            contactoBtn.classList.remove('text-black');
-            contactoBtn.classList.add('text-white');
-        } else {
-            // Light background - use dark colors
-            navLine.classList.remove('bg-white');
-            navLine.classList.add('bg-black');
-            serviciosBtn.classList.remove('text-white');
-            serviciosBtn.classList.add('text-black');
-            casosBtn.classList.remove('text-white');
-            casosBtn.classList.add('text-black');
-            equipoBtn.classList.remove('text-white');
-            equipoBtn.classList.add('text-black');
-            contactoBtn.classList.remove('text-white');
-            contactoBtn.classList.add('text-black');
-        }
-    }
-    
-    // Scroll event listener with throttling for performance
-    let ticking = false;
-    function handleScroll() {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                updateNavColors();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-    
-    // Add scroll listener
-    window.addEventListener('scroll', handleScroll);
-    
-    // Initial check
-    updateNavColors();
 }
 
 // Global modal functions
@@ -557,6 +471,127 @@ function openEscribenosModal() {
             modalContent.classList.add('translate-y-0', 'opacity-100');
         }
     }, 10);
+}
+
+// Navigation color system - works on all pages
+function initNavigationColorSystem() {
+    const nav = document.getElementById('main-nav');
+    const navLine = document.getElementById('nav-line');
+    const serviciosBtn = document.getElementById('servicios-btn');
+    const casosBtn = document.getElementById('casos-btn');
+    const equipoBtn = document.getElementById('equipo-btn');
+    const contactoBtn = document.getElementById('contacto-btn');
+    
+    // Only initialize if nav elements exist
+    if (!nav || !navLine || !serviciosBtn || !casosBtn || !equipoBtn || !contactoBtn) {
+        return;
+    }
+    
+    // Function to get background color brightness
+    function getBackgroundBrightness() {
+        // Get the element behind the nav (at nav position)
+        const navRect = nav.getBoundingClientRect();
+        const elementBehind = document.elementFromPoint(navRect.left + navRect.width / 2, navRect.top + navRect.height + 10);
+        
+        if (!elementBehind) return 255; // Default to light
+        
+        console.log('Element behind nav:', elementBehind.tagName, elementBehind.className);
+        
+        // Check if we're over a hero section with dark background
+        if (elementBehind.closest('section') && 
+            (elementBehind.closest('section').classList.contains('bg-black') || 
+             elementBehind.closest('section').querySelector('img[src*="bg"]'))) {
+            console.log('Detected hero section with dark background');
+            return 50; // Force dark background detection
+        }
+        
+        // Get computed background color
+        const computedStyle = window.getComputedStyle(elementBehind);
+        let backgroundColor = computedStyle.backgroundColor;
+        
+        console.log('Initial background color:', backgroundColor);
+        
+        // If transparent, check parent elements
+        let currentElement = elementBehind;
+        let depth = 0;
+        while ((backgroundColor === 'rgba(0, 0, 0, 0)' || backgroundColor === 'transparent') && depth < 10) {
+            currentElement = currentElement.parentElement;
+            if (!currentElement || currentElement === document.body) {
+                backgroundColor = 'rgb(255, 255, 255)'; // Default to white
+                break;
+            }
+            backgroundColor = window.getComputedStyle(currentElement).backgroundColor;
+            console.log('Parent element:', currentElement.tagName, 'background:', backgroundColor);
+            depth++;
+        }
+        
+        // Parse RGB values
+        const rgbMatch = backgroundColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (!rgbMatch) return 255; // Default to light
+        
+        const r = parseInt(rgbMatch[1]);
+        const g = parseInt(rgbMatch[2]);
+        const b = parseInt(rgbMatch[3]);
+        
+        // Calculate brightness using luminance formula
+        const brightness = (r * 0.299 + g * 0.587 + b * 0.114);
+        console.log('Final RGB:', r, g, b, 'Brightness:', brightness);
+        return brightness;
+    }
+    
+    // Function to change nav colors based on background
+    function updateNavColors() {
+        const brightness = getBackgroundBrightness();
+        const isDarkBackground = brightness < 128; // Threshold for dark/light
+        
+        console.log('Brightness detected:', brightness, 'isDark:', isDarkBackground);
+        
+        if (isDarkBackground) {
+            // Dark background - use light colors
+            console.log('Applying light colors for dark background');
+            navLine.classList.remove('bg-black');
+            navLine.classList.add('bg-white');
+            serviciosBtn.classList.remove('text-black');
+            serviciosBtn.classList.add('text-white');
+            casosBtn.classList.remove('text-black');
+            casosBtn.classList.add('text-white');
+            equipoBtn.classList.remove('text-black');
+            equipoBtn.classList.add('text-white');
+            contactoBtn.classList.remove('text-black');
+            contactoBtn.classList.add('text-white');
+        } else {
+            // Light background - use dark colors
+            console.log('Applying dark colors for light background');
+            navLine.classList.remove('bg-white');
+            navLine.classList.add('bg-black');
+            serviciosBtn.classList.remove('text-white');
+            serviciosBtn.classList.add('text-black');
+            casosBtn.classList.remove('text-white');
+            casosBtn.classList.add('text-black');
+            equipoBtn.classList.remove('text-white');
+            equipoBtn.classList.add('text-black');
+            contactoBtn.classList.remove('text-white');
+            contactoBtn.classList.add('text-black');
+        }
+    }
+    
+    // Scroll event listener with throttling for performance
+    let ticking = false;
+    function handleScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateNavColors();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initial check
+    updateNavColors();
 }
 
 // Duplicate DOMContentLoaded block removed - functionality moved to main DOMContentLoaded block above

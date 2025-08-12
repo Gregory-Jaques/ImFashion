@@ -10,13 +10,13 @@
 </head>
 <body class="font-inter bg-white overflow-visible">
     <!-- Desktop Navigation -->
-    <nav id="main-nav" class="hidden xl:block fixed top-0 left-0 w-screen xl:w-full z-[500] bg-transparent backdrop-blur-[2px] transition-all duration-300">
-        <div class="w-full h-20 px-16 py-4">
+    <nav id="main-nav" class="hidden xl:block fixed top-0 left-0 w-screen xl:w-full z-[500] bg-transparent backdrop-blur-lg transition-all duration-300">
+        <div class="w-full h-20 px-16 py-2">
             <div id="nav-line" class="w-full h-px bg-white mt-1 mb-4 transition-colors duration-300"></div>
-            <div class="flex justify-between items-center h-full">
+            <div class="flex justify-between items-center h-full pb-2.5">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="images/imfashion-logo-menu.svg" alt="ImFashion Logo" class="h-10">
+                    <a href="index.html"><img src="images/imfashion-logo-menu.svg" alt="ImFashion Logo" class="h-10"></a>
                 </div>
                 
                 <!-- Menu Items -->
@@ -111,9 +111,9 @@
     </nav>
 
     <!-- Mobile Navigation -->
-    <nav id="mobile-nav" class="xl:hidden fixed top-0 left-0 w-full z-[500] bg-transparent backdrop-blur-[2px] transition-all duration-300">
+    <nav id="mobile-nav" class="xl:hidden fixed top-0 left-0 w-full z-[500] bg-transparent backdrop-blur-lg transition-all duration-300">
         <div class="w-full h-20 px-4 py-4">
-            <div id="mobile-nav-line" class="w-full h-px bg-white mt-1 mb-4 transition-colors duration-300"></div>
+            <div id="mobile-nav-line" class="w-full h-px bg-black mt-0 mb-2 transition-colors duration-300"></div>
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
                 <div class="flex items-center">
@@ -122,9 +122,9 @@
                 
                 <!-- Hamburger Menu -->
                 <button id="mobile-menu-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1">
-                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
-                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
-                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
                 </button>
             </div>
         </div>
@@ -194,7 +194,8 @@
 
     <!-- Hero Section -->
     <section class="absolute w-screen xl:w-full h-[100vh] bg-black">
-        <img src="images/bgfound-big.jpg" alt="Hero Background" class="w-full h-screen object-cover object-right xl: object-center">
+        <img src="images/bgfound-big.jpg" alt="Hero Background" class="w-full h-screen object-cover object-right xl: object-center hidden xl:block">
+        <img src="images/bgfound-mobile.jpg" alt="Hero Background" class="w-full h-screen object-cover object-right xl: object-center xl:hidden">
     </section>
 
     <section class="relative w-full h-[100vh] z-[5]">    
@@ -347,7 +348,7 @@
     <!-- Understanding Section -->
     <section class="w-full xl:h-[100vh] bg-[#F5F1EB] py-8 xl:py-24 relative">
         <div class="max-w-[1200px] h-full mx-auto flex flex-wrap relative">
-            <div class="w-1/2 h-full relative hidden xl:block">
+            <div class="w-1/2 h-full relative hidden xl:block overflow-hidden">
                 <div class="w-full top-0">
                     <img src="images/ph1-home.png" alt="photo de un hombre 1" class="w-11/12 m-5">
                 </div>

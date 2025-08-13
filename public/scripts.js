@@ -472,7 +472,7 @@ function initTestimonialsCarousel() {
     // Initialize stacking cards effect
     initStackingCards();
     
-    // Setup mobile menu
+    // Initialize mobile menu
     setupMobileMenu();
     
     // Initialize service events
@@ -1000,7 +1000,7 @@ function initStackingCards() {
                 card.classList.remove('card-hidden', 'card-visible', 'card-stacked');
                 
                 // Set z-index for proper stacking (later cards on top)
-                 card.style.zIndex = index + 1;
+                card.style.zIndex = index + 1;
                 
                 if (index < currentCard) {
                     // Previous cards are stacked
@@ -1029,7 +1029,7 @@ function initStackingCards() {
     }
     
     // Add scroll listener
-    window.addEventListener('scroll', handleStackingScroll, { passive: true });
+    window.addEventListener('scroll', handleStackingScroll);
     
     // Initial check
     updateCardsOnScroll();

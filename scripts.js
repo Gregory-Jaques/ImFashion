@@ -170,21 +170,33 @@ function initPortfolioCarousel() {
         
         isDragging = false;
         track.style.cursor = 'grab';
-        track.style.transition = 'transform 0.3s ease-out';
         
         const deltaX = currentX - startX;
         let finalTransform = initialTransform + deltaX;
         
-        // Snap back to bounds if outside
+        // Snap back to bounds if outside with smooth transition
         finalTransform = Math.max(minTranslateX, Math.min(maxTranslateX, finalTransform));
         
-        currentTranslateX = finalTransform;
-        updateCarousel();
-        
-        // Remove transition after animation
-        setTimeout(() => {
+        // Only add transition if we need to snap back to bounds
+        if (finalTransform !== initialTransform + deltaX) {
+            track.style.transition = 'transform 0.3s ease-out';
+            setTimeout(() => {
+                track.style.transition = 'none';
+            }, 300);
+        } else {
             track.style.transition = 'none';
-        }, 300);
+        }
+        
+        currentTranslateX = finalTransform;
+        track.style.transform = `translateX(${currentTranslateX}px)`;
+        
+        // Update button states
+        if (prevBtn && nextBtn) {
+            prevBtn.style.opacity = currentTranslateX >= maxTranslateX ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentTranslateX >= maxTranslateX ? 'none' : 'auto';
+            nextBtn.style.opacity = currentTranslateX <= minTranslateX ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentTranslateX <= minTranslateX ? 'none' : 'auto';
+        }
     }
     
     // Touch functionality
@@ -224,21 +236,33 @@ function initPortfolioCarousel() {
         if (!isDragging) return;
         
         isDragging = false;
-        track.style.transition = 'transform 0.3s ease-out';
         
         const deltaX = currentX - startX;
         let finalTransform = initialTransform + deltaX;
         
-        // Snap back to bounds if outside
+        // Snap back to bounds if outside with smooth transition
         finalTransform = Math.max(minTranslateX, Math.min(maxTranslateX, finalTransform));
         
-        currentTranslateX = finalTransform;
-        updateCarousel();
-        
-        // Remove transition after animation
-        setTimeout(() => {
+        // Only add transition if we need to snap back to bounds
+        if (finalTransform !== initialTransform + deltaX) {
+            track.style.transition = 'transform 0.3s ease-out';
+            setTimeout(() => {
+                track.style.transition = 'none';
+            }, 300);
+        } else {
             track.style.transition = 'none';
-        }, 300);
+        }
+        
+        currentTranslateX = finalTransform;
+        track.style.transform = `translateX(${currentTranslateX}px)`;
+        
+        // Update button states
+        if (prevBtn && nextBtn) {
+            prevBtn.style.opacity = currentTranslateX >= maxTranslateX ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentTranslateX >= maxTranslateX ? 'none' : 'auto';
+            nextBtn.style.opacity = currentTranslateX <= minTranslateX ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentTranslateX <= minTranslateX ? 'none' : 'auto';
+        }
     }
     
     // Event listeners

@@ -77,11 +77,40 @@ function initPortfolioCarousel() {
     let initialTransform = 0;
     let maxTranslateX = 0;
     let minTranslateX = 0;
+    let isInitialized = false;
     
-    // Calculate dimensions and limits
-    function updateDimensions() {
+    // Wait for images to load before initializing
+    function waitForImages() {
+        const images = track.querySelectorAll('img');
+        const imagePromises = Array.from(images).map(img => {
+            if (img.complete) {
+                return Promise.resolve();
+            }
+            return new Promise(resolve => {
+                img.addEventListener('load', resolve);
+                img.addEventListener('error', resolve); // Continue even if image fails
+            });
+        });
+        
+        return Promise.all(imagePromises);
+    }
+    
+    // Calculate dimensions and limits with validation and retry
+    function updateDimensions(retryCount = 0) {
         const containerWidth = container.offsetWidth;
         const trackWidth = track.scrollWidth;
+        
+        // Validate dimensions - retry if trackWidth is 0 or invalid
+        if (trackWidth === 0 || containerWidth === 0) {
+            if (retryCount < 3) {
+                console.warn(`Portfolio carousel: Invalid dimensions detected (container: ${containerWidth}px, track: ${trackWidth}px). Retrying... (${retryCount + 1}/3)`);
+                setTimeout(() => updateDimensions(retryCount + 1), 100 * (retryCount + 1));
+                return;
+            } else {
+                console.error('Portfolio carousel: Failed to get valid dimensions after 3 retries');
+                return;
+            }
+        }
         
         // Calculate limits for free scrolling
         maxTranslateX = 0; // Can't scroll right beyond start
@@ -96,6 +125,11 @@ function initPortfolioCarousel() {
         // Ensure current position is within bounds
         currentTranslateX = Math.max(minTranslateX, Math.min(maxTranslateX, currentTranslateX));
         updateCarousel();
+        
+        if (!isInitialized) {
+            isInitialized = true;
+            console.log(`Portfolio carousel initialized: container ${containerWidth}px, track ${trackWidth}px`);
+        }
     }
     
     // Update carousel position
@@ -301,12 +335,34 @@ function initPortfolioCarousel() {
     // Window resize handler
     window.addEventListener('resize', updateDimensions);
     
-    // Initial setup
+    // Initial setup with improved initialization
     track.style.cursor = 'grab';
-    updateDimensions();
-    updateCarousel();
     
-    console.log('Portfolio carousel initialized with', cards.length, 'cards');
+    // Initialize with delay and image loading wait
+    async function initialize() {
+        try {
+            // Wait for images to load
+            await waitForImages();
+            
+            // Add a small delay to ensure DOM is fully settled
+            await new Promise(resolve => setTimeout(resolve, 100));
+            
+            // Now calculate dimensions
+            updateDimensions();
+            
+            console.log('Portfolio carousel initialized with', cards.length, 'cards');
+        } catch (error) {
+            console.error('Error initializing portfolio carousel:', error);
+            // Fallback initialization without image waiting
+            setTimeout(() => {
+                updateDimensions();
+                console.log('Portfolio carousel initialized (fallback) with', cards.length, 'cards');
+            }, 200);
+        }
+    }
+    
+    // Start initialization
+    initialize();
 }
 
 document.addEventListener('DOMContentLoaded', function() {

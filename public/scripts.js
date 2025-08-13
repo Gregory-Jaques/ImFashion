@@ -59,9 +59,238 @@ function initCarousel() {
     animateCarousel();
 }
 
+// Portfolio Carousel with free drag functionality
+function initPortfolioCarousel() {
+    const container = document.querySelector('.portfolio-carousel-container');
+    const track = document.querySelector('.portfolio-carousel-track');
+    const prevBtn = document.querySelector('.portfolio-nav-prev');
+    const nextBtn = document.querySelector('.portfolio-nav-next');
+    const cards = document.querySelectorAll('.portfolio-card');
+    
+    if (!container || !track || cards.length === 0) return;
+    
+    // Free drag variables
+    let currentTranslateX = 0;
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    let initialTransform = 0;
+    let maxTranslateX = 0;
+    let minTranslateX = 0;
+    
+    // Calculate dimensions and limits
+    function updateDimensions() {
+        const containerWidth = container.offsetWidth;
+        const trackWidth = track.scrollWidth;
+        
+        // Calculate limits for free scrolling
+        maxTranslateX = 0; // Can't scroll right beyond start
+        
+        // Only set minTranslateX if track is wider than container
+        if (trackWidth > containerWidth) {
+            minTranslateX = containerWidth - trackWidth; // Can scroll left to show all content
+        } else {
+            minTranslateX = 0; // If track fits in container, don't allow scrolling
+        }
+        
+        // Ensure current position is within bounds
+        currentTranslateX = Math.max(minTranslateX, Math.min(maxTranslateX, currentTranslateX));
+        updateCarousel();
+    }
+    
+    // Update carousel position
+    function updateCarousel() {
+        track.style.transform = `translateX(${currentTranslateX}px)`;
+        
+        // Update button states if they exist
+        if (prevBtn && nextBtn) {
+            prevBtn.style.opacity = currentTranslateX >= maxTranslateX ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentTranslateX >= maxTranslateX ? 'none' : 'auto';
+            nextBtn.style.opacity = currentTranslateX <= minTranslateX ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentTranslateX <= minTranslateX ? 'none' : 'auto';
+        }
+    }
+    
+    // Navigation functions (if buttons exist)
+    function goToPrev() {
+        const scrollAmount = container.offsetWidth * 0.8; // Scroll 80% of container width
+        currentTranslateX = Math.min(maxTranslateX, currentTranslateX + scrollAmount);
+        track.style.transition = 'transform 0.3s ease-out';
+        updateCarousel();
+        setTimeout(() => {
+            track.style.transition = 'none';
+        }, 300);
+    }
+    
+    function goToNext() {
+        const scrollAmount = container.offsetWidth * 0.8; // Scroll 80% of container width
+        currentTranslateX = Math.max(minTranslateX, currentTranslateX - scrollAmount);
+        track.style.transition = 'transform 0.3s ease-out';
+        updateCarousel();
+        setTimeout(() => {
+            track.style.transition = 'none';
+        }, 300);
+    }
+    
+    // Mouse drag functionality
+    function handleMouseDown(e) {
+        isDragging = true;
+        startX = e.clientX;
+        currentX = e.clientX;
+        initialTransform = currentTranslateX;
+        track.style.cursor = 'grabbing';
+        track.style.transition = 'none';
+        
+        // Prevent text selection
+        e.preventDefault();
+    }
+    
+    function handleMouseMove(e) {
+        if (!isDragging) return;
+        
+        e.preventDefault();
+        currentX = e.clientX;
+        const deltaX = currentX - startX;
+        let newTransform = initialTransform + deltaX;
+        
+        // Apply elastic resistance at boundaries
+        if (newTransform > maxTranslateX) {
+            const excess = newTransform - maxTranslateX;
+            newTransform = maxTranslateX + excess * 0.3; // Elastic effect
+        } else if (newTransform < minTranslateX) {
+            const excess = minTranslateX - newTransform;
+            newTransform = minTranslateX - excess * 0.3; // Elastic effect
+        }
+        
+        track.style.transform = `translateX(${newTransform}px)`;
+    }
+    
+    function handleMouseUp() {
+        if (!isDragging) return;
+        
+        isDragging = false;
+        track.style.cursor = 'grab';
+        track.style.transition = 'transform 0.3s ease-out';
+        
+        const deltaX = currentX - startX;
+        let finalTransform = initialTransform + deltaX;
+        
+        // Snap back to bounds if outside
+        finalTransform = Math.max(minTranslateX, Math.min(maxTranslateX, finalTransform));
+        
+        currentTranslateX = finalTransform;
+        updateCarousel();
+        
+        // Remove transition after animation
+        setTimeout(() => {
+            track.style.transition = 'none';
+        }, 300);
+    }
+    
+    // Touch functionality
+    function handleTouchStart(e) {
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        currentX = e.touches[0].clientX;
+        initialTransform = currentTranslateX;
+        track.style.transition = 'none';
+    }
+    
+    function handleTouchMove(e) {
+        if (!isDragging) return;
+        
+        currentX = e.touches[0].clientX;
+        const deltaX = currentX - startX;
+        let newTransform = initialTransform + deltaX;
+        
+        // Apply elastic resistance at boundaries
+        if (newTransform > maxTranslateX) {
+            const excess = newTransform - maxTranslateX;
+            newTransform = maxTranslateX + excess * 0.3; // Elastic effect
+        } else if (newTransform < minTranslateX) {
+            const excess = minTranslateX - newTransform;
+            newTransform = minTranslateX - excess * 0.3; // Elastic effect
+        }
+        
+        track.style.transform = `translateX(${newTransform}px)`;
+        
+        // Prevent page scroll when dragging horizontally
+        if (Math.abs(deltaX) > 10) {
+            e.preventDefault();
+        }
+    }
+    
+    function handleTouchEnd() {
+        if (!isDragging) return;
+        
+        isDragging = false;
+        track.style.transition = 'transform 0.3s ease-out';
+        
+        const deltaX = currentX - startX;
+        let finalTransform = initialTransform + deltaX;
+        
+        // Snap back to bounds if outside
+        finalTransform = Math.max(minTranslateX, Math.min(maxTranslateX, finalTransform));
+        
+        currentTranslateX = finalTransform;
+        updateCarousel();
+        
+        // Remove transition after animation
+        setTimeout(() => {
+            track.style.transition = 'none';
+        }, 300);
+    }
+    
+    // Event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', goToPrev);
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', goToNext);
+    }
+    
+    // Mouse events
+    track.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    // Touch events
+    track.addEventListener('touchstart', handleTouchStart, { passive: false });
+    track.addEventListener('touchmove', handleTouchMove, { passive: false });
+    track.addEventListener('touchend', handleTouchEnd);
+    
+    // Keyboard navigation
+    container.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            goToPrev();
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            goToNext();
+        }
+    });
+    
+    // Make container focusable for keyboard navigation
+    container.setAttribute('tabindex', '0');
+    
+    // Window resize handler
+    window.addEventListener('resize', updateDimensions);
+    
+    // Initial setup
+    track.style.cursor = 'grab';
+    updateDimensions();
+    updateCarousel();
+    
+    console.log('Portfolio carousel initialized with', cards.length, 'cards');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize carousel if it exists
     initCarousel();
+    
+    // Initialize portfolio carousel
+    initPortfolioCarousel();
 
 // Testimonials Carousel
 function initTestimonialsCarousel() {

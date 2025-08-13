@@ -216,50 +216,152 @@
 
     <!-- Team Carousel Section -->
     <section class="team-carousel-section w-full py-16 bg-gray-50 overflow-hidden">
-        <div class="team-carousel-container relative w-full h-96 xl:h-[600px]">
-            <div class="team-carousel-track flex transition-transform duration-1000 ease-linear" style="transform: translateX(0px);">
-                <!-- Team Member Cards - Duplicated for infinite scroll -->
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x237" alt="Miembro del equipo" />
+        <!-- Primera fila - Desplazamiento hacia la derecha -->
+        <div class="team-carousel-container-right relative w-full h-48 xl:h-60 mb-8">
+            <div class="team-carousel-track-right flex" style="transform: translateX(0px);">
+                <!-- Team Member Cards - Primera fila (7 personas) -->
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 1" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 1</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 1</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 2" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 2</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 2</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 3" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 3</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 3</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 4" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 4</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 4</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 5" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 5</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 5</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 6" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 6</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 6</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 7" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 7</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 7</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Duplicate cards for infinite scroll -->
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 1" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 1</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 1</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 2" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 2</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 3" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 3</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 3</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 4" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 4</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 4</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 5" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 5</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 5</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 6" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 6</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 6</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 7" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 7</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 7</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
                     <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
@@ -269,17 +371,7 @@
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x236" alt="Miembro del equipo" />
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
-                        <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
                     <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
@@ -289,7 +381,133 @@
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Segunda fila - Desplazamiento hacia la izquierda -->
+        <div class="team-carousel-container-left relative w-full h-48 xl:h-60">
+            <div class="team-carousel-track-left flex" style="transform: translateX(0px);">
+                <!-- Team Member Cards - Segunda fila (7 personas) -->
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 8" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 8</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 8</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 9" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 9</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 9</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 10" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 10</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 10</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 11" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 11</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 11</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 12" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 12</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 12</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 13" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 13</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 13</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 14" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 14</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 14</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
                     <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
@@ -300,47 +518,77 @@
                 </div>
                 
                 <!-- Duplicate cards for infinite scroll -->
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x237" alt="Miembro del equipo" />
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 8" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 8</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 8</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 9" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 9</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 9</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 10" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 10</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 10</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 11" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 11</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 11</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 12" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 12</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 12</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 13" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 13</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 13</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo 14" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Persona 14</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo 14</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
                     <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
@@ -350,17 +598,7 @@
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
-                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x236" alt="Miembro del equipo" />
-                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
-                        <div class="text-white text-center p-4">
-                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
-                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
                     <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">
@@ -370,7 +608,47 @@
                     </div>
                 </div>
                 
-                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-[197px] xl:h-[236px] mx-2 xl:mx-4 relative group cursor-pointer">
                     <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
                         <div class="text-white text-center p-4">

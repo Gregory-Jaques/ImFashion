@@ -365,59 +365,62 @@ function initPortfolioCarousel() {
     initialize();
 }
 
-// Team Carousel - Infinite scroll to the right
+// Team Carousel - Two rows with opposite directions (continuous infinite scroll)
 function initTeamCarousel() {
-    const carousel = document.querySelector('.team-carousel-container');
-    const track = document.querySelector('.team-carousel-track');
+    // Right-moving carousel (first row)
+    const carouselRight = document.querySelector('.team-carousel-container-right');
+    const trackRight = document.querySelector('.team-carousel-track-right');
     
-    if (!carousel || !track) return;
+    // Left-moving carousel (second row)
+    const carouselLeft = document.querySelector('.team-carousel-container-left');
+    const trackLeft = document.querySelector('.team-carousel-track-left');
     
-    // Variables para controlar la animación
-    let currentPosition = 0;
-    const speed = 0.8; // Velocidad del movimiento (píxeles por frame)
-    let isPaused = false;
-    let animationId;
+    if (!carouselRight || !trackRight || !carouselLeft || !trackLeft) return;
     
-    // Función para animar el carrusel
-    function animateTeamCarousel() {
-        if (!isPaused) {
-            currentPosition -= speed;
-            
-            // Resetear posición cuando llegue a la mitad (tarjetas duplicadas)
-            const trackWidth = track.scrollWidth / 2;
-            if (Math.abs(currentPosition) >= trackWidth) {
-                currentPosition = 0;
-            }
-            
-            track.style.transform = `translateX(${currentPosition}px)`;
+    // Variables para controlar la animación del carrusel derecho
+    let currentPositionRight = 0;
+    const speedRight = 0.8; // Velocidad del movimiento (píxeles por frame)
+    let animationIdRight;
+    
+    // Variables para controlar la animación del carrusel izquierdo
+    let currentPositionLeft = 0;
+    const speedLeft = 0.8; // Velocidad del movimiento (píxeles por frame)
+    let animationIdLeft;
+    
+    // Función para animar el carrusel derecho (hacia la derecha) - infinito continuo
+    function animateTeamCarouselRight() {
+        currentPositionRight -= speedRight;
+        
+        // Crear efecto infinito suave sin resetear bruscamente
+        const trackWidth = trackRight.scrollWidth / 2;
+        if (Math.abs(currentPositionRight) >= trackWidth) {
+            currentPositionRight += trackWidth;
         }
         
-        animationId = requestAnimationFrame(animateTeamCarousel);
+        trackRight.style.transform = `translateX(${currentPositionRight}px)`;
+        animationIdRight = requestAnimationFrame(animateTeamCarouselRight);
     }
     
-    // Función para pausar el carrusel
-    function pauseTeamCarousel() {
-        isPaused = true;
+    // Función para animar el carrusel izquierdo (hacia la izquierda) - infinito continuo
+    function animateTeamCarouselLeft() {
+        currentPositionLeft += speedLeft;
+        
+        // Crear efecto infinito suave sin resetear bruscamente
+        const trackWidth = trackLeft.scrollWidth / 2;
+        if (currentPositionLeft >= trackWidth) {
+            currentPositionLeft -= trackWidth;
+        }
+        
+        trackLeft.style.transform = `translateX(${currentPositionLeft}px)`;
+        animationIdLeft = requestAnimationFrame(animateTeamCarouselLeft);
     }
     
-    // Función para reanudar el carrusel
-    function resumeTeamCarousel() {
-        isPaused = false;
-    }
+    // Inicializar posición del carrusel izquierdo
+    currentPositionLeft = -(trackLeft.scrollWidth / 2);
     
-    // Event listeners para hover en el contenedor
-    carousel.addEventListener('mouseenter', pauseTeamCarousel);
-    carousel.addEventListener('mouseleave', resumeTeamCarousel);
-    
-    // Event listeners individuales para cada miembro del equipo
-    const teamMembers = track.querySelectorAll('.team-member');
-    teamMembers.forEach(member => {
-        member.addEventListener('mouseenter', pauseTeamCarousel);
-        member.addEventListener('mouseleave', resumeTeamCarousel);
-    });
-    
-    // Iniciar la animación
-    animateTeamCarousel();
+    // Iniciar las animaciones continuas
+    animateTeamCarouselRight();
+    animateTeamCarouselLeft();
 }
 
 document.addEventListener('DOMContentLoaded', function() {

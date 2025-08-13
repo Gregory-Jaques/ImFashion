@@ -469,7 +469,10 @@ function initTestimonialsCarousel() {
     // Initialize testimonials carousel
     initTestimonialsCarousel();
     
-    // Initialize mobile menu
+    // Initialize stacking cards effect
+    initStackingCards();
+    
+    // Setup mobile menu
     setupMobileMenu();
     
     // Initialize service events
@@ -962,6 +965,61 @@ function initNavigationColorSystem() {
     
     // Initial check
     updateNavColors();
+}
+
+// Stacking Cards Scroll Effect
+function initStackingCards() {
+    const cards = document.querySelectorAll('.stacking-card');
+    const container = document.querySelector('.stacking-cards-container');
+    
+    if (!cards.length || !container) return;
+    
+    function updateCardsOnScroll() {
+        const containerRect = container.getBoundingClientRect();
+        const containerTop = containerRect.top;
+        const containerHeight = containerRect.height;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate scroll progress through the container
+        const scrollProgress = Math.max(0, Math.min(1, -containerTop / (containerHeight - viewportHeight)));
+        
+        cards.forEach((card, index) => {
+            const cardProgress = scrollProgress * cards.length;
+            const cardIndex = index + 1;
+            
+            // Remove all animation classes first
+            card.classList.remove('card-hidden', 'card-visible', 'card-stacked');
+            
+            if (cardProgress < cardIndex - 0.5) {
+                // Card hasn't appeared yet
+                card.classList.add('card-hidden');
+            } else if (cardProgress >= cardIndex - 0.5 && cardProgress < cardIndex + 0.5) {
+                // Card is currently visible
+                card.classList.add('card-visible');
+            } else {
+                // Card is stacked (passed)
+                card.classList.add('card-stacked');
+            }
+        });
+    }
+    
+    // Throttled scroll handler
+    let ticking = false;
+    function handleStackingScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateCardsOnScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleStackingScroll);
+    
+    // Initial check
+    updateCardsOnScroll();
 }
 
 // Duplicate DOMContentLoaded block removed - functionality moved to main DOMContentLoaded block above

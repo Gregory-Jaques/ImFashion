@@ -13,3 +13,49 @@
     display: block;
     opacity: 1;
 }
+
+/* Stacking Cards Styles */
+.stacking-cards-container {
+    min-height: 300vh; /* Provides space for scroll effect */
+}
+
+.stacking-card {
+    margin: 0 1rem;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    will-change: transform, opacity;
+}
+
+/* Desktop styles */
+@media (min-width: 1280px) {
+    .stacking-cards-container {
+        min-height: 200vh;
+    }
+    
+    .stacking-card {
+        margin: 0 2rem;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Card stacking animation states */
+.stacking-card.card-hidden {
+    opacity: 0;
+    transform: translateY(100px) scale(0.95);
+}
+
+.stacking-card.card-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.stacking-card.card-stacked {
+    transform: translateY(-20px) scale(0.98);
+    opacity: 0.8;
+}

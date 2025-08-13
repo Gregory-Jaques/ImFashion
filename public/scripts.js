@@ -365,9 +365,67 @@ function initPortfolioCarousel() {
     initialize();
 }
 
+// Team Carousel - Infinite scroll to the right
+function initTeamCarousel() {
+    const carousel = document.querySelector('.team-carousel-container');
+    const track = document.querySelector('.team-carousel-track');
+    
+    if (!carousel || !track) return;
+    
+    // Variables para controlar la animación
+    let currentPosition = 0;
+    const speed = 0.8; // Velocidad del movimiento (píxeles por frame)
+    let isPaused = false;
+    let animationId;
+    
+    // Función para animar el carrusel
+    function animateTeamCarousel() {
+        if (!isPaused) {
+            currentPosition -= speed;
+            
+            // Resetear posición cuando llegue a la mitad (tarjetas duplicadas)
+            const trackWidth = track.scrollWidth / 2;
+            if (Math.abs(currentPosition) >= trackWidth) {
+                currentPosition = 0;
+            }
+            
+            track.style.transform = `translateX(${currentPosition}px)`;
+        }
+        
+        animationId = requestAnimationFrame(animateTeamCarousel);
+    }
+    
+    // Función para pausar el carrusel
+    function pauseTeamCarousel() {
+        isPaused = true;
+    }
+    
+    // Función para reanudar el carrusel
+    function resumeTeamCarousel() {
+        isPaused = false;
+    }
+    
+    // Event listeners para hover en el contenedor
+    carousel.addEventListener('mouseenter', pauseTeamCarousel);
+    carousel.addEventListener('mouseleave', resumeTeamCarousel);
+    
+    // Event listeners individuales para cada miembro del equipo
+    const teamMembers = track.querySelectorAll('.team-member');
+    teamMembers.forEach(member => {
+        member.addEventListener('mouseenter', pauseTeamCarousel);
+        member.addEventListener('mouseleave', resumeTeamCarousel);
+    });
+    
+    // Iniciar la animación
+    animateTeamCarousel();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize carousel if it exists
     initCarousel();
+    
+    // Initialize team carousel
+    initTeamCarousel();
     
     // Initialize portfolio carousel
     initPortfolioCarousel();

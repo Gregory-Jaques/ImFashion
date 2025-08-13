@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ImFashion - Foundation</title>
+    <title>ImFashion - Growth Atelier</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -192,249 +192,200 @@
         </div>
     </div>
 
+    
+  <!--   
+    <section class="absolute w-screen xl:w-full h-screen overflow-hidden z-[1]">
+        <img src="images/bgcasos.png" alt="Hero Background" class="w-full h-screen object-cover top-0 object-right xl: object-center hidden xl:block">
+        <img src="images/bgcasos.png" alt="Hero Background" class="w-full h-screen object-cover top-0 object-right xl: object-center xl:hidden">
+    </section>-->
+
+    <section class="relative h-auto flex flex-col z-[2]">
     <!-- Hero Section -->
-    <section class="absolute w-screen xl:w-full h-[100vh] bg-black">
-        <img src="images/bgrebui-big.jpg" alt="Hero Background" class="w-full h-screen object-cover sticky top-0 object-right xl: object-center opacity-80 hidden xl:block">
-        <img src="images/bgrebui-mobile.jpg" alt="Hero Background" class="w-full h-screen object-cover sticky top-0 object-right xl: object-center opacity-80 xl:hidden">
+    <div class=" flex-1 flex flex-col justify-center items-center px-4 py-24">
+        <div class="max-w-5xl mx-auto text-center">
+        <h1 class="text-3xl xl:text-5xl font-bold font-['Inter'] leading-tight mb-8 mt-12">
+            <span class="text-black">Somos el equipo que hace que</span><br>
+            <span class="text-black">tu marca crezca cuando nadie <br>está mirando.</span>
+        </h1>
+        <p class="text-xl font-extralight font-['Inter'] leading-relaxed mb-12 max-w-2xl mx-auto">
+            Venimos de la moda. La hemos vivido desde adentro. <br class="hidden xl:block">Y por eso sabemos lo que hace falta cuando ya no basta <br class="hidden xl:block"> con una campaña bonita.
+        </p>
+        </div>
+    </div>
     </section>
 
-    <section class="relative w-full h-[100vh] z-10">    
-        <div class="relative z-10 flex items-center justify-start h-screen px-4 xl:px-16">
-            <div class="max-w-72 xl:max-w-4xl">
-
-                <header class="mt-32 self-stretch inline-flex flex-col justify-start items-start gap-4 xl:gap-7">
-                    <div class="self-stretch flex flex-col justify-start items-start">
-                        <span class="self-stretch justify-center text-[#800020] text-xl xl:text-3xl font-normal font-['Inter'] leading-none tracking-tight">Rebuild</span>
-                     </div>
-                    <div class="self-stretch flex flex-col justify-start items-start">
-                        <h1 class="w-full xl:w-[1087px] justify-center text-white text-3xl xl:text-6xl font-bold font-['Inter'] leading-tight xl:leading-[78.75px]">¿Tu marca se ha estancado<br class="hidden xl:block"> o ha perdido el rumbo?</h1>
+    <!-- Team Carousel Section -->
+    <section class="team-carousel-section w-full py-16 bg-gray-50 overflow-hidden">
+        <div class="team-carousel-container relative w-full h-96 xl:h-[600px]">
+            <div class="team-carousel-track flex transition-transform duration-1000 ease-linear" style="transform: translateX(0px);">
+                <!-- Team Member Cards - Duplicated for infinite scroll -->
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
                     </div>
-                    <div class="w-full xl:w-[588px] max-w-full xl:max-w-[588px] flex flex-col justify-start items-start">
-                        <p class="w-full xl:w-[775px] justify-center text-white text-lg xl:text-2xl font-normal font-['Inter'] leading-relaxed">Reordenamos, reactivamos y redefinimos tu negocio desde 
-lo estratégico y operativo.</p>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
                     </div>
-                </header>
-
-                <nav class="mt-6 w-full xl:w-[784px] h-auto xl:h-28 pt-4 xl:pt-7 inline-flex flex-col justify-center items-start gap-2 xl:gap-3.5">
-                    <button class="cursor-pointer w-full xl:w-auto h-12 xl:h-10 px-6 xl:px-7 py-3 xl:py-2 rounded-full outline outline-1 outline-offset-[-1px] outline-white inline-flex justify-center items-center hover:bg-white hover:text-black transition-colors">
-                        <a href="#" class="text-center justify-center text-white text-lg xl:text-xl font-normal font-['Inter'] leading-tight tracking-tight hover:text-black">Haz el test y descubre si estás en esta etapa</a>
-                    </button>
-                    <button class="cursor-pointer w-full xl:w-auto h-12 xl:h-10 px-6 xl:px-7 pt-3 xl:pt-1.5 pb-3 xl:pb-2 bg-white rounded-full outline outline-2 outline-offset-[-2px] outline-white inline-flex justify-center items-center hover:bg-black hover:text-white hover:outline-black transition-colors">
-                        <a href="#" class="text-center justify-center text-zinc-900 text-lg xl:text-xl font-normal font-['Inter'] leading-tight tracking-tight hover:text-white">Agenda una llamada</a>
-                    </button>
-                </nav>
-
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Duplicate cards for infinite scroll -->
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x237" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/198x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member flex-shrink-0 w-32 h-48 xl:w-48 xl:h-60 mx-2 xl:mx-4 relative group cursor-pointer">
+                    <img class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105" src="https://placehold.co/197x236" alt="Miembro del equipo" />
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-lg flex items-end justify-center opacity-0 group-hover:opacity-100">
+                        <div class="text-white text-center p-4">
+                            <h3 class="font-semibold text-sm xl:text-base">Nombre Apellido</h3>
+                            <p class="text-xs xl:text-sm opacity-90">Cargo</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>    
-
-    <!-- Brand Showcase Section -->
-    <section class="relative w-full h-auto py-16 xl:py-20 bg-white">
-        <div class="w-full max-w-7xl mx-auto px-6 xl:px-8 flex flex-col justify-center items-center gap-12 xl:gap-20">
-            <section class="w-full flex flex-col justify-start items-center">
-                <header class="w-full text-center">
-                <h2 class="text-red-900 text-3xl xl:text-5xl font-normal font-['Inter'] leading-tight xl:leading-[52.50px]">Es para ti si:</h2>
-                </header>
+    </section>
     
-                <!-- Mobile Layout -->
-            <ul class="xl:hidden w-full flex flex-col gap-6 mt-8">
-                <li class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-5 h-5 bg-red-900 rounded-full flex justify-center items-center mt-1">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.16003L5.74992 10.5767L2.83325 7.66003" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    </div>
-                    <p class="flex-1 text-gray-700 text-lg font-normal font-['Inter'] leading-relaxed text-left break-words">El ROAS está cayendo. El Paid Media ya no
-rinde</p>
-                </li>
-                <li class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-5 h-5 bg-red-900 rounded-full flex justify-center items-center mt-1">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.16003L5.74992 10.5767L2.83325 7.66003" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <p class="flex-1 text-gray-700 text-lg font-normal font-['Inter'] leading-relaxed text-left break-words">El equipo está perdido, desgastado y no
-saben cómo solucionarlo</p>
-                </li>
-                <li class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-5 h-5 bg-red-900 rounded-full flex justify-center items-center mt-1">   
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.34998L5.74992 10.7666L2.83325 7.84998" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    </div>
-                    <p class="flex-1 text-gray-700 text-lg font-normal font-['Inter'] leading-relaxed text-left break-words">Cada vez dependes más de descuentos
-para sobrevivir</p>
-                </li>
-                <li class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-5 h-5 bg-red-900 rounded-full flex justify-center items-center mt-1">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.34998L5.74992 10.7666L2.83325 7.84998" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    </div>
-                    <p class="flex-1 text-gray-700 text-lg font-normal font-['Inter'] leading-relaxed text-left break-words">Ya no sabes si el problema es el producto,
-el canal o el cliente</p>
-                </li>
-                <li class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-5 h-5 bg-red-900 rounded-full flex justify-center items-center mt-1">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 3.52991L5.74992 9.94657L2.83325 7.02991" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    </div>
-                    <p class="flex-1 text-gray-700 text-lg font-normal font-['Inter'] leading-relaxed text-left break-words">Tienes stock inmovilizado y no sabes
-cómo darle salida</p>
-                </li>
-            </ul>
-    
-            <!-- Desktop Layout -->
-            <div class="hidden xl:flex xl:justify-center xl:w-full xl:mt-12">
-              <div class="xl:max-w-5xl xl:w-full">
-                <ul class="xl:grid xl:grid-cols-2 xl:gap-x-12 xl:gap-y-10">
-                  <li class="xl:flex xl:items-start xl:gap-6">
-                    <div class="xl:flex-shrink-0 xl:w-5 xl:h-5 xl:bg-red-900 xl:rounded-full xl:flex xl:justify-center xl:items-center xl:mt-2">
-                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.16003L5.74992 10.5767L2.83325 7.66003" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <p class="xl:text-gray-700 xl:text-2xl xl:font-normal xl:font-['Inter'] xl:leading-relaxed">El ROAS está cayendo. El Paid Media ya no
-rinde</p>
-                  </li>
-                  <li class="xl:flex xl:items-start xl:gap-6">
-                    <div class="xl:flex-shrink-0 xl:w-5 xl:h-5 xl:bg-red-900 xl:rounded-full xl:flex xl:justify-center xl:items-center xl:mt-2">
-                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.16003L5.74992 10.5767L2.83325 7.66003" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <p class="xl:text-gray-700 xl:text-2xl xl:font-normal xl:font-['Inter'] xl:leading-relaxed">El equipo está perdido, desgastado y no
-saben cómo solucionarlo</p>
-                  </li>
-                  <li class="xl:flex xl:items-start xl:gap-6">
-                    <div class="xl:flex-shrink-0 xl:w-5 xl:h-5 xl:bg-red-900 xl:rounded-full xl:flex xl:justify-center xl:items-center xl:mt-2">
-                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.34998L5.74992 10.7666L2.83325 7.84998" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <p class="xl:text-gray-700 xl:text-2xl xl:font-normal xl:font-['Inter'] xl:leading-relaxed">Cada vez dependes más de descuentos
-para sobrevivir</p>
-                  </li>
-                  <li class="xl:flex xl:items-start xl:gap-6">
-                    <div class="xl:flex-shrink-0 xl:w-5 xl:h-5 xl:bg-red-900 xl:rounded-full xl:flex xl:justify-center xl:items-center xl:mt-2">
-                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 4.34998L5.74992 10.7666L2.83325 7.84998" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <p class="xl:text-gray-700 xl:text-2xl xl:font-normal xl:font-['Inter'] xl:leading-relaxed">Ya no sabes si el problema es el producto,
-el canal o el cliente</p>
-                  </li>
-                  <li class="xl:flex xl:items-start xl:gap-6 xl:col-span-2 xl:justify-center">
-                    <div class="xl:flex-shrink-0 xl:w-5 xl:h-5 xl:bg-red-900 xl:rounded-full xl:flex xl:justify-center xl:items-center xl:mt-2">
-                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.1666 3.52991L5.74992 9.94657L2.83325 7.02991" stroke="white" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <p class="xl:text-gray-700 xl:text-2xl xl:font-normal xl:font-['Inter'] xl:leading-relaxed">Tienes stock inmovilizado y no sabes
-cómo darle salida</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            </section>
-      </div>
-  </section>
 
-<!--
-
-    <section class="relative w-full h-screen overflow-hidden bg-white">
-        <div class="flex items-center justify-center h-full">
-            <div class="flex items-center space-x-16">
-                <img src="images/brand-img-1.jpg" alt="Fashion Model" class="">
-                <img src="images/fashion-brand.svg" alt="Fashion Brand" class="">
-            </div>
-        </div>
-        
-        <div class="absolute bottom-32 right-16">
-            <h2 class="text-red-900 text-5xl font-medium leading-tight text-right">Growth Atelier</h2>
-        </div>
-    </section>
--->
-    <!-- Understanding Section -->
-    <section class="w-full xl:h-[100vh] bg-[#F5F1EB] py-8 xl:py-24 relative">
-        <div class="max-w-[1200px] h-full mx-auto flex flex-wrap relative">
-            <div class="w-1/2 h-full relative hidden xl:block overflow-hidden">
-                <div class="w-full top-0">
-                    <img src="images/ph1-rebuild.png" alt="photo de un hombre 1" class="w-11/12 m-5">
-                </div>
-            </div>
-            <div class="w-full xl:w-1/2 xl:h-full xl:pl-16">
-                <img src="images/ph1-rebuild.png" alt="photo de un hombre 1" class="w-11/12 mx-auto xl:hidden">
-                <h2 class="text-black text-5xl font-bold leading-tight mb-8 mt-10 ml-5 xl:ml-0 xl:mt-44">Lo que conseguirás:</h2>
-                    
-                    <div class="mb-12 ml-5 xl:ml-0 w-4/5 xl:w-auto">
-                        <ul class="text-black text-[20px] xl:text-1xl font-light xl:leading-loose space-y-6 xl:space-y-0">
-                            <li>• Bajará el CPA y subirá el LTV</li>
-                            <li>• Mejorarás márgenes y eficiencia operativa</li>
-                            <li>• Redefinirás tu propuesta y volverás a conectar con tu cliente</li>
-                            <li>• Tu equipo se remotivará con un rumbo claro</li>
-                            <li>• Volverás a crecer, con una marca más fuerte</li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section id="casos-exito" class="w-full bg-white py-12 xl:py-24">
-        <div class="w-10/12 xl:max-w-10/12 mx-auto px-0 ">
-            <div class="text-center mb-0 xl:mb-16">
-                <h2 class="text-[#800020] text-5xl xl:text-6xl font-light leading-tight mb-0 xl:mb-8">Cómo lo haremos:</h2>
-            </div>
-            
-            <!-- Results Grid -->
-            <div class="grid grid-cols-1 xl:grid-cols-5 gap-8 xl:gap-6 mb-24 mt-16 xl:mt-32">
-                <div class="text-center border-[1px] rounded-2xl border-dashed border-[#0000008e]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4">
-                        <img src="images/icodire.svg" alt="icono de direccion estrategica" class="w-full">
-                    </div>
-                    <h3 class="w-11/12 mb-4 m-auto text-black text-2xl xl:text-lg font-normal leading-snug">Auditoría completa de
-marca, funnel, CRM y performance</h3>
-                </div>
-                
-                <div class="text-center border-[1px] rounded-2xl border-dashed border-[#0000008e]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4">
-                        <img src="images/icomoney.svg" alt="icono de direccion estrategica" class="w-full">
-                    </div>
-                    <h3 class="w-11/12 mb-4 m-auto text-black text-2xl xl:text-lg font-normal leading-snug">Simplificación de
-catálogo y estrategia de precios</h3>
-                </div>
-                
-                <div class="text-center border-[1px] rounded-2xl border-dashed border-[#0000008e]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4">
-                        <img src="images/icoperson.png" alt="icono de direccion estrategica" class="w-full">
-                    </div>
-                    <h3 class="w-11/12 mb-4 m-auto text-black text-2xl xl:text-lg font-normal leading-snug">Rediseño de CRM y
-campañas basadas en datos reales</h3>
-                </div>
-                
-                <div class="text-center border-[1px] rounded-2xl border-dashed border-[#0000008e]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4">
-                        <img src="images/icotarget.svg" alt="icono de direccion estrategica" class="w-full">
-                    </div>
-                    <h3 class="w-11/12 mb-4 m-auto text-black text-2xl xl:text-lg font-normal leading-snug">Rebranding estratégico
-(si es necesario)</h3>
-                </div>
-
-                <div class="text-center border-[1px] rounded-2xl border-dashed border-[#0000008e]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4">
-                        <img src="images/icobox2.svg" alt="icono de direccion estrategica" class="w-full">
-                    </div>
-                    <h3 class="w-11/12 mb-4 m-auto text-black text-2xl xl:text-lg font-normal leading-snug">Hoja de ruta clara
-para recuperar rentabilidad y foco</h3>
-                </div>
-            </div>   
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="w-full bg-[#F5F1EB] py-16">
+<!-- Contact Section -->
+    <section id="contacto" class="w-full bg-white py-16 z-[3]">
         <div class=" mx-auto px-8 xl:px-16">
             <div class="flex xl:justify-between items-center flex-col xl:flex-row">
                 <div>
@@ -445,11 +396,11 @@ para recuperar rentabilidad y foco</h3>
                 </div>
                 
                 <div class="flex xl:space-x-4 flex-col xl:flex-row mt-10 xl:mt-0 gap-4 xl:gap-0 items-center">
-                    <button id="agenda-llamada-btn" class="px-20 py-3 rounded-full border border-[#800020] text-[#800020] text-xl font-semibold hover:bg-[#800020] hover:text-white transition-colors">
+                    <button id="agenda-llamada-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                         Agenda una llamada
                     </button>
                     <div class="w-16 h-px bg-[#D4B996] rotate-0 xl:rotate-90 self-center"></div>
-                    <button id="escribenos-btn" class="px-20 py-3 rounded-full border border-[#800020] text-[#800020] text-xl font-semibold hover:bg-[#800020] hover:text-white transition-colors">
+                    <button id="escribenos-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                         Escríbenos
                     </button>
                 </div>
@@ -458,7 +409,7 @@ para recuperar rentabilidad y foco</h3>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-zinc-900 pt-12 xl:pt-24 pb-8">
+    <footer class="bg-zinc-900 pt-12 xl:pt-24 pb-8 z-[2]">
         <div class="w-full mx-auto px-8 xl:px-16">
             <div class="flex justify-between items-start mb-16 flex-col xl:flex-row gap-6 xl:gap-0">
                 <div class="text-center">
@@ -507,6 +458,8 @@ para recuperar rentabilidad y foco</h3>
             </div>
         </div>
     </footer>
+
+    
 
     <!-- Modal Agenda una llamada -->
     <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">

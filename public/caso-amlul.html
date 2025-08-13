@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImFashion - Growth Atelier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-white overflow-visible">
+<!-- Desktop Navigation -->
+    <nav id="main-nav" class="hidden xl:block fixed top-0 left-0 w-screen xl:w-full z-[500] bg-transparent backdrop-blur-lg transition-all duration-300">
+        <div class="w-full h-20 px-16 py-2">
+            <div id="nav-line" class="w-full h-px bg-white mt-1 mb-4 transition-colors duration-300"></div>
+            <div class="flex justify-between items-center h-full pb-2.5">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html"><img src="images/imfashion-logo-menu.svg" alt="ImFashion Logo" class="h-10"></a>
+                </div>
+                
+                <!-- Menu Items -->
+                <div class="flex items-center space-x-20">
+                    <div class="relative group">
+                        <button id="servicios-btn" class="text-white text-lg font-medium">SERVICIOS</button>
+                        <div class="absolute top-full right-0 mt-2 w-[483px] h-80 bg-white border border-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <!-- Left section - Test de diagnostico -->
+                            <div class="absolute left-0 top-0 w-[292px] h-80 bg-white border-r border-b border-black">
+                                <div class="px-4 py-2 absolute left-[21px] top-[19px] inline-flex flex-col justify-center items-center">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <a href="test.html"><div class="text-black text-xl font-extralight leading-none">Test de diagnostico</div></a>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-60 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </div>
+                                <div class="absolute left-[30px] top-[60px] text-neutral-500 text-sm font-normal leading-snug">
+                                    Descubre en menos de 1 minuto en<br/>qué punto está tu marca
+                                </div>
+                                <a href="test.html"><img class="w-60 h-40 absolute left-[30px] top-[130px]" src="images/test-ig.jpg" alt="Test diagnostico" /></a>
+                            </div>
+                            
+                            <!-- Right section - Services -->
+                            <div class="absolute left-[292px] top-0 w-48 h-80 bg-white border-r border-b border-black">
+                                <!-- Foundation -->
+                                <a href="foundation.html" class="px-4 py-2 absolute left-[18px] top-[17px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Foundation</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Expansion -->
+                                <a href="expansion.html" class="px-4 py-2 absolute left-[18px] top-[70px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Expansion</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Rebuild -->
+                                <a href="rebuild.html" class="px-4 py-2 absolute left-[17px] top-[124px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Rebuild</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-28 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Amplify -->
+                                <a href="amplify.html" class="px-4 py-2 absolute left-[18px] top-[179px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Amplify</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-28 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Embedded -->
+                                <a href="embedded.html" class="px-4 py-2 absolute left-[16px] top-[234px] inline-flex flex-col justify-center items-center hover:bg-gray-50">
+                                    <div class="inline-flex justify-center items-center gap-2">
+                                        <div class="text-black text-lg font-extralight leading-relaxed">Embedded</div>
+                                    </div>
+                                    <div class="self-stretch h-[3px] relative overflow-hidden">
+                                        <div class="w-36 h-[3px] left-0 top-[3px] absolute bg-black"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a id="casos-btn" href="casos-de-exito.html" class="text-white text-lg font-medium">CASOS DE ÉXITO</a>
+                    <a id="equipo-btn" href="equipo.html" class="text-white text-lg font-medium">EL EQUIPO</a>
+                    
+                    <!-- Contact Dropdown -->
+                    <div class="relative group">
+                        <button id="contacto-btn" class="text-white text-lg font-medium">CONTACTO</button>
+                        <div class="absolute top-full w-[220px] right-0 mt-2 bg-white border border-black p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="#" id="agenda-llamada-menu" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Agenda una llamada</a>
+                            <a href="#" id="escribenos-menu" class="block px-4 py-2 text-black text-lg font-light hover:bg-gray-100">Escríbenos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav id="mobile-nav" class="xl:hidden fixed top-0 left-0 w-full z-[500] bg-transparent backdrop-blur-lg transition-all duration-300">
+        <div class="w-full h-20 px-4 py-4">
+            <div id="mobile-nav-line" class="w-full h-px bg-black mt-0 mb-2 transition-colors duration-300"></div>
+            <div class="flex justify-between items-center h-full">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html"><img src="images/imfashion-logo-menu.svg" alt="ImFashion Logo" class="h-10"></a>
+                </div>
+                
+                <!-- Hamburger Menu -->
+                <button id="mobile-menu-btn" class="flex flex-col justify-center items-center w-8 h-8 space-y-1">
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Modal -->
+    <div id="mobile-menu-modal" class="xl:hidden fixed inset-0 z-[600] bg-[#800020] transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col h-full">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-4 border-b border-white/20">
+                <a href="index.html"><img src="images/imfashion-logo-menu-white.png" alt="ImFashion Logo" class="h-10"></a>
+                <button id="mobile-menu-close" class="text-white text-2xl font-light">
+                    ✕
+                </button>
+            </div>
+            
+            <!-- Modal Content -->
+            <div class="flex-1 overflow-y-auto p-6">
+                <!-- Services Section -->
+                <div class="mb-8">
+                    <button id="mobile-servicios-btn" class="flex justify-between items-center w-full text-white text-xl font-medium py-4 border-b border-white/20">
+                        SERVICIOS
+                        <span class="text-lg transition-transform duration-200">+</span>
+                    </button>
+                    <div id="mobile-servicios-submenu" class="hidden mt-4 pl-4 space-y-4">
+                        <!-- Test de diagnostico -->
+                        <div class="mb-6">
+                            <a href="test.html"><h4 class="text-white text-lg font-medium mb-2">Test de diagnostico</h4></a>
+                            <p class="text-white/80 text-sm mb-4">Descubre en menos de 1 minuto en qué punto está tu marca</p>
+                        </div>
+                        
+                        <!-- Services List -->
+                        <div class="space-y-3">
+                            <a href="foundation.html" class="block text-white text-lg font-light py-2 border-b border-white/10">Foundation</a>
+                            <a href="expansion.html" class="block text-white text-lg font-light py-2 border-b border-white/10">Expansion</a>
+                            <a href="rebuild.html" class="block text-white text-lg font-light py-2 border-b border-white/10">Rebuild</a>
+                            <a href="amplify.html" class="block text-white text-lg font-light py-2 border-b border-white/10">Amplify</a>
+                            <a href="embedded.html" class="block text-white text-lg font-light py-2 border-b border-white/10">Embedded</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Casos de Éxito -->
+                <div class="mb-8">
+                    <a href="casos-de-exito.html" class="block text-white text-xl font-medium py-4 border-b border-white/20">CASOS DE ÉXITO</a>
+                </div>
+                
+                <!-- El Equipo -->
+                <div class="mb-8">
+                    <a href="equipo.html" class="block text-white text-xl font-medium py-4 border-b border-white/20">EL EQUIPO</a>
+                </div>
+                
+                <!-- Contact Section -->
+                <div class="mb-8">
+                    <button id="mobile-contacto-btn" class="flex justify-between items-center w-full text-white text-xl font-medium py-4 border-b border-white/20">
+                        CONTACTO
+                        <span class="text-lg transition-transform duration-200">+</span>
+                    </button>
+                    <div id="mobile-contacto-submenu" class="hidden mt-4 pl-4 space-y-3">
+                        <a href="#" id="mobile-agenda-llamada-btn" class="block text-white text-lg font-light py-2 border-b border-white/10">Agenda una llamada</a>
+                        <a href="#" id="mobile-escribenos-btn" class="block text-white text-lg font-light py-2 border-b border-white/10">Escríbenos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <section class="absolute w-screen xl:w-full h-screen overflow-hidden z-[1]">
+        <img src="images/bgcasos.png" alt="Hero Background" class="w-full h-screen object-cover top-0 object-right xl: object-center hidden xl:block">
+        <img src="images/bgcasos.png" alt="Hero Background" class="w-full h-screen object-cover top-0 object-right xl: object-center xl:hidden">
+    </section>
+
+
+<!-- Hero Section - Case Study -->
+<section class="relative w-full py-8 xl:py-16 z-[5]">
+  <div class="max-w-[95%] mx-auto px-4 xl:px-16 mt-40 mb-20">
+    <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-8 xl:gap-16">
+      <div class="flex-1">
+        <header class="mb-6 xl:mb-8">
+          <p class="text-[#D4B996] text-xl xl:text-3xl font-light leading-relaxed mb-4">Caso de Éxito:</p>
+          <h1 class="text-black text-4xl xl:text-6xl font-bold font-['Inter'] leading-tight xl:leading-[78px]">Amlul</h1>
+        </header>
+        <div class="text-black text-lg xl:text-xl font-light font-['Inter'] leading-relaxed xl:leading-relaxed max-w-2xl">
+          <p>Amlul, fundada por la renombrada influencer Gala González en 2019, no es sólo una marca de moda; es un compromiso. Amlul se ha posicionado como líder en moda responsable, producción ética y diseño atemporal. Su meta es clara: transformar el mundo de la moda con conciencia y elegancia.</p>
+        </div>
+      </div>
+      <div class="flex-shrink-0 xl:pr-20">
+        <img class="w-24 h-20 xl:w-28 xl:h-24 object-contain" src="images/amlul-logo.svg" alt="Logo de Amlul" />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Challenge Section -->
+<section class="relative w-full bg-[#F3E6D9] py-12 xl:py-16 z-[5]">
+  <div class="max-w-7xl mx-auto px-4 xl:px-16">
+    <div class="flex flex-col xl:flex-row xl:items-center gap-8 xl:gap-16">
+      <div class="flex-shrink-0">
+        <h2 class="text-black text-3xl xl:text-6xl font-thin font-['Inter'] leading-tight xl:leading-[78px]">Reto</h2>
+      </div>
+      <div class="flex-1">
+        <p class="text-black text-lg xl:text-xl font-light font-['Inter'] leading-relaxed">
+          El desafío era doble: aumentar ventas y visibilidad online mientras se proyectaban los valores sostenibles de la marca, y expandir el alcance globalmente, llevando el mensaje de moda responsable a distintos rincones del mundo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Image Section -->
+<section class="relative w-full h-64 xl:h-[454px] overflow-hidden z-[5]">
+  <img class="w-full h-full object-cover object-center" src="images/amlul-img.png" alt="Imagen representativa del caso Amlul" />
+</section>
+<!-- Solution and Results Section -->
+<section class="w-full bg-white py-12 xl:py-24 z-[5]">
+  <div class="max-w-7xl mx-auto px-4 xl:px-16">
+    <!-- Solution Subsection -->
+    <div class="mb-16 xl:mb-24">
+      <div class="flex flex-col xl:flex-row xl:items-start gap-8 xl:gap-16">
+        <div class="flex-shrink-0">
+          <h2 class="text-black text-3xl xl:text-6xl font-thin font-['Inter'] leading-tight xl:leading-[78px]">La solución</h2>
+        </div>
+        <div class="flex-1">
+          <div class="text-black text-lg xl:text-xl font-light font-['Inter'] leading-relaxed space-y-6">
+            <p>Lanzamos campañas de visibilidad de marca para presentar Amlul a nuevas audiencias, destacando sus valores de moda responsable y producción ética. Para ello, utilizamos las redes de display de Taboola y campañas de reconocimiento en Facebook e Instagram.</p>
+            <p>Paralelamente, creamos campañas de consideración en buscadores para captar tráfico de términos de búsqueda relacionados con la moda sostenible y atemporal.</p>
+            <p>También implementamos campañas de remarketing omnicanal para reimpactar a las personas interesadas en Amlul que no llegaron a realizar una compra después de visitar la web.</p>
+            <p>Finalmente, nos enfocamos en aumentar el valor de vida del cliente (LTV), para lo cual realizamos campañas de venta cruzada de diferentes colecciones de Amlul, utilizando email marketing y publicidad en redes sociales y display.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Results Subsection -->
+    <div class="pt-16">
+      <div class="flex flex-col xl:flex-row xl:items-start gap-8 xl:gap-16 mb-12 xl:mb-16">
+        <div class="flex-shrink-0">
+          <h2 class="text-black text-3xl xl:text-6xl font-thin font-['Inter'] leading-tight xl:leading-[78px] text-center xl:text-left">Resultados</h2>
+        </div>
+        <div class="flex-1">
+          <!-- Metrics will be added here -->
+           <!-- Metrics Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-6">
+        <!-- Metric 1: CAC Improvement -->
+        <div class="flex flex-col items-center text-center space-y-4">
+          <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex justify-center items-center">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.666 8.1665H25.666V15.1665" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M25.6673 8.1665L15.7507 18.0832L9.91732 12.2498L2.33398 19.8332" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="text-black text-xl xl:text-2xl font-bold font-['Inter'] leading-relaxed">+45%</div>
+          <div class="text-black text-lg xl:text-xl font-normal font-['Inter'] leading-snug">Mejora del CAC</div>
+        </div>
+        
+        <!-- Metric 2: CLTV Improvement -->
+        <div class="flex flex-col items-center text-center space-y-4">
+          <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex justify-center items-center">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2.3335V25.6668" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M19.8333 5.8335H11.0833C10.0004 5.8335 8.96175 6.2637 8.19598 7.02948C7.43021 7.79525 7 8.83386 7 9.91683C7 10.9998 7.43021 12.0384 8.19598 12.8042C8.96175 13.57 10.0004 14.0002 11.0833 14.0002H16.9167C17.9996 14.0002 19.0382 14.4304 19.804 15.1961C20.5698 15.9619 21 17.0005 21 18.0835C21 19.1665 20.5698 20.2051 19.804 20.9708C19.0382 21.7366 17.9996 22.1668 16.9167 22.1668H7" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="text-black text-xl xl:text-2xl font-bold font-['Inter'] leading-relaxed">+32%</div>
+          <div class="text-black text-lg xl:text-xl font-normal font-['Inter'] leading-snug">Mejora del CLTV</div>
+        </div>
+        
+        <!-- Metric 3: ROAS -->
+        <div class="flex flex-col items-center text-center space-y-4">
+          <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex justify-center items-center">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.0007 25.6668C20.444 25.6668 25.6673 20.4435 25.6673 14.0002C25.6673 7.55684 20.444 2.3335 14.0007 2.3335C7.55733 2.3335 2.33398 7.55684 2.33398 14.0002C2.33398 20.4435 7.55733 25.6668 14.0007 25.6668Z" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 21C17.866 21 21 17.866 21 14C21 10.134 17.866 7 14 7C10.134 7 7 10.134 7 14C7 17.866 10.134 21 14 21Z" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.9993 16.3332C15.288 16.3332 16.3327 15.2885 16.3327 13.9998C16.3327 12.7112 15.288 11.6665 13.9993 11.6665C12.7107 11.6665 11.666 12.7112 11.666 13.9998C11.666 15.2885 12.7107 16.3332 13.9993 16.3332Z" stroke="white" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="text-black text-xl xl:text-2xl font-bold font-['Inter'] leading-relaxed">9</div>
+          <div class="text-black text-lg xl:text-xl font-normal font-['Inter'] leading-snug">ROAS medio</div>
+        </div>
+      </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <!-- Testimonials Section -->
+    <section class="w-full bg-white py-12 xl:py-24">
+        <div class="max-w-[1600px] mx-auto px-16">
+            <div class="flex items-center flex-col xl:flex-row xl:h-96 h-[800px]">
+                <div class="w-10/12 xl:w-[40%]">
+                    <h2 class="text-black text-center xl:text-left text-3xl xl:text-5xl font-normal leading-10 mb-8">
+                        Lo que más valoran no <br class="hidden xl:block">
+                        es solo lo que hacemos, <br class="hidden xl:block">
+                        <span class="text-red-900">es cómo lo hacemos</span>
+                    </h2>
+                </div>
+                
+                <div class="w-full xl:w-[60%] relative h-full">
+                    
+                    <!-- Testimonials Carousel -->
+                    <div id="testimonials-carousel" class="absolute top-0 right-0 xl:right-8 bg-neutral-100 p-8 max-w-[100%] xl:max-w-[70%] overflow-hidden">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide active">
+                            <blockquote class="text-red-900 text-2xl xl:text-4xl font-medium leading-6 xl:leading-10 mb-8">
+                                No es fácil encontrar un equipo externo tan comprometido, proactivo y resolutivo.
+                            </blockquote>
+                            
+                            <p class="text-black text-base font-medium leading-snug mb-8">
+                                Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer que la marca crezca les han convertido en partners fundamentales para el crecimiento de negocio online, la estrategia de marketing digital y nuestra inversión en medios publicitarios.
+                            </p>
+                            
+                            <div class="flex items-center mb-4">
+                                <div class="flex space-x-1">
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-10 items-center justify-center flex mr-4">
+                                    <img src="images/bobo-logo.svg" alt="logo de Bobo Choses">
+                                </div>
+                                <div>
+                                    <p class="text-black text-sm font-black">AINARA SIMÓN</p>
+                                    <p class="text-black text-xs font-medium">Chief Digital Manager, Bobo Choses</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide active">
+                            <blockquote class="text-red-900 text-2xl xl:text-4xl font-medium leading-6 xl:leading-10 mb-8">
+                                No es fácil encontrar un equipo externo tan comprometido, proactivo y resolutivo.
+                            </blockquote>
+                            
+                            <p class="text-black text-base font-medium leading-snug mb-8">
+                                Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer que la marca crezca les han convertido en partners fundamentales para el crecimiento de negocio online, la estrategia de marketing digital y nuestra inversión en medios publicitarios.
+                            </p>
+                            
+                            <div class="flex items-center mb-4">
+                                <div class="flex space-x-1">
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04894 0.927049C8.3483 0.00573802 9.6517 0.00574017 9.95106 0.927051L11.2451 4.90983C11.379 5.32185 11.763 5.60081 12.1962 5.60081H16.3839C17.3527 5.60081 17.7554 6.84043 16.9717 7.40983L13.5838 9.87132C13.2333 10.126 13.0866 10.5773 13.2205 10.9894L14.5146 14.9721C14.8139 15.8934 13.7595 16.6596 12.9757 16.0902L9.58778 13.6287C9.2373 13.374 8.7627 13.374 8.41221 13.6287L5.02426 16.0902C4.24054 16.6596 3.18607 15.8934 3.48542 14.9721L4.7795 10.9894C4.91338 10.5773 4.76672 10.126 4.41623 9.87132L1.02827 7.40983C0.244561 6.84043 0.647338 5.60081 1.61606 5.60081H5.8038C6.23703 5.60081 6.62099 5.32185 6.75486 4.90983L8.04894 0.927049Z" fill="#D4B996"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-10 items-center justify-center flex mr-4">
+                                    <img src="images/bobo-logo.svg" alt="logo de Bobo Choses">
+                                </div>
+                                <div>
+                                    <p class="text-black text-sm font-black">AINARA SIMÓN</p>
+                                    <p class="text-black text-xs font-medium">Chief Digital Manager, Bobo Choses</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Contact Section -->
+    <section id="contacto" class="w-full bg-white py-16 z-[3]">
+        <div class=" mx-auto px-8 xl:px-16">
+            <div class="flex xl:justify-between items-center flex-col xl:flex-row">
+                <div>
+                    <h2 class="text-black text-5xl xl:text-6xl font-bold uppercase leading-tight mb-8 text-center xl:text-left">¿Hablamos?</h2>
+                    <p class="text-black text-xl font-light leading-snug max-w-2xl text-center xl:text-left">
+                        Si has llegado hasta aquí es porque tu marca está en un momento clave. Veamos juntos como podemos evolucionar al siguiente nivel.
+                    </p>
+                </div>
+                
+                <div class="flex xl:space-x-4 flex-col xl:flex-row mt-10 xl:mt-0 gap-4 xl:gap-0 items-center">
+                    <button id="agenda-llamada-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
+                        Agenda una llamada
+                    </button>
+                    <div class="w-16 h-px bg-[#D4B996] rotate-0 xl:rotate-90 self-center"></div>
+                    <button id="escribenos-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
+                        Escríbenos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 pt-12 xl:pt-24 pb-8 z-[2]">
+        <div class="w-full mx-auto px-8 xl:px-16">
+            <div class="flex justify-between items-start mb-16 flex-col xl:flex-row gap-6 xl:gap-0">
+                <div class="text-center">
+                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8 xl:hidden">
+                </div>
+                <div class="flex flex-col">
+                    <div class="mb-8">
+                        <p class="text-white text-xl font-extralight leading-snug mb-4">(+34) 93 122 62 54</p>
+                        <p class="text-white text-xl font-extralight leading-snug mb-2">Pg. de Gràcia, 21,</p>
+                        <p class="text-white text-xl font-extralight leading-snug mb-4">08007 Barcelona</p>
+                        <a href="#" class="text-white text-xl font-extralight underline leading-snug hover:text-[#D4B996] transition-colors">
+                            Ver en mapa
+                        </a>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline ml-2">
+                            <path d="M12 1C12 0.447714 11.5523 -7.61451e-07 11 -3.39982e-07L2 -2.13542e-07C1.44772 -5.50717e-07 1 0.447715 1 0.999999C1 1.55228 1.44772 2 2 2L10 2L10 10C10 10.5523 10.4477 11 11 11C11.5523 11 12 10.5523 12 10L12 1ZM1 11L1.70711 11.7071L11.7071 1.70711L11 0.999999L10.2929 0.292893L0.292893 10.2929L1 11Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8 hidden xl:block">
+                    <p class="text-[#D4B996] text-xl font-extralight leading-snug mb-2 hidden xl:block">Somos parte de</p>
+                    <img src="images/immoral-logo-white.svg" alt="Immoral Logo" class="mx-auto hidden xl:block">
+                </div>
+                
+                <div>
+                    <p class="text-white text-xl font-extralight leading-snug mb-4">Síguenos</p>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">tiktok</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">instagram</a>
+                        <a href="#" class="block text-white text-lg font-extralight underline uppercase hover:text-[#D4B996] transition-colors">linkedin</a>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-[#D4B996] text-xl font-extralight leading-snug mt-8 mb-2 xl:hidden">Somos parte de</p>
+                    <img src="images/immoral-logo-white.svg" alt="Immoral Logo" class="mx-auto xl:hidden">
+                </div>
+            </div>
+            
+            <div class="border-t border-white pt-6">
+                <div class="flex flex-col xl:flex-row xl:justify-between items-center">
+                    <p class="text-white text-base font-light">©2025 Immoral Fashion</p>
+                    <p class="text-white text-base font-light">Privacidad      Legal      Cookies</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <!-- Modal Agenda una llamada -->
+    <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
+        <div class="relative w-[1000px] h-[900px] md:w-[95vw] md:h-[75vh] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] translate-y-4 opacity-95 transition-all duration-300">
+            <!-- Close button -->
+            <button id="close-agenda-modal" class="absolute top-4 right-4 text-black text-2xl font-bold hover:text-red-900 transition-colors z-10">
+                ×
+            </button>
+            
+            <!-- Content -->
+            <div class="w-[480px] h-32 absolute left-[420px] top-[300px] md:left-4 md:right-4 md:top-[20%] md:px-4">
+                <span class="text-red-900 text-lg md:text-base font-normal font-['Inter'] leading-7">Esto no es un "call para conocernos".<br/></span>
+                <span class="text-black text-lg md:text-base font-normal font-['Inter'] leading-7">Es una conversación estratégica para entender si lo que hacemos tiene sentido para ti.</span>
+            </div>
+            
+            <!-- Principio del widget integrado de Calendly -->
+            <div class="absolute left-[30px] top-[30px] w-[320px] h-[840px] md:left-80 md:right-4 md:top-0 md:w-auto md:h-[100%]">
+                <div class="calendly-inline-widget w-full h-full" data-url="https://calendly.com/d/cmvg-s3x-wqy/haz-que-tu-marca-crezca-de-verdad?hide_gdpr_banner=1&primary_color=3980e4" style="min-width:280px;height:100%;padding:0;margin:0;"></div>
+            </div>
+            <!-- Final del widget integrado de Calendly -->
+            
+            <div class="w-[480px] absolute left-[420px] top-[120px] md:left-4 md:right-4 md:top-8 md:px-4 md:pt-8">
+                <span class="text-black text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">No te vamos a prometer resultados. </span>
+                <span class="text-red-900 text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">Vamos a planear cómo conseguirlos.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Escríbenos -->
+    <div id="escribenos-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
+        <div class="w-[95vw] h-[95vh] max-h-[90vh] overflow-y-auto md:w-[820px] md:h-[629px] bg-white rounded-md relative translate-y-4 opacity-95 transition-all duration-300">
+            <!-- Botón cerrar -->
+            <button id="close-escribenos-modal" class="w-16 h-11 absolute top-0 right-0 text-center text-red-900 text-2xl font-normal font-['Inter'] lowercase leading-7">
+                X
+            </button>
+            
+            <!-- Título -->
+            <div class="absolute w-full left-4 right-4 top-8 px-4 md:w-[603px] md:h-32 md:left-[109px] md:top-[4px] text-center">
+                <div class="text-black text-2xl md:text-4xl font-light font-['Inter'] uppercase leading-7 md:leading-9">
+                    <br class="hidden md:block"/>Una <span class="text-red-900">conversación honesta<br/></span>puede cambiarlo todo.
+                </div>
+            </div>
+            
+            <!-- Subtítulo -->
+            <div class="absolute w-full left-4 right-4 top-32 px-4 md:w-[498px] md:h-12 md:left-[161px] md:top-[147px] text-center text-black text-lg md:text-xl font-light font-['Inter'] leading-7">
+                Cuéntanos lo que necesitas, y te responderemos de forma personalizada, como tú te mereces.
+            </div>
+            
+            <!-- Formulario -->
+                <form class="absolute left-4 right-4 top-48 px-4 md:left-[109px] md:top-[271px]">
+                    <!-- Primera fila -->
+                    <div class="flex flex-col gap-4 md:flex-row md:gap-6 mb-6">
+                        <input type="text" placeholder="Nombre" class="w-full md:w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                        <input type="email" placeholder="Email" class="w-full md:w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <!-- Segunda fila -->
+                    <div class="flex flex-col gap-4 md:flex-row md:gap-6 mb-6">
+                        <input type="tel" placeholder="Teléfono" class="w-full md:w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                        <input type="text" placeholder="Asunto" class="w-full md:w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
+                    </div>
+                    
+                    <!-- Mensaje -->
+                    <div class="mb-8">
+                        <textarea placeholder="Mensaje" class="w-full md:w-[587px] h-24 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 resize-none focus:outline-none focus:border-gray-400"></textarea>
+                    </div>
+                    
+                    <!-- Botón enviar -->
+                    <div class="text-center">
+                        <button type="submit" class="text-red-900 text-xl font-light font-['Inter'] underline uppercase leading-7 hover:text-red-700 transition-colors">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <!-- Script del widget de Calendly -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>

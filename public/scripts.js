@@ -407,15 +407,15 @@ function initTeamCarousel() {
         
         // Crear efecto infinito suave sin resetear bruscamente
         const trackWidth = trackLeft.scrollWidth / 2;
-        if (currentPositionLeft >= trackWidth) {
-            currentPositionLeft -= trackWidth;
+        if (currentPositionLeft >= 0) {
+            currentPositionLeft = -trackWidth;
         }
         
         trackLeft.style.transform = `translateX(${currentPositionLeft}px)`;
         animationIdLeft = requestAnimationFrame(animateTeamCarouselLeft);
     }
     
-    // Inicializar posición del carrusel izquierdo
+    // Inicializar posición del carrusel izquierdo para que empiece desde la izquierda completa
     currentPositionLeft = -(trackLeft.scrollWidth / 2);
     
     // Iniciar las animaciones continuas
@@ -969,38 +969,51 @@ function initNavigationColorSystem() {
 
 // Stacking Cards Scroll Effect
 function initStackingCards() {
+    const triggers = document.querySelectorAll('.scroll-trigger');
     const cards = document.querySelectorAll('.stacking-card');
-    const container = document.querySelector('.stacking-cards-container');
     
-    if (!cards.length || !container) return;
+    if (!triggers.length || !cards.length) return;
+    
+    let currentCard = -1;
     
     function updateCardsOnScroll() {
-        const containerRect = container.getBoundingClientRect();
-        const containerTop = containerRect.top;
-        const containerHeight = containerRect.height;
         const viewportHeight = window.innerHeight;
+        let activeCard = -1;
         
-        // Calculate scroll progress through the container
-        const scrollProgress = Math.max(0, Math.min(1, -containerTop / (containerHeight - viewportHeight)));
-        
-        cards.forEach((card, index) => {
-            const cardProgress = scrollProgress * cards.length;
-            const cardIndex = index + 1;
+        // Check which trigger is currently in view
+        triggers.forEach((trigger, index) => {
+            const rect = trigger.getBoundingClientRect();
+            const triggerCenter = rect.top + rect.height / 2;
             
-            // Remove all animation classes first
-            card.classList.remove('card-hidden', 'card-visible', 'card-stacked');
-            
-            if (cardProgress < cardIndex - 0.5) {
-                // Card hasn't appeared yet
-                card.classList.add('card-hidden');
-            } else if (cardProgress >= cardIndex - 0.5 && cardProgress < cardIndex + 0.5) {
-                // Card is currently visible
-                card.classList.add('card-visible');
-            } else {
-                // Card is stacked (passed)
-                card.classList.add('card-stacked');
+            // If trigger center is in viewport, this card should be active
+            if (triggerCenter >= 0 && triggerCenter <= viewportHeight) {
+                activeCard = index;
             }
         });
+        
+        // Only update if active card changed
+        if (activeCard !== currentCard) {
+            currentCard = activeCard;
+            
+            cards.forEach((card, index) => {
+                // Remove all classes first
+                card.classList.remove('card-hidden', 'card-visible', 'card-stacked');
+                
+                // Set z-index for proper stacking (later cards on top)
+                 card.style.zIndex = index + 1;
+                
+                if (index < currentCard) {
+                    // Previous cards are stacked
+                    card.classList.add('card-stacked');
+                } else if (index === currentCard) {
+                    // Current card is visible
+                    card.classList.add('card-visible');
+                } else {
+                    // Future cards are hidden
+                    card.classList.add('card-hidden');
+                }
+            });
+        }
     }
     
     // Throttled scroll handler
@@ -1016,7 +1029,7 @@ function initStackingCards() {
     }
     
     // Add scroll listener
-    window.addEventListener('scroll', handleStackingScroll);
+    window.addEventListener('scroll', handleStackingScroll, { passive: true });
     
     // Initial check
     updateCardsOnScroll();

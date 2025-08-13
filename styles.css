@@ -14,28 +14,30 @@
     opacity: 1;
 }
 
-/* Stacking Cards Styles */
+/* Stacking Cards Styles - New Approach */
 .stacking-cards-container {
-    min-height: 300vh; /* Provides space for scroll effect */
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
 }
 
 .stacking-card {
-    margin: 0 1rem;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 2rem);
+    max-width: 1200px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform, opacity;
+    z-index: 1;
 }
 
 /* Desktop styles */
 @media (min-width: 1280px) {
-    .stacking-cards-container {
-        min-height: 200vh;
-    }
-    
     .stacking-card {
-        margin: 0 2rem;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
+        width: calc(100vw - 4rem);
     }
 }
 
@@ -47,15 +49,21 @@ html {
 /* Card stacking animation states */
 .stacking-card.card-hidden {
     opacity: 0;
-    transform: translateY(100px) scale(0.95);
+    transform: translate(-50%, -50%) translateY(100vh) scale(0.8);
 }
 
 .stacking-card.card-visible {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .stacking-card.card-stacked {
-    transform: translateY(-20px) scale(0.98);
-    opacity: 0.8;
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(-20vh) scale(0.85);
+}
+
+/* Scroll trigger sections */
+.scroll-trigger {
+    height: 100vh;
+    width: 100%;
 }

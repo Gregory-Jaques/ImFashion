@@ -43,19 +43,19 @@ class ModalComponent extends HTMLElement {
                     </button>
                     
                     <!-- Título -->
-                    <div class="absolute w-full left-4 right-4 top-8 px-4 md:w-[603px] md:h-32 md:left-[109px] md:top-[4px] text-center">
+                    <div class="relative xl:absolute w-full left-0 right-4 top-8 px-4 md:w-[603px] md:h-32 md:left-[109px] md:top-[4px] text-center">
                         <div class="text-black text-2xl md:text-4xl font-light font-['Inter'] uppercase leading-7 md:leading-9">
                             <br class="hidden md:block"/>Una <span class="text-red-900">conversación honesta<br/></span>puede cambiarlo todo.
                         </div>
                     </div>
                     
                     <!-- Subtítulo -->
-                    <div class="absolute w-full left-4 right-4 top-32 px-4 md:w-[498px] md:h-12 md:left-[161px] md:top-[147px] text-center text-black text-lg md:text-xl font-light font-['Inter'] leading-7">
+                    <div class="relative xl:absolute w-full left-0 right-4 top-10 px-4 md:w-[498px] md:h-12 md:left-[161px] md:top-[147px] text-center text-black text-lg md:text-xl font-light font-['Inter'] leading-7">
                         Cuéntanos lo que necesitas, y te responderemos de forma personalizada, como tú te mereces.
                     </div>
                     
                     <!-- Formulario -->
-                        <form class="absolute left-4 right-4 top-48 px-4 md:left-[109px] md:top-[271px]">
+                        <form class="absolute left-4 right-4 top-72 px-4 md:left-[109px] md:top-[271px]">
                             <!-- Primera fila -->
                             <div class="flex flex-col gap-4 md:flex-row md:gap-6 mb-6">
                                 <input type="text" placeholder="Nombre" class="w-full md:w-[280px] h-11 p-3 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-gray-400">
@@ -144,6 +144,8 @@ class ModalComponent extends HTMLElement {
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
+                // Restore body scroll when modal is closed
+                document.body.style.overflow = 'auto';
             }, 300);
         }
     }
@@ -153,6 +155,8 @@ class ModalComponent extends HTMLElement {
         if (modal) {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modal.classList.add('opacity-100');
@@ -165,6 +169,8 @@ class ModalComponent extends HTMLElement {
         if (modal) {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modal.classList.add('opacity-100');

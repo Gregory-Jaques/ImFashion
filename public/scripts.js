@@ -646,41 +646,8 @@ function initTestimonialsCarousel() {
         });
     }
     
-    // Mobile menu modal events
-    const mobileAgendaBtn = document.getElementById('mobile-agenda-llamada-btn');
-    const mobileEscribenosBtn = document.getElementById('mobile-escribenos-btn');
-    
-    if (mobileAgendaBtn) {
-        mobileAgendaBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const mobileModal = document.getElementById('mobile-menu-modal');
-            if (mobileModal) {
-                mobileModal.classList.add('translate-x-full');
-                mobileModal.classList.remove('translate-x-0');
-                document.body.style.overflow = 'auto'; // Restore scrolling when closing mobile menu
-                setTimeout(() => {
-                    mobileModal.classList.add('hidden');
-                    openAgendaModal();
-                }, 300);
-            }
-        });
-    }
-    
-    if (mobileEscribenosBtn) {
-        mobileEscribenosBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const mobileModal = document.getElementById('mobile-menu-modal');
-            if (mobileModal) {
-                mobileModal.classList.add('translate-x-full');
-                mobileModal.classList.remove('translate-x-0');
-                document.body.style.overflow = 'auto'; // Restore scrolling when closing mobile menu
-                setTimeout(() => {
-                    mobileModal.classList.add('hidden');
-                    openEscribenosModal();
-                }, 300);
-            }
-        });
-    }
+    // Mobile menu modal events are now handled by menu-component.js
+    // Removed duplicate event listeners to prevent conflicts
     
     // Limpiar la animación cuando se cierre la página
     window.addEventListener('beforeunload', function() {

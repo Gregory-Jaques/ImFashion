@@ -202,6 +202,9 @@ class MenuComponent extends HTMLElement {
         if (mobileMenuBtn && mobileMenuModal) {
             mobileMenuBtn.addEventListener('click', (e) => {
                 e.preventDefault();
+                // Remove hidden class first
+                mobileMenuModal.classList.remove('hidden');
+                // Then animate in
                 mobileMenuModal.classList.remove('translate-x-full');
                 mobileMenuModal.classList.add('translate-x-0');
                 document.body.style.overflow = 'hidden'; // Prevent scrolling
@@ -213,6 +216,10 @@ class MenuComponent extends HTMLElement {
                 mobileMenuModal.classList.add('translate-x-full');
                 mobileMenuModal.classList.remove('translate-x-0');
                 document.body.style.overflow = 'auto'; // Restore scrolling
+                // Add hidden class after transition
+                setTimeout(() => {
+                    mobileMenuModal.classList.add('hidden');
+                }, 300);
             });
         }
         
@@ -279,6 +286,10 @@ class MenuComponent extends HTMLElement {
                     mobileMenuModal.classList.add('translate-x-full');
                     mobileMenuModal.classList.remove('translate-x-0');
                     document.body.style.overflow = 'auto'; // Restore scrolling
+                    // Add hidden class after transition
+                    setTimeout(() => {
+                        mobileMenuModal.classList.add('hidden');
+                    }, 300);
                 }
                 // Open agenda modal after a short delay
                 setTimeout(() => {
@@ -297,6 +308,10 @@ class MenuComponent extends HTMLElement {
                     mobileMenuModal.classList.add('translate-x-full');
                     mobileMenuModal.classList.remove('translate-x-0');
                     document.body.style.overflow = 'auto'; // Restore scrolling
+                    // Add hidden class after transition
+                    setTimeout(() => {
+                        mobileMenuModal.classList.add('hidden');
+                    }, 300);
                 }
                 // Open escribenos modal after a short delay
                 setTimeout(() => {

@@ -202,6 +202,9 @@ class MenuComponent extends HTMLElement {
         if (mobileMenuBtn && mobileMenuModal) {
             mobileMenuBtn.addEventListener('click', (e) => {
                 e.preventDefault();
+                // Remove hidden class first
+                mobileMenuModal.classList.remove('hidden');
+                // Then animate in
                 mobileMenuModal.classList.remove('translate-x-full');
                 mobileMenuModal.classList.add('translate-x-0');
                 document.body.style.overflow = 'hidden'; // Prevent scrolling
@@ -213,6 +216,10 @@ class MenuComponent extends HTMLElement {
                 mobileMenuModal.classList.add('translate-x-full');
                 mobileMenuModal.classList.remove('translate-x-0');
                 document.body.style.overflow = 'auto'; // Restore scrolling
+                // Add hidden class after transition
+                setTimeout(() => {
+                    mobileMenuModal.classList.add('hidden');
+                }, 300);
             });
         }
         
@@ -256,32 +263,62 @@ class MenuComponent extends HTMLElement {
         if (agendaLlamadaMenu) {
             agendaLlamadaMenu.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your agenda llamada functionality here
-                console.log('Agenda una llamada clicked from menu');
+                if (typeof openAgendaModal === 'function') {
+                    openAgendaModal();
+                }
             });
         }
         
         if (escribenosMenu) {
             escribenosMenu.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your escribenos functionality here
-                console.log('Escríbenos clicked from menu');
+                if (typeof openEscribenosModal === 'function') {
+                    openEscribenosModal();
+                }
             });
         }
         
         if (mobileAgendaBtn) {
             mobileAgendaBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your agenda llamada functionality here
-                console.log('Agenda una llamada clicked from mobile menu');
+                // Close mobile menu first
+                if (mobileMenuModal) {
+                    mobileMenuModal.classList.add('translate-x-full');
+                    mobileMenuModal.classList.remove('translate-x-0');
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                    // Add hidden class after transition
+                    setTimeout(() => {
+                        mobileMenuModal.classList.add('hidden');
+                    }, 300);
+                }
+                // Open agenda modal after a short delay
+                setTimeout(() => {
+                    if (typeof openAgendaModal === 'function') {
+                        openAgendaModal();
+                    }
+                }, 300);
             });
         }
         
         if (mobileEscribenosBtn) {
             mobileEscribenosBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your escribenos functionality here
-                console.log('Escríbenos clicked from mobile menu');
+                // Close mobile menu first
+                if (mobileMenuModal) {
+                    mobileMenuModal.classList.add('translate-x-full');
+                    mobileMenuModal.classList.remove('translate-x-0');
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                    // Add hidden class after transition
+                    setTimeout(() => {
+                        mobileMenuModal.classList.add('hidden');
+                    }, 300);
+                }
+                // Open escribenos modal after a short delay
+                setTimeout(() => {
+                    if (typeof openEscribenosModal === 'function') {
+                        openEscribenosModal();
+                    }
+                }, 300);
             });
         }
     }

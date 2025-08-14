@@ -15,11 +15,11 @@ class ModalComponent extends HTMLElement {
                     
                     <!-- Content -->
                     <div class="flex flex-col w-[30%] h-[100%] hidden xl:block">
-                    <div class="w-[430px] relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-8 md:px-4 md:pt-8">
+                    <div class="max-w-[430px] relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-8 md:px-4 md:pt-8">
                         <span class="text-black text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">No te vamos a prometer resultados. </span>
                         <span class="text-red-900 text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">Vamos a planear cómo conseguirlos.</span>
                     </div>
-                    <div class="w-[430px] h-32 relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-[10%] md:px-4">
+                    <div class="max-w-[430px] h-32 relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-[10%] md:px-4">
                         <span class="text-red-900 text-lg md:text-base font-normal font-['Inter'] leading-7">Esto no es un "call para conocernos".<br/></span>
                         <span class="text-black text-lg md:text-base font-normal font-['Inter'] leading-7">Es una conversación estratégica para entender si lo que hacemos tiene sentido para ti.</span>
                     </div>

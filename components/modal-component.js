@@ -7,25 +7,27 @@ class ModalComponent extends HTMLElement {
         this.innerHTML = `
             <!-- Modal Agenda una llamada -->
             <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
-                <div class="relative w-[1000px] h-[900px] md:w-[95vw] md:h-[75vh] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] translate-y-4 opacity-95 transition-all duration-300">
+                <div class="flex relative w-[1000px] h-[900px] md:w-[95vw] md:h-[75vh] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] translate-y-4 opacity-95 transition-all duration-300">
                     <!-- Close button -->
                     <button id="close-agenda-modal" class="absolute top-4 right-4 text-black text-2xl font-bold hover:text-red-900 transition-colors z-10">
                         ×
                     </button>
                     
                     <!-- Content -->
-                     <div class="w-[480px] relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-8 md:px-4 md:pt-8">
+                    <div class="flex flex-col w-[30%] h-[100%] hidden xl:block">
+                    <div class="w-[430px] relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-8 md:px-4 md:pt-8">
                         <span class="text-black text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">No te vamos a prometer resultados. </span>
                         <span class="text-red-900 text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">Vamos a planear cómo conseguirlos.</span>
                     </div>
-                    <div class="w-[480px] h-32 relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-[10%] md:px-4">
+                    <div class="w-[430px] h-32 relative left-[420px] top-[0px] md:left-4 md:right-4 md:top-[10%] md:px-4">
                         <span class="text-red-900 text-lg md:text-base font-normal font-['Inter'] leading-7">Esto no es un "call para conocernos".<br/></span>
                         <span class="text-black text-lg md:text-base font-normal font-['Inter'] leading-7">Es una conversación estratégica para entender si lo que hacemos tiene sentido para ti.</span>
                     </div>
-                    
+                    </div> 
+
                     <!-- Principio del widget integrado de Calendly -->
-                    <div class="absolute left-[30px] top-[30px] w-[320px] h-[840px] md:left-80 md:right-4 md:top-0 md:w-auto md:h-[100%]">
-                        <div class="calendly-inline-widget w-full h-full" data-url="https://calendly.com/d/cmvg-s3x-wqy/haz-que-tu-marca-crezca-de-verdad?hide_gdpr_banner=1&primary_color=3980e4" style="min-width:280px;height:100%;padding:0;margin:0;"></div>
+                    <div class="relative xl:w-[70%] md:top-0 md:h-[100%] w-full">
+                        <div class="absolute xl:-top-10 ml-5 calendly-inline-widget w-full h-full" data-url="https://calendly.com/d/cmvg-s3x-wqy/haz-que-tu-marca-crezca-de-verdad?hide_gdpr_banner=1&primary_color=3980e4" style="min-width:280px;height:100%;padding:0;margin:0;"></div>
                     </div>
                     <!-- Final del widget integrado de Calendly -->
                     

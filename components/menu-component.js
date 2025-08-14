@@ -256,32 +256,54 @@ class MenuComponent extends HTMLElement {
         if (agendaLlamadaMenu) {
             agendaLlamadaMenu.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your agenda llamada functionality here
-                console.log('Agenda una llamada clicked from menu');
+                if (typeof openAgendaModal === 'function') {
+                    openAgendaModal();
+                }
             });
         }
         
         if (escribenosMenu) {
             escribenosMenu.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your escribenos functionality here
-                console.log('Escríbenos clicked from menu');
+                if (typeof openEscribenosModal === 'function') {
+                    openEscribenosModal();
+                }
             });
         }
         
         if (mobileAgendaBtn) {
             mobileAgendaBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your agenda llamada functionality here
-                console.log('Agenda una llamada clicked from mobile menu');
+                // Close mobile menu first
+                if (mobileMenuModal) {
+                    mobileMenuModal.classList.add('translate-x-full');
+                    mobileMenuModal.classList.remove('translate-x-0');
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                }
+                // Open agenda modal after a short delay
+                setTimeout(() => {
+                    if (typeof openAgendaModal === 'function') {
+                        openAgendaModal();
+                    }
+                }, 300);
             });
         }
         
         if (mobileEscribenosBtn) {
             mobileEscribenosBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Add your escribenos functionality here
-                console.log('Escríbenos clicked from mobile menu');
+                // Close mobile menu first
+                if (mobileMenuModal) {
+                    mobileMenuModal.classList.add('translate-x-full');
+                    mobileMenuModal.classList.remove('translate-x-0');
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                }
+                // Open escribenos modal after a short delay
+                setTimeout(() => {
+                    if (typeof openEscribenosModal === 'function') {
+                        openEscribenosModal();
+                    }
+                }, 300);
             });
         }
     }

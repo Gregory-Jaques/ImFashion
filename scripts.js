@@ -657,6 +657,7 @@ function initTestimonialsCarousel() {
             if (mobileModal) {
                 mobileModal.classList.add('translate-x-full');
                 mobileModal.classList.remove('translate-x-0');
+                document.body.style.overflow = 'auto'; // Restore scrolling when closing mobile menu
                 setTimeout(() => {
                     mobileModal.classList.add('hidden');
                     openAgendaModal();
@@ -672,6 +673,7 @@ function initTestimonialsCarousel() {
             if (mobileModal) {
                 mobileModal.classList.add('translate-x-full');
                 mobileModal.classList.remove('translate-x-0');
+                document.body.style.overflow = 'auto'; // Restore scrolling when closing mobile menu
                 setTimeout(() => {
                     mobileModal.classList.add('hidden');
                     openEscribenosModal();
@@ -688,93 +690,7 @@ function initTestimonialsCarousel() {
     });
 });
 
-// Mobile menu functionality
-function setupMobileMenu() {
-    const hamburgerBtn = document.getElementById('mobile-menu-btn');
-    const mobileModal = document.getElementById('mobile-menu-modal');
-    const closeBtn = document.getElementById('mobile-menu-close');
-    const serviciosBtn = document.getElementById('mobile-servicios-btn');
-    const serviciosSubmenu = document.getElementById('mobile-servicios-submenu');
-    const contactoBtn = document.getElementById('mobile-contacto-btn');
-    const contactoSubmenu = document.getElementById('mobile-contacto-submenu');
-    
-    // Open mobile menu
-    if (hamburgerBtn && mobileModal) {
-        hamburgerBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            mobileModal.classList.remove('translate-x-full');
-            mobileModal.classList.add('translate-x-0');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-    }
-    
-    // Close mobile menu
-    if (closeBtn && mobileModal) {
-        closeBtn.addEventListener('click', function() {
-            mobileModal.classList.add('translate-x-full');
-            mobileModal.classList.remove('translate-x-0');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        });
-    }
-    
-    // Toggle servicios submenu
-    if (serviciosBtn && serviciosSubmenu) {
-        serviciosBtn.addEventListener('click', function() {
-            serviciosSubmenu.classList.toggle('hidden');
-        });
-    }
-    
-    // Toggle contacto submenu
-    if (contactoBtn && contactoSubmenu) {
-        contactoBtn.addEventListener('click', function() {
-            contactoSubmenu.classList.toggle('hidden');
-        });
-    }
-    
-    // Mobile menu modal buttons
-    const mobileAgendaBtn = document.getElementById('mobile-agenda-llamada-btn');
-    const mobileEscribenosBtn = document.getElementById('mobile-escribenos-btn');
-    
-    if (mobileAgendaBtn) {
-        mobileAgendaBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Close mobile menu first
-            mobileModal.classList.add('translate-x-full');
-            mobileModal.classList.remove('translate-x-0');
-            document.body.style.overflow = 'auto';
-            // Open agenda modal after a short delay
-            setTimeout(() => {
-                openAgendaModal();
-            }, 300);
-        });
-    }
-    
-    if (mobileEscribenosBtn) {
-        mobileEscribenosBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Close mobile menu first
-            mobileModal.classList.add('translate-x-full');
-            mobileModal.classList.remove('translate-x-0');
-            document.body.style.overflow = 'auto';
-            // Open escribenos modal after a short delay
-            setTimeout(() => {
-                openEscribenosModal();
-            }, 300);
-        });
-    }
-    
-    // Close menu when clicking outside
-    if (mobileModal) {
-        mobileModal.addEventListener('click', function(e) {
-            if (e.target === mobileModal) {
-                mobileModal.classList.add('translate-x-full');
-                mobileModal.classList.remove('translate-x-0');
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
-}
+// Mobile menu functionality - REMOVED: Now handled entirely by menu-component.js
 
 // Efecto hover dinámico para los servicios
 function setupServiceEvents() {

@@ -200,14 +200,19 @@ class MenuComponent extends HTMLElement {
         const mobileMenuClose = this.querySelector('#mobile-menu-close');
         
         if (mobileMenuBtn && mobileMenuModal) {
-            mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 mobileMenuModal.classList.remove('translate-x-full');
+                mobileMenuModal.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
             });
         }
         
         if (mobileMenuClose && mobileMenuModal) {
             mobileMenuClose.addEventListener('click', () => {
                 mobileMenuModal.classList.add('translate-x-full');
+                mobileMenuModal.classList.remove('translate-x-0');
+                document.body.style.overflow = 'auto'; // Restore scrolling
             });
         }
         
@@ -217,17 +222,12 @@ class MenuComponent extends HTMLElement {
         
         if (mobileServiciosBtn && mobileServiciosSubmenu) {
             mobileServiciosBtn.addEventListener('click', () => {
-                const isHidden = mobileServiciosSubmenu.classList.contains('hidden');
+                mobileServiciosSubmenu.classList.toggle('hidden');
                 const span = mobileServiciosBtn.querySelector('span');
-                
-                if (isHidden) {
-                    mobileServiciosSubmenu.classList.remove('hidden');
-                    span.textContent = '−';
-                    span.style.transform = 'rotate(0deg)';
-                } else {
-                    mobileServiciosSubmenu.classList.add('hidden');
+                if (mobileServiciosSubmenu.classList.contains('hidden')) {
                     span.textContent = '+';
-                    span.style.transform = 'rotate(0deg)';
+                } else {
+                    span.textContent = '−';
                 }
             });
         }
@@ -237,17 +237,12 @@ class MenuComponent extends HTMLElement {
         
         if (mobileContactoBtn && mobileContactoSubmenu) {
             mobileContactoBtn.addEventListener('click', () => {
-                const isHidden = mobileContactoSubmenu.classList.contains('hidden');
+                mobileContactoSubmenu.classList.toggle('hidden');
                 const span = mobileContactoBtn.querySelector('span');
-                
-                if (isHidden) {
-                    mobileContactoSubmenu.classList.remove('hidden');
-                    span.textContent = '−';
-                    span.style.transform = 'rotate(0deg)';
-                } else {
-                    mobileContactoSubmenu.classList.add('hidden');
+                if (mobileContactoSubmenu.classList.contains('hidden')) {
                     span.textContent = '+';
-                    span.style.transform = 'rotate(0deg)';
+                } else {
+                    span.textContent = '−';
                 }
             });
         }

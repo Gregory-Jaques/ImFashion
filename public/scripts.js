@@ -78,6 +78,8 @@ function initPortfolioCarousel() {
     let maxTranslateX = 0;
     let minTranslateX = 0;
     let isInitialized = false;
+    let hasDragged = false;
+    let dragThreshold = 5; // Minimum pixels to consider it a drag
     
     // Wait for images to load before initializing
     function waitForImages() {
@@ -169,6 +171,7 @@ function initPortfolioCarousel() {
     // Mouse drag functionality
     function handleMouseDown(e) {
         isDragging = true;
+        hasDragged = false;
         startX = e.clientX;
         currentX = e.clientX;
         initialTransform = currentTranslateX;
@@ -185,6 +188,12 @@ function initPortfolioCarousel() {
         e.preventDefault();
         currentX = e.clientX;
         const deltaX = currentX - startX;
+        
+        // Check if drag threshold has been exceeded
+        if (Math.abs(deltaX) > dragThreshold) {
+            hasDragged = true;
+        }
+        
         let newTransform = initialTransform + deltaX;
         
         // Apply elastic resistance at boundaries
@@ -236,6 +245,7 @@ function initPortfolioCarousel() {
     // Touch functionality
     function handleTouchStart(e) {
         isDragging = true;
+        hasDragged = false;
         startX = e.touches[0].clientX;
         currentX = e.touches[0].clientX;
         initialTransform = currentTranslateX;
@@ -247,6 +257,12 @@ function initPortfolioCarousel() {
         
         currentX = e.touches[0].clientX;
         const deltaX = currentX - startX;
+        
+        // Check if drag threshold has been exceeded
+        if (Math.abs(deltaX) > dragThreshold) {
+            hasDragged = true;
+        }
+        
         let newTransform = initialTransform + deltaX;
         
         // Apply elastic resistance at boundaries
@@ -313,10 +329,89 @@ function initPortfolioCarousel() {
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
     
-    // Touch events
+    // Touch events with Safari-specific handling
     track.addEventListener('touchstart', handleTouchStart, { passive: false });
     track.addEventListener('touchmove', handleTouchMove, { passive: false });
     track.addEventListener('touchend', handleTouchEnd);
+    
+    // Safari-specific fixes
+    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        // Force hardware acceleration for Safari
+        track.style.webkitTransform = 'translateZ(0)';
+        track.style.webkitBackfaceVisibility = 'hidden';
+        
+        // Safari-specific initialization with proper dimension calculation
+        const safariInitialize = () => {
+            // Force recalculation of dimensions in Safari
+            const containerWidth = container.offsetWidth;
+            const trackWidth = track.scrollWidth;
+            
+            console.log(`Safari init: container ${containerWidth}px, track ${trackWidth}px`);
+            
+            // Reset position to ensure clean start
+            currentTranslateX = 0;
+            maxTranslateX = 0;
+            
+            if (trackWidth > containerWidth) {
+                minTranslateX = containerWidth - trackWidth;
+            } else {
+                minTranslateX = 0;
+            }
+            
+            // Set initial transform explicitly
+            track.style.transform = 'translateX(0px)';
+            track.style.webkitTransform = 'translateX(0px) translateZ(0)';
+            
+            // Force reflow
+            track.offsetHeight;
+            
+            console.log(`Safari limits: min ${minTranslateX}px, max ${maxTranslateX}px`);
+        };
+        
+        // Run Safari initialization after a delay
+        setTimeout(safariInitialize, 150);
+        
+        // Prevent Safari from interfering with drag
+        track.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+        
+        track.addEventListener('gesturechange', function(e) {
+            e.preventDefault();
+        });
+        
+        track.addEventListener('gestureend', function(e) {
+            e.preventDefault();
+        });
+        
+        // Safari-specific touch handling with dimension validation
+        let safariFirstTouch = true;
+        const originalHandleTouchStart = handleTouchStart;
+        handleTouchStart = function(e) {
+            if (safariFirstTouch) {
+                // Validate dimensions before first touch
+                const containerWidth = container.offsetWidth;
+                const trackWidth = track.scrollWidth;
+                
+                if (trackWidth > 0 && containerWidth > 0) {
+                    // Recalculate limits if needed
+                    maxTranslateX = 0;
+                    minTranslateX = trackWidth > containerWidth ? containerWidth - trackWidth : 0;
+                    
+                    // Ensure we start at position 0
+                    currentTranslateX = 0;
+                    track.style.transform = 'translateX(0px)';
+                    track.style.webkitTransform = 'translateX(0px) translateZ(0)';
+                    
+                    console.log(`Safari first touch: limits min ${minTranslateX}px, max ${maxTranslateX}px`);
+                }
+                
+                safariFirstTouch = false;
+            }
+            
+            originalHandleTouchStart.call(this, e);
+        };
+    }
     
     // Keyboard navigation
     container.addEventListener('keydown', function(e) {
@@ -360,6 +455,41 @@ function initPortfolioCarousel() {
             }, 200);
         }
     }
+    
+    // Prevent link clicks after dragging
+    function preventLinkClick(e) {
+        if (hasDragged) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    }
+    
+    // Add click prevention to all links in portfolio cards
+    const portfolioLinks = track.querySelectorAll('a');
+    portfolioLinks.forEach(link => {
+        link.addEventListener('click', preventLinkClick, true);
+    });
+    
+    // Reset hasDragged flag after a short delay when mouse/touch ends
+    function resetDragFlag() {
+        setTimeout(() => {
+            hasDragged = false;
+        }, 100); // Small delay to ensure click event is processed
+    }
+    
+    // Add reset to existing mouse and touch end handlers
+    const originalHandleMouseUp = handleMouseUp;
+    handleMouseUp = function() {
+        originalHandleMouseUp();
+        resetDragFlag();
+    };
+    
+    const originalHandleTouchEnd = handleTouchEnd;
+    handleTouchEnd = function() {
+        originalHandleTouchEnd();
+        resetDragFlag();
+    };
     
     // Start initialization
     initialize();
@@ -472,8 +602,8 @@ function initTestimonialsCarousel() {
     // Initialize stacking cards effect
     initStackingCards();
     
-    // Initialize mobile menu
-    setupMobileMenu();
+    // Initialize mobile menu - DISABLED: Now handled by menu-component.js
+    // setupMobileMenu();
     
     // Initialize service events
     setupServiceEvents();
@@ -977,7 +1107,15 @@ function initStackingCards() {
     let currentCard = -1;
     let maxCardReached = -1; // Track the highest card that has been shown
     
+    let lastScrollY = window.scrollY;
+    let scrollDirection = 'down';
+    let lastTriggerReached = false; // Flag to track if last trigger was reached
+    
     function updateCardsOnScroll() {
+        const currentScrollY = window.scrollY;
+        scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+        lastScrollY = currentScrollY;
+        
         const viewportHeight = window.innerHeight;
         let activeCard = -1;
         
@@ -989,18 +1127,38 @@ function initStackingCards() {
             // If trigger center is in viewport, this card should be active
             if (triggerCenter >= 0 && triggerCenter <= viewportHeight) {
                 activeCard = index;
+                
+                // Check if we've reached the last trigger
+                if (index === triggers.length - 1) {
+                    lastTriggerReached = true;
+                }
+                
+                // If we're scrolling up and see the last trigger again, reactivate the effect
+                if (scrollDirection === 'up' && index === triggers.length - 1 && lastTriggerReached) {
+                    lastTriggerReached = false;
+                    maxCardReached = index;
+                }
             }
         });
         
-        // If no trigger is active, check if we should show the last card
-        if (activeCard === -1) {
+        // If last trigger was reached, always show the last card
+        if (lastTriggerReached) {
+            activeCard = cards.length - 1;
+        }
+        // If no trigger is active and last trigger hasn't been reached
+        else if (activeCard === -1) {
             const lastTrigger = triggers[triggers.length - 1];
             const lastTriggerRect = lastTrigger.getBoundingClientRect();
             const stackingSection = document.querySelector('.stacking-cards-container').closest('section');
             const sectionRect = stackingSection.getBoundingClientRect();
             
-            // If we've scrolled past the last trigger, keep showing the last card
-            if (lastTriggerRect.bottom < 0) {
+            // When scrolling down, keep showing the last card indefinitely
+            // When scrolling up, only hide if we're well above the section
+            if (scrollDirection === 'down' && lastTriggerRect.bottom < 0) {
+                activeCard = cards.length - 1;
+            } else if (scrollDirection === 'up' && sectionRect.bottom < -viewportHeight) {
+                activeCard = -1;
+            } else if (lastTriggerRect.bottom < 0 && sectionRect.bottom > -viewportHeight) {
                 activeCard = cards.length - 1;
             }
         }
@@ -1009,8 +1167,8 @@ function initStackingCards() {
         if (activeCard > maxCardReached) {
             maxCardReached = activeCard;
         }
-        // When scrolling up, reduce maxCardReached to match activeCard
-        else if (activeCard !== -1 && activeCard < maxCardReached) {
+        // When scrolling up, reduce maxCardReached to match activeCard only if activeCard is valid and last trigger hasn't been reached
+        else if (activeCard !== -1 && activeCard < maxCardReached && scrollDirection === 'up' && !lastTriggerReached) {
             maxCardReached = activeCard;
         }
         

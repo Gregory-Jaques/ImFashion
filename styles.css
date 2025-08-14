@@ -14,7 +14,7 @@
     opacity: 1;
 }
 
-/* Stacking Cards Styles - New Approach */
+/* Stacking Cards Styles - Fixed Approach */
 .stacking-cards-container {
     height: 100vh;
     width: 100vw;
@@ -75,4 +75,50 @@ html {
 .scroll-trigger {
     height: 100vh;
     width: 100%;
+}
+
+/* Safari-specific fixes for portfolio carousel */
+@supports (-webkit-appearance: none) {
+    .portfolio-carousel-track {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+    
+    .portfolio-card {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+    
+    /* Fix for Safari touch events */
+    .portfolio-carousel-container {
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+    }
+    
+    /* Prevent Safari from changing card dimensions during drag */
+    .portfolio-card img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        pointer-events: none;
+    }
+    
+    /* Fix height issues in Safari */
+    .portfolio-card.h-full {
+        height: auto !important;
+        min-height: 400px;
+    }
+    
+    .portfolio-card.h-full .h-full {
+        height: 400px !important;
+    }
 }

@@ -611,95 +611,38 @@ function initTestimonialsCarousel() {
     // Navigation scroll effect - Initialize for all pages
     initNavigationColorSystem();
     
-    // Modal functionality for "Agenda una llamada" - moved here to avoid duplicate DOMContentLoaded
-    const agendaLlamadaModal = document.getElementById('agenda-llamada-modal');
+    // Modal functionality - delegate to modal-component
     const agendaLlamadaBtn = document.getElementById('agenda-llamada-btn');
     const agendaLlamadaMenu = document.getElementById('agenda-llamada-menu');
-    const closeAgendaModal = document.getElementById('close-agenda-modal');
+    const escribenosBtn = document.getElementById('escribenos-btn');
+    const escribenosMenu = document.getElementById('escribenos-menu');
     
-    // Function to close modal
-    function closeAgendaModalFunc() {
-        if (agendaLlamadaModal) {
-            const modalContent = agendaLlamadaModal.querySelector('div');
-            
-            agendaLlamadaModal.classList.remove('opacity-100');
-            agendaLlamadaModal.classList.add('opacity-0');
-            if (modalContent) {
-                modalContent.classList.remove('translate-y-0', 'opacity-100');
-                modalContent.classList.add('translate-y-4', 'opacity-95');
-            }
-            
-            setTimeout(() => {
-                agendaLlamadaModal.classList.add('hidden');
-                agendaLlamadaModal.classList.remove('flex');
-                document.body.style.overflow = 'auto'; // Restore scrolling
-            }, 300);
-        }
-    }
-    
-    // Open modal events
-    if (agendaLlamadaBtn && agendaLlamadaModal) {
+    // Open modal events - delegate to modal component
+    if (agendaLlamadaBtn) {
         agendaLlamadaBtn.addEventListener('click', function(e) {
             e.preventDefault();
             openAgendaModal();
         });
     }
     
-    if (agendaLlamadaMenu && agendaLlamadaModal) {
+    if (agendaLlamadaMenu) {
         agendaLlamadaMenu.addEventListener('click', function(e) {
             e.preventDefault();
             openAgendaModal();
         });
     }
     
-    // Close modal events
-    if (closeAgendaModal) {
-        closeAgendaModal.addEventListener('click', closeAgendaModalFunc);
-    }
-    
-    if (agendaLlamadaModal) {
-        agendaLlamadaModal.addEventListener('click', function(e) {
-            if (e.target === agendaLlamadaModal) {
-                closeAgendaModalFunc();
-            }
-        });
-    }
-    
-    // Similar setup for "Escribenos" modal
-    const escribenosModal = document.getElementById('escribenos-modal');
-    const escribenosBtn = document.getElementById('escribenos-btn');
-    const escribenosMenu = document.getElementById('escribenos-menu');
-    const closeEscribenosModal = document.getElementById('close-escribenos-modal');
-    
-    if (escribenosBtn && escribenosModal) {
+    if (escribenosBtn) {
         escribenosBtn.addEventListener('click', function(e) {
             e.preventDefault();
             openEscribenosModal();
         });
     }
     
-    if (escribenosMenu && escribenosModal) {
+    if (escribenosMenu) {
         escribenosMenu.addEventListener('click', function(e) {
             e.preventDefault();
             openEscribenosModal();
-        });
-    }
-    
-    if (closeEscribenosModal) {
-        closeEscribenosModal.addEventListener('click', function() {
-            escribenosModal.classList.add('hidden');
-            escribenosModal.classList.remove('flex');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        });
-    }
-    
-    if (escribenosModal) {
-        escribenosModal.addEventListener('click', function(e) {
-            if (e.target === escribenosModal) {
-                escribenosModal.classList.add('hidden');
-                escribenosModal.classList.remove('flex');
-                document.body.style.overflow = 'auto'; // Restore scrolling
-            }
         });
     }
     
@@ -937,43 +880,17 @@ function setupServiceEvents() {
 
 // Global modal functions
 function openAgendaModal() {
-    const agendaLlamadaModal = document.getElementById('agenda-llamada-modal');
-    if (!agendaLlamadaModal) return;
-    
-    const modalContent = agendaLlamadaModal.querySelector('div');
-    
-    agendaLlamadaModal.classList.remove('hidden');
-    agendaLlamadaModal.classList.add('flex');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    
-    // Trigger transition
-    setTimeout(() => {
-        agendaLlamadaModal.classList.remove('opacity-0');
-        agendaLlamadaModal.classList.add('opacity-100');
-        modalContent.classList.remove('translate-y-4', 'opacity-95');
-        modalContent.classList.add('translate-y-0', 'opacity-100');
-    }, 10);
+    const modalComponent = document.querySelector('modal-component');
+    if (modalComponent) {
+        modalComponent.openAgendaModal();
+    }
 }
 
 function openEscribenosModal() {
-    const escribenosModal = document.getElementById('escribenos-modal');
-    if (!escribenosModal) return;
-    
-    const modalContent = escribenosModal.querySelector('div > div');
-    
-    escribenosModal.classList.remove('hidden');
-    escribenosModal.classList.add('flex');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    
-    // Trigger transition
-    setTimeout(() => {
-        escribenosModal.classList.remove('opacity-0');
-        escribenosModal.classList.add('opacity-100');
-        if (modalContent) {
-            modalContent.classList.remove('translate-y-4', 'opacity-95');
-            modalContent.classList.add('translate-y-0', 'opacity-100');
-        }
-    }, 10);
+    const modalComponent = document.querySelector('modal-component');
+    if (modalComponent) {
+        modalComponent.openEscribenosModal();
+    }
 }
 
 // Navigation color system - works on all pages

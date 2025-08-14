@@ -975,6 +975,7 @@ function initStackingCards() {
     if (!triggers.length || !cards.length) return;
     
     let currentCard = -1;
+    let maxCardReached = -1; // Track the highest card that has been shown
     
     function updateCardsOnScroll() {
         const viewportHeight = window.innerHeight;
@@ -991,25 +992,56 @@ function initStackingCards() {
             }
         });
         
+        // If no trigger is active, check if we should show the last card
+        if (activeCard === -1) {
+            const lastTrigger = triggers[triggers.length - 1];
+            const lastTriggerRect = lastTrigger.getBoundingClientRect();
+            const stackingSection = document.querySelector('.stacking-cards-container').closest('section');
+            const sectionRect = stackingSection.getBoundingClientRect();
+            
+            // If we've scrolled past the last trigger, keep showing the last card
+            if (lastTriggerRect.bottom < 0) {
+                activeCard = cards.length - 1;
+            }
+        }
+        
+        // Update maxCardReached only when scrolling down
+        if (activeCard > maxCardReached) {
+            maxCardReached = activeCard;
+        }
+        // When scrolling up, reduce maxCardReached to match activeCard
+        else if (activeCard !== -1 && activeCard < maxCardReached) {
+            maxCardReached = activeCard;
+        }
+        
         // Only update if active card changed
         if (activeCard !== currentCard) {
             currentCard = activeCard;
             
             cards.forEach((card, index) => {
                 // Remove all classes first
-                card.classList.remove('card-hidden', 'card-visible', 'card-stacked');
+                card.classList.remove('card-hidden', 'card-visible', 'card-stacked', 'card-final');
                 
                 // Set z-index for proper stacking (later cards on top)
                 card.style.zIndex = index + 1;
                 
-                if (index < currentCard) {
-                    // Previous cards are stacked
-                    card.classList.add('card-stacked');
-                } else if (index === currentCard) {
-                    // Current card is visible
-                    card.classList.add('card-visible');
+                if (index <= maxCardReached && activeCard !== -1) {
+                    if (index < currentCard) {
+                        // Previous cards that should be shown are stacked
+                        card.classList.add('card-stacked');
+                    } else if (index === currentCard) {
+                        // Current card is visible
+                        if (currentCard === cards.length - 1) {
+                            card.classList.add('card-final');
+                        } else {
+                            card.classList.add('card-visible');
+                        }
+                    } else {
+                        // Cards beyond current are hidden
+                        card.classList.add('card-hidden');
+                    }
                 } else {
-                    // Future cards are hidden
+                    // Cards that shouldn't be shown yet are hidden
                     card.classList.add('card-hidden');
                 }
             });

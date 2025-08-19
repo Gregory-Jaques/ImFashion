@@ -10,18 +10,18 @@ class FooterComponent extends HTMLElement {
                 <div class=" mx-auto px-8 xl:px-16">
                     <div class="flex xl:justify-between items-center flex-col xl:flex-row">
                         <div>
-                            <h2 class="text-black text-5xl xl:text-6xl font-bold uppercase leading-tight mb-8 text-center xl:text-left">¿Hablamos?</h2>
-                            <p class="text-black text-xl font-light leading-snug max-w-2xl text-center xl:text-left">
+                            <h2 class="text-black text-2xl xl:text-6xl font-bold uppercase leading-tight mb-4 xl:mb-8 text-center xl:text-left">¿Hablamos?</h2>
+                            <p class="text-black text-lg xl:text-xl font-light leading-snug max-w-2xl text-center xl:text-left">
                                 Si has llegado hasta aquí es porque tu marca está en un momento clave. Veamos juntos como podemos evolucionar al siguiente nivel.
                             </p>
                         </div>
                         
                         <div class="flex xl:space-x-4 flex-col xl:flex-row mt-10 xl:mt-0 gap-4 xl:gap-0 items-center">
-                            <button id="agenda-llamada-btn" class="px-16 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
+                            <button id="agenda-llamada-btn" class="xl:px-16 xl:py-3 px-12 py-2 rounded-full border border-[#D4B996] text-[#D4B996] text-lg xl:text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                                 Agenda una llamada
                             </button>
                             <div class="w-16 h-px bg-[#D4B996] rotate-0 xl:rotate-90 self-center"></div>
-                            <button id="escribenos-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
+                            <button id="escribenos-btn" class="xl:px-20 xl:py-3 px-12 py-2 rounded-full border border-[#D4B996] text-[#D4B996] text-lg xl:text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                                 Escríbenos
                             </button>
                         </div>

@@ -1179,19 +1179,16 @@ function initStackingCards() {
                 // Set z-index for proper stacking (later cards on top)
                 card.style.zIndex = index + 1;
                 
-                if (index <= maxCardReached && activeCard !== -1) {
-                    if (index < currentCard) {
-                        // Previous cards that should be shown are stacked
-                        card.classList.add('card-stacked');
-                    } else if (index === currentCard) {
-                        // Current card is visible
+                if (activeCard !== -1) {
+                    if (index === currentCard) {
+                        // Only current card is visible
                         if (currentCard === cards.length - 1) {
                             card.classList.add('card-final');
                         } else {
                             card.classList.add('card-visible');
                         }
                     } else {
-                        // Cards beyond current are hidden
+                        // All other cards are hidden with scale and opacity effect
                         card.classList.add('card-hidden');
                     }
                 } else {

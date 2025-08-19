@@ -17,7 +17,7 @@ class FooterComponent extends HTMLElement {
                         </div>
                         
                         <div class="flex xl:space-x-4 flex-col xl:flex-row mt-10 xl:mt-0 gap-4 xl:gap-0 items-center">
-                            <button id="agenda-llamada-btn" class="px-20 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
+                            <button id="agenda-llamada-btn" class="px-16 py-3 rounded-full border border-[#D4B996] text-[#D4B996] text-xl font-semibold hover:bg-[#D4B996] hover:text-white transition-colors">
                                 Agenda una llamada
                             </button>
                             <div class="w-16 h-px bg-[#D4B996] rotate-0 xl:rotate-90 self-center"></div>
@@ -51,7 +51,7 @@ class FooterComponent extends HTMLElement {
                         </div>
                         
                         <div class="text-center">
-                            <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8 hidden xl:block">
+                            <img src="images/fashion-logo.svg" alt="Fashion Logo" class="mb-8 hidden xl:block h-20">
                             <a href="https://immoral.marketing"  target="_blank" ><p class="text-[#D4B996] text-xl font-extralight leading-snug mb-2 hidden xl:block">Somos parte de</p>
                             <img src="images/immoral-logo-white.svg" alt="Immoral Logo" class="mx-auto hidden xl:block"></a>
                         </div>

@@ -568,6 +568,8 @@ function initTestimonialsCarousel() {
     const container = document.getElementById('testimonials-carousel');
     const track = document.querySelector('.testimonials-track');
     const slides = document.querySelectorAll('.testimonial-slide');
+    const prevBtn = document.getElementById('testimonials-prev');
+    const nextBtn = document.getElementById('testimonials-next');
     
     if (!container || !track || slides.length === 0) return;
     
@@ -608,6 +610,19 @@ function initTestimonialsCarousel() {
     // Mover a la siguiente slide
     function nextSlide() {
         currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        currentTranslateX = -currentSlideIndex * slideWidth;
+        
+        track.style.transition = 'transform 0.3s ease-out';
+        updateCarousel();
+        
+        setTimeout(() => {
+            track.style.transition = 'none';
+        }, 300);
+    }
+    
+    // Mover a la slide anterior
+    function prevSlide() {
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
         currentTranslateX = -currentSlideIndex * slideWidth;
         
         track.style.transition = 'transform 0.3s ease-out';
@@ -733,6 +748,23 @@ function initTestimonialsCarousel() {
         }
         
         startAutoplay();
+    }
+    
+    // Event listeners para botones de navegación móvil
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            stopAutoplay();
+            prevSlide();
+            startAutoplay();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            stopAutoplay();
+            nextSlide();
+            startAutoplay();
+        });
     }
     
     // Event listeners para hover - pausar/reanudar autoplay

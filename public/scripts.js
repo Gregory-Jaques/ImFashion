@@ -563,38 +563,67 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize portfolio carousel
     initPortfolioCarousel();
 
-// Testimonials Carousel
+// Testimonials Carousel - Horizontal Drag
 function initTestimonialsCarousel() {
+    const container = document.getElementById('testimonials-carousel');
+    const track = document.querySelector('.testimonials-track');
     const slides = document.querySelectorAll('.testimonial-slide');
-    const container = document.querySelector('#testimonials-carousel');
-    console.log('Found testimonial slides:', slides.length);
     
-    if (slides.length === 0) return;
+    if (!container || !track || slides.length === 0) return;
     
-    let currentSlide = 0;
+    // Variables para el arrastre
+    let currentTranslateX = 0;
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    let initialTransform = 0;
+    let slideWidth = 0;
+    let maxTranslateX = 0;
+    let minTranslateX = 0;
+    let hasDragged = false;
+    const dragThreshold = 5;
     let autoplayInterval;
+    let currentSlideIndex = 0;
     
-    function showSlide(index) {
-        console.log('Showing slide:', index);
-        // Hide all slides
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        
-        // Show current slide
-        slides[index].classList.add('active');
+    // Calcular dimensiones
+    function calculateDimensions() {
+        // Con el nuevo ancho calc(80% - 60px), cada card ocupa 80% del contenedor
+        // Para centrar perfectamente, el slideWidth debe ser 100% del contenedor
+        slideWidth = container.offsetWidth; // 100% del contenedor para centrado perfecto
+        maxTranslateX = 0;
+        minTranslateX = -(slideWidth * (slides.length - 1));
     }
     
+    // Calculate slide width including margins
+    function getSlideWidth() {
+        const containerWidth = container.offsetWidth;
+        return containerWidth;
+    }
+    
+    // Actualizar posición del carrusel
+    function updateCarousel() {
+        track.style.transform = `translateX(${currentTranslateX}px)`;
+    }
+    
+    // Mover a la siguiente slide
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        console.log('Next slide:', currentSlide);
-        showSlide(currentSlide);
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        currentTranslateX = -currentSlideIndex * slideWidth;
+        
+        track.style.transition = 'transform 0.3s ease-out';
+        updateCarousel();
+        
+        setTimeout(() => {
+            track.style.transition = 'none';
+        }, 300);
     }
     
+    // Iniciar autoplay
     function startAutoplay() {
         autoplayInterval = setInterval(nextSlide, 5000);
     }
     
+    // Detener autoplay
     function stopAutoplay() {
         if (autoplayInterval) {
             clearInterval(autoplayInterval);
@@ -602,17 +631,133 @@ function initTestimonialsCarousel() {
         }
     }
     
-    // Initialize first slide
-    showSlide(0);
-    
-    // Start autoplay
-    startAutoplay();
-    
-    // Add mouse events for pause on hover
-    if (container) {
-        container.addEventListener('mouseenter', stopAutoplay);
-        container.addEventListener('mouseleave', startAutoplay);
+    // Snap a la slide más cercana
+    function snapToClosestSlide() {
+        const slideIndex = Math.round(-currentTranslateX / slideWidth);
+        const targetTranslateX = -slideIndex * slideWidth;
+        
+        // Limitar dentro de los bounds
+        currentTranslateX = Math.max(minTranslateX, Math.min(maxTranslateX, targetTranslateX));
+        currentSlideIndex = Math.round(-currentTranslateX / slideWidth);
+        
+        track.style.transition = 'transform 0.3s ease-out';
+        updateCarousel();
+        
+        setTimeout(() => {
+            track.style.transition = 'none';
+        }, 300);
     }
+    
+    // Eventos de mouse
+    function handleMouseDown(e) {
+        isDragging = true;
+        hasDragged = false;
+        startX = e.clientX;
+        currentX = e.clientX;
+        initialTransform = currentTranslateX;
+        container.style.cursor = 'grabbing';
+        track.style.transition = 'none';
+        stopAutoplay();
+        e.preventDefault();
+    }
+    
+    function handleMouseMove(e) {
+        if (!isDragging) return;
+        
+        currentX = e.clientX;
+        const deltaX = currentX - startX;
+        
+        if (Math.abs(deltaX) > dragThreshold) {
+            hasDragged = true;
+        }
+        
+        currentTranslateX = initialTransform + deltaX;
+        
+        // Limitar el arrastre
+        currentTranslateX = Math.max(minTranslateX, Math.min(maxTranslateX, currentTranslateX));
+        
+        updateCarousel();
+    }
+    
+    function handleMouseUp() {
+        if (!isDragging) return;
+        
+        isDragging = false;
+        container.style.cursor = 'grab';
+        
+        if (hasDragged) {
+            snapToClosestSlide();
+        }
+        
+        startAutoplay();
+    }
+    
+    // Eventos de touch
+    function handleTouchStart(e) {
+        isDragging = true;
+        hasDragged = false;
+        startX = e.touches[0].clientX;
+        currentX = e.touches[0].clientX;
+        initialTransform = currentTranslateX;
+        track.style.transition = 'none';
+        stopAutoplay();
+        e.preventDefault();
+    }
+    
+    function handleTouchMove(e) {
+        if (!isDragging) return;
+        
+        currentX = e.touches[0].clientX;
+        const deltaX = currentX - startX;
+        
+        if (Math.abs(deltaX) > dragThreshold) {
+            hasDragged = true;
+        }
+        
+        currentTranslateX = initialTransform + deltaX;
+        
+        // Limitar el arrastre
+        currentTranslateX = Math.max(minTranslateX, Math.min(maxTranslateX, currentTranslateX));
+        
+        updateCarousel();
+        e.preventDefault();
+    }
+    
+    function handleTouchEnd() {
+        if (!isDragging) return;
+        
+        isDragging = false;
+        
+        if (hasDragged) {
+            snapToClosestSlide();
+        }
+        
+        startAutoplay();
+    }
+    
+    // Event listeners para hover - pausar/reanudar autoplay
+    container.addEventListener('mouseenter', stopAutoplay);
+    container.addEventListener('mouseleave', startAutoplay);
+    
+    // Event listeners
+    container.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    container.addEventListener('touchstart', handleTouchStart, { passive: false });
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd);
+    
+    // Recalcular dimensiones en resize
+    window.addEventListener('resize', () => {
+        calculateDimensions();
+        snapToClosestSlide();
+    });
+    
+    // Inicializar
+    calculateDimensions();
+    updateCarousel();
+    startAutoplay();
 }
     
     // Initialize testimonials carousel

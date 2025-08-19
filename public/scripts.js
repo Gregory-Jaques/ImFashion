@@ -566,11 +566,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // Testimonials Carousel
 function initTestimonialsCarousel() {
     const slides = document.querySelectorAll('.testimonial-slide');
+    const container = document.querySelector('#testimonials-carousel');
     console.log('Found testimonial slides:', slides.length);
     
     if (slides.length === 0) return;
     
     let currentSlide = 0;
+    let autoplayInterval;
     
     function showSlide(index) {
         console.log('Showing slide:', index);
@@ -589,11 +591,28 @@ function initTestimonialsCarousel() {
         showSlide(currentSlide);
     }
     
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    }
+    
     // Initialize first slide
     showSlide(0);
     
-    // Auto-advance slides every 2 seconds
-    setInterval(nextSlide, 2000);
+    // Start autoplay
+    startAutoplay();
+    
+    // Add mouse events for pause on hover
+    if (container) {
+        container.addEventListener('mouseenter', stopAutoplay);
+        container.addEventListener('mouseleave', startAutoplay);
+    }
 }
     
     // Initialize testimonials carousel

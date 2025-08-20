@@ -329,10 +329,34 @@ function initPortfolioCarousel() {
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
     
-    // Touch events with Safari-specific handling
-    track.addEventListener('touchstart', handleTouchStart, { passive: false });
-    track.addEventListener('touchmove', handleTouchMove, { passive: false });
-    track.addEventListener('touchend', handleTouchEnd);
+    // Solo habilitar eventos táctiles en desktop (pantallas >= 1280px)
+    function checkScreenSize() {
+        return window.innerWidth >= 1280;
+    }
+    
+    // Función para agregar/remover eventos táctiles según el tamaño de pantalla
+    function updateTouchEvents() {
+        if (checkScreenSize()) {
+            // Desktop: habilitar eventos táctiles
+            track.addEventListener('touchstart', handleTouchStart, { passive: false });
+            track.addEventListener('touchmove', handleTouchMove, { passive: false });
+            track.addEventListener('touchend', handleTouchEnd);
+        } else {
+            // Mobile: deshabilitar eventos táctiles
+            track.removeEventListener('touchstart', handleTouchStart);
+            track.removeEventListener('touchmove', handleTouchMove);
+            track.removeEventListener('touchend', handleTouchEnd);
+        }
+    }
+    
+    // Inicializar eventos táctiles según el tamaño de pantalla
+    updateTouchEvents();
+    
+    // Actualizar eventos táctiles cuando cambie el tamaño de pantalla
+    window.addEventListener('resize', () => {
+        updateTouchEvents();
+        updateDimensions();
+    });
     
     // Safari-specific fixes
     if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
@@ -427,8 +451,7 @@ function initPortfolioCarousel() {
     // Make container focusable for keyboard navigation
     container.setAttribute('tabindex', '0');
     
-    // Window resize handler
-    window.addEventListener('resize', updateDimensions);
+    // Window resize handler ya está incluido en updateTouchEvents
     
     // Initial setup with improved initialization
     track.style.cursor = 'grab';
@@ -776,9 +799,31 @@ function initTestimonialsCarousel() {
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
     
-    container.addEventListener('touchstart', handleTouchStart, { passive: false });
-    container.addEventListener('touchmove', handleTouchMove, { passive: false });
-    container.addEventListener('touchend', handleTouchEnd);
+    // Solo habilitar eventos táctiles en desktop (pantallas >= 1280px)
+    function checkScreenSize() {
+        return window.innerWidth >= 1280;
+    }
+    
+    // Función para agregar/remover eventos táctiles según el tamaño de pantalla
+    function updateTouchEvents() {
+        if (checkScreenSize()) {
+            // Desktop: habilitar eventos táctiles
+            container.addEventListener('touchstart', handleTouchStart, { passive: false });
+            container.addEventListener('touchmove', handleTouchMove, { passive: false });
+            container.addEventListener('touchend', handleTouchEnd);
+        } else {
+            // Mobile: deshabilitar eventos táctiles
+            container.removeEventListener('touchstart', handleTouchStart);
+            container.removeEventListener('touchmove', handleTouchMove);
+            container.removeEventListener('touchend', handleTouchEnd);
+        }
+    }
+    
+    // Inicializar eventos táctiles según el tamaño de pantalla
+    updateTouchEvents();
+    
+    // Actualizar eventos táctiles cuando cambie el tamaño de pantalla
+    window.addEventListener('resize', updateTouchEvents);
     
     // Recalcular dimensiones en resize
     window.addEventListener('resize', () => {

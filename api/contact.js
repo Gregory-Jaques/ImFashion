@@ -44,10 +44,16 @@ export default async function handler(req, res) {
     
     const result = await response.json();
     
-    if (result.status === 'success') {
+    // Log para debugging
+    console.log('Google Apps Script response:', result);
+    console.log('Response status:', response.status);
+    
+    // Verificar si la respuesta HTTP fue exitosa Y si el contenido indica éxito
+    if (response.ok && (result.status === 'success' || result.result === 'success' || result === 'success')) {
       res.status(200).json({ status: 'success', message: 'Mensaje enviado correctamente' });
     } else {
-      res.status(500).json({ status: 'error', message: result.message || 'Error al enviar el mensaje' });
+      console.log('Error condition met - response.ok:', response.ok, 'result:', result);
+      res.status(500).json({ status: 'error', message: result.message || result.error || 'Error al enviar el mensaje' });
     }
     
   } catch (error) {

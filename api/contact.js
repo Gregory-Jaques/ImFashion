@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     }
     
     // Enviar datos a Google Apps Script
-    const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbwefDWO0CXHzG40YZvsVbyIck14-iLts-QDw2kB8kflB94ETWsx5ZV-QauLqwfBt8BD/exec';
+    const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbyKeQTEekPUgDWSy0ycIFLGxisX-uVcLDbK2NAH6GHLYZMMEEhSl-hyTIklPwzodeTs/exec';
     
     const response = await fetch(googleAppsScriptURL, {
       method: 'POST',

@@ -1,13 +1,16 @@
 // Test Logic for Dynamic Results
 class TestLogic {
     constructor() {
-        this.form = document.querySelector('form');
-        this.modal = document.getElementById('test-result-modal');
-        this.backgroundImg = this.modal.querySelector('img');
-        this.levelNumber = this.modal.querySelector('h2');
-        this.levelName = this.modal.querySelector('h3');
-        this.description = this.modal.querySelector('p');
-        this.ctaButton = this.modal.querySelector('a');
+        this.form = document.getElementById('test-form');
+        this.userDataModal = document.getElementById('user-data-modal');
+        this.userDataForm = document.getElementById('user-data-form');
+        this.resultModal = document.getElementById('test-result-modal');
+        this.backgroundImg = this.resultModal.querySelector('img');
+        this.levelNumber = this.resultModal.querySelector('h2');
+        this.levelName = this.resultModal.querySelector('h3');
+        this.description = this.resultModal.querySelector('p');
+        this.ctaButton = this.resultModal.querySelector('a');
+        this.testResult = null; // Store test result
         
         this.init();
     }
@@ -15,6 +18,10 @@ class TestLogic {
     init() {
         if (this.form) {
             this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        }
+        
+        if (this.userDataForm) {
+            this.userDataForm.addEventListener('submit', (e) => this.handleUserDataSubmit(e));
         }
         
         // Ensure only one checkbox per question can be selected
@@ -25,24 +32,37 @@ class TestLogic {
     }
 
     setupModalClose() {
-        // Close modal when clicking outside the content
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.closeModal();
+        // Close user data modal when clicking outside the content
+        this.userDataModal.addEventListener('click', (e) => {
+            if (e.target === this.userDataModal) {
+                this.closeModal(this.userDataModal);
             }
         });
         
-        // Close modal with Escape key
+        // Close result modal when clicking outside the content
+        this.resultModal.addEventListener('click', (e) => {
+            if (e.target === this.resultModal) {
+                this.closeModal(this.resultModal);
+            }
+        });
+        
+        // Close modals with Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
-                this.closeModal();
+            if (e.key === 'Escape') {
+                if (!this.userDataModal.classList.contains('hidden')) {
+                    this.closeModal(this.userDataModal);
+                } else if (!this.resultModal.classList.contains('hidden')) {
+                    this.closeModal(this.resultModal);
+                }
             }
         });
     }
 
-    closeModal() {
-        this.modal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
+    closeModal(modal) {
+        if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
     }
 
     setupCheckboxBehavior() {
@@ -75,8 +95,11 @@ class TestLogic {
             return;
         }
         
-        const result = this.calculateResult(answers);
-        this.showResult(result);
+        // Calculate and store the result
+        this.testResult = this.calculateResult(answers);
+        
+        // Show user data form instead of result
+        this.showUserDataForm();
     }
 
     getAnswers() {
@@ -118,6 +141,105 @@ class TestLogic {
         return result;
     }
 
+    showUserDataForm() {
+        // Show user data modal
+        this.userDataModal.classList.remove('hidden');
+        
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
+    }
+    
+    handleUserDataSubmit(e) {
+        e.preventDefault();
+        
+        // Get user data
+        const userData = {
+            nombre: document.getElementById('user-nombre').value,
+            apellido: document.getElementById('user-apellido').value,
+            marca: document.getElementById('user-marca').value,
+            email: document.getElementById('user-email').value
+        };
+        
+        // Validate user data
+        if (!userData.nombre || !userData.apellido || !userData.marca || !userData.email) {
+            this.mostrarMensajeEstado('Por favor, completa todos los campos.', 'text-red-400');
+            return;
+        }
+        
+        // Show loading message
+        this.mostrarMensajeEstado('Procesando...', 'text-blue-400');
+        
+        // Disable submit button
+        const submitBtn = document.getElementById('user-data-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Procesando...';
+        
+        // Send user data to API
+        this.sendUserData(userData);
+    }
+    
+    sendUserData(userData) {
+        // Add test result info to user data
+        const dataToSend = {
+            ...userData,
+            testResult: this.testResult,
+            mensaje: `Test completado - Resultado: Nivel ${this.testResult}`
+        };
+        
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json().then(data => ({ success: true, data }));
+            } else {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+        })
+        .then(result => {
+            const data = result.data;
+            if (result.success && data.status === 'success') {
+                // Hide user data modal and show result
+                this.userDataModal.classList.add('hidden');
+                this.showResult(this.testResult);
+            } else {
+                this.mostrarMensajeEstado('Error al procesar los datos. Inténtalo de nuevo.', 'text-red-400');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            this.mostrarMensajeEstado('Error de conexión. Verifica tu internet e inténtalo de nuevo.', 'text-red-400');
+        })
+        .finally(() => {
+            // Re-enable submit button
+            const submitBtn = document.getElementById('user-data-submit');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Ver mi resultado';
+        });
+    }
+    
+    mostrarMensajeEstado(mensaje, colorClass) {
+        const mensajeEstado = document.getElementById('user-data-mensaje');
+        const textoEstado = document.getElementById('user-data-texto');
+        
+        if (mensajeEstado && textoEstado) {
+            textoEstado.textContent = mensaje;
+            textoEstado.className = `text-sm font-normal font-['Inter'] ${colorClass}`;
+            mensajeEstado.classList.remove('hidden');
+            
+            // Hide message after 5 seconds (except for success messages)
+            if (!colorClass.includes('blue')) {
+                setTimeout(() => {
+                    mensajeEstado.classList.add('hidden');
+                }, 5000);
+            }
+        }
+    }
+
     showResult(result) {
         const resultData = this.getResultData(result);
         
@@ -130,7 +252,7 @@ class TestLogic {
         this.ctaButton.href = resultData.ctaLink;
         
         // Show modal as overlay
-        this.modal.classList.remove('hidden');
+        this.resultModal.classList.remove('hidden');
         
         // Prevent body scroll when modal is open
         document.body.style.overflow = 'hidden';

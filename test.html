@@ -13,6 +13,55 @@
 <menu-component></menu-component>
 
     
+    <!-- start Section modal user data form -->
+    <section id="user-data-modal" class="fixed inset-0 bg-zinc-900 bg-opacity-100 flex flex-col items-center justify-center z-50 px-4 py-8 hidden backdrop-blur-sm">
+      <!-- Background image -->
+      <div class="absolute inset-0 w-full h-full">
+        <img class="w-full h-full object-cover blur-[20.40px] scale-110 opacity-45" src="images/bgampli-big.jpg" alt="Background" />
+      </div>
+      
+      <!-- Content container -->
+      <div class="relative z-10 max-w-2xl mx-auto text-center space-y-8">
+        <!-- Form title -->
+        <header>
+          <h1 class="text-white text-2xl xl:text-4xl font-extrabold font-['Inter'] uppercase leading-tight">
+            Antes de entregarte tu resultado
+          </h1>
+          <p class="text-white text-lg xl:text-xl font-light font-['Inter'] leading-relaxed mt-4">
+            Necesitamos algunos datos para personalizar tu experiencia
+          </p>
+        </header>
+        
+        <!-- User data form -->
+        <form id="user-data-form" class="space-y-6 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8">
+          <!-- Primera fila -->
+          <div class="flex flex-col gap-4 md:flex-row md:gap-6">
+            <input type="text" id="user-nombre" name="nombre" placeholder="Nombre" required class="w-full h-12 p-4 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-[#D4B996] focus:ring-2 focus:ring-[#D4B996] focus:ring-opacity-50">
+            <input type="text" id="user-apellido" name="apellido" placeholder="Apellido" required class="w-full h-12 p-4 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-[#D4B996] focus:ring-2 focus:ring-[#D4B996] focus:ring-opacity-50">
+          </div>
+          
+          <!-- Segunda fila -->
+          <div class="flex flex-col gap-4 md:flex-row md:gap-6">
+            <input type="text" id="user-marca" name="marca" placeholder="Nombre de tu marca" required class="w-full h-12 p-4 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-[#D4B996] focus:ring-2 focus:ring-[#D4B996] focus:ring-opacity-50">
+            <input type="email" id="user-email" name="email" placeholder="Email" required class="w-full h-12 p-4 rounded-lg border border-gray-300 text-base font-normal font-['Inter'] leading-tight placeholder-gray-400 focus:outline-none focus:border-[#D4B996] focus:ring-2 focus:ring-[#D4B996] focus:ring-opacity-50">
+          </div>
+          
+          <!-- Botón enviar -->
+          <div class="text-center pt-4">
+            <button type="submit" id="user-data-submit" class="text-[#D4B996] text-xl font-light font-['Inter'] underline uppercase leading-7 hover:text-white transition-colors duration-300">
+              Ver mi resultado
+            </button>
+          </div>
+          
+          <!-- Mensaje de estado -->
+          <div id="user-data-mensaje" class="text-center hidden">
+            <p id="user-data-texto" class="text-sm font-normal font-['Inter']"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- end Section modal user data form -->
+
     <!-- start Section modal result -->
     <section id="test-result-modal" class="fixed inset-0 bg-zinc-900 bg-opacity-100 flex flex-col items-center justify-center z-50 px-4 py-8 hidden backdrop-blur-sm">
       <!-- Background image -->
@@ -74,7 +123,7 @@
   <!-- Test Questions Section -->
   <div class="bg-white flex-1 py-16 px-4">
     <div class="max-w-4xl mx-auto">
-      <form class="space-y-16">
+      <form id="test-form" class="space-y-16">
         
         <!-- Question 1 -->
         <div class="space-y-6">

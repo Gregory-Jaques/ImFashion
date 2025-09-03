@@ -15,15 +15,19 @@ export default async function handler(req, res) {
   }
   
   try {
-    const { nombre, email, telefono, asunto, mensaje } = req.body;
+    // Extraer todos los campos del body
+    const requestData = req.body;
     
-    // Validar datos requeridos
-    if (!nombre || !email || !mensaje) {
+    // Validar datos requeridos básicos
+    if (!requestData.nombre || !requestData.email) {
       return res.status(400).json({ 
         status: 'error', 
-        message: 'Nombre, email y mensaje son requeridos' 
+        message: 'Nombre y email son requeridos' 
       });
     }
+    
+    // Log para debugging
+    console.log('Datos recibidos en contact.js:', JSON.stringify(requestData));
     
     // Enviar datos a Google Apps Script
     const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbwW0G_YN184pcXbttzsm4e6W6EOPMSRpGH-NdQL76Inednie4-kDCC7DvzjP6MC20LU/exec';
@@ -33,13 +37,7 @@ export default async function handler(req, res) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        nombre,
-        email,
-        telefono: telefono || '',
-        asunto: asunto || '',
-        mensaje
-      })
+      body: JSON.stringify(requestData)
     });
     
     // Log para debugging

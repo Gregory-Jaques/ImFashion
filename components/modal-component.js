@@ -180,8 +180,8 @@ class ModalComponent extends HTMLElement {
         })
         .then(result => {
             const data = result.data;
-            // Verificar múltiples formatos de respuesta exitosa
-            if (result.success && (data.status === 'success' || data.result === 'success')) {
+            // Simplificar verificación - el backend siempre devuelve status: 'success' cuando es exitoso
+            if (result.success && data.status === 'success') {
                 this.mostrarMensajeEstado('¡Formulario enviado exitosamente!', 'text-green-600');
                 this.querySelector('#contacto-form').reset();
                 

@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test - ¿En qué punto está tu marca? | ImFashion</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="font-['Inter'] bg-black">
-    <!-- Menu Component -->
-    <div id="menu-container"></div>
+<script src="components/menu-component.js"></script>
+<menu-component></menu-component>
 
     <!-- start Section modal user data form -->
     <section id="user-data-modal" class="fixed inset-0 bg-zinc-900 bg-opacity-100 flex flex-col items-center justify-center z-50 px-4 py-8 hidden backdrop-blur-sm">
@@ -277,81 +276,11 @@
   </div>
 </section>
 
-    
+<!-- Incluir el script -->
+<script src="components/modal-component.js"></script>
 
-    <!-- Modal Agenda una llamada -->
-    <div id="agenda-llamada-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
-        <div class="relative w-[1000px] h-[900px] md:w-[95vw] md:h-[75vh] bg-white overflow-hidden max-w-[95vw] max-h-[95vh] translate-y-4 opacity-95 transition-all duration-300">
-            <!-- Close button -->
-            <button id="close-agenda-modal" class="absolute top-4 right-4 text-black text-2xl font-bold hover:text-red-900 transition-colors z-10">
-                ×
-            </button>
-            
-            <!-- Content -->
-            <div class="w-[480px] h-32 absolute left-[420px] top-[300px] md:left-4 md:right-4 md:top-[20%] md:px-4">
-                <span class="text-red-900 text-lg md:text-base font-normal font-['Inter'] leading-7">Esto no es un "call para conocernos".<br/></span>
-                <span class="text-black text-lg md:text-base font-normal font-['Inter'] leading-7">Es una conversación estratégica para entender si lo que hacemos tiene sentido para ti.</span>
-            </div>
-            
-            <!-- Principio del widget integrado de Calendly -->
-            <div class="absolute left-[30px] top-[30px] w-[320px] h-[840px] md:left-80 md:right-4 md:top-0 md:w-auto md:h-[100%]">
-                <div class="calendly-inline-widget w-full h-full" data-url="https://calendly.com/d/cmvg-s3x-wqy/haz-que-tu-marca-crezca-de-verdad?hide_gdpr_banner=1&primary_color=3980e4" style="min-width:280px;height:100%;padding:0;margin:0;"></div>
-            </div>
-            <!-- Final del widget integrado de Calendly -->
-            
-            <div class="w-[480px] absolute left-[420px] top-[120px] md:left-4 md:right-4 md:top-8 md:px-4 md:pt-8">
-                <span class="text-black text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">No te vamos a prometer resultados. </span>
-                <span class="text-red-900 text-3xl md:text-xl font-bold font-['Inter'] leading-[40px] md:leading-7">Vamos a planear cómo conseguirlos.</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Escríbenos -->
-    <div id="escribenos-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden items-center justify-center transition-all duration-300 opacity-0">
-        <div class="w-[95vw] h-[95vh] max-h-[90vh] overflow-y-auto md:w-[820px] md:h-[629px] bg-white rounded-md relative translate-y-4 opacity-95 transition-all duration-300">
-            <!-- Botón cerrar -->
-            <button id="close-escribenos-modal" class="w-16 h-11 absolute top-0 right-0 text-center text-red-900 text-2xl font-normal font-['Inter'] lowercase leading-7">
-                X
-            </button>
-            
-            <!-- Título -->
-            <div class="absolute w-full left-4 right-4 top-8 px-4 md:w-[603px] md:h-32 md:left-[109px] md:top-[4px] text-center">
-                <div class="text-black text-2xl md:text-4xl font-light font-['Inter'] uppercase leading-7 md:leading-9">
-                    <span class="text-red-900">Escríbenos</span><br/>
-                    <span class="text-black">y conversemos</span>
-                </div>
-            </div>
-            
-            <!-- Formulario -->
-            <form class="absolute left-4 right-4 top-48 px-4 md:left-[109px] md:top-[271px]">
-                <div class="space-y-4 md:space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" name="nombre" placeholder="Nombre" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent text-base">
-                        <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent text-base">
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="tel" name="telefono" placeholder="Teléfono" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent text-base">
-                        <input type="text" name="asunto" placeholder="Asunto" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent text-base">
-                    </div>
-                    <textarea name="mensaje" placeholder="Mensaje" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent resize-none text-base"></textarea>
-                </div>
-                
-                <div class="text-center mt-6">
-                    <button type="submit" class="text-red-900 text-xl font-light font-['Inter'] underline uppercase leading-7 hover:text-red-700 transition-colors">
-                        Enviar mensaje
-                    </button>
-                </div>
-                
-                <!-- Mensaje de estado -->
-                <div id="mensaje-estado" class="text-center mt-4 hidden">
-                    <p id="texto-estado" class="text-sm font-normal font-['Inter']"></p>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer Component -->
-    <div id="footer-container"></div>
+<!-- Usar el componente -->
+<modal-component></modal-component>
 
     <!-- Scripts -->
     <script src="scripts.js"></script>

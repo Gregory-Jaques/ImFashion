@@ -171,9 +171,17 @@ class ModalComponent extends HTMLElement {
             },
             body: JSON.stringify(formData)
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
+        .then(response => {
+            if (response.ok) {
+                return response.json().then(data => ({ success: true, data }));
+            } else {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+        })
+        .then(result => {
+            const data = result.data;
+            // Verificar múltiples formatos de respuesta exitosa
+            if (result.success && (data.status === 'success' || data.result === 'success')) {
                 this.mostrarMensajeEstado('¡Formulario enviado exitosamente!', 'text-green-600');
                 this.querySelector('#contacto-form').reset();
                 

@@ -161,10 +161,10 @@ class ModalComponent extends HTMLElement {
         enviarBtn.disabled = true;
         enviarBtn.textContent = 'Enviando...';
         
-        // URL actualizada de Google Apps Script
-        const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbwp9_xg1Kym2rr6LqjtE6WLu3BwnkcvpjqRtVeHn8BL7tzqBiSGmB0vye1ZzjnZ7iZf/exec';
+        // URL de Vercel Function (proxy para Google Apps Script)
+        const apiURL = '/api/contact';
         
-        fetch(googleAppsScriptURL, {
+        fetch(apiURL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

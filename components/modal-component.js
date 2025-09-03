@@ -162,7 +162,7 @@ class ModalComponent extends HTMLElement {
         enviarBtn.textContent = 'Enviando...';
         
         // URL actualizada de Google Apps Script
-        const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbzzJXR_p5DricgicbeVkR1P2Uh7pdBOOS3rB_csvbrH5cNfSprXOWAmYGBUXQcCAfFI/exec';
+        const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbxe9B_3Oor__4dUKzvunhxkmUSaWzH7giHrnYwJGqdobOEjBjswN567rs4vT0cTdCC7/exechttps://script.google.com/macros/s/AKfycbxk42sSt_FMCXO3ZedLA1Piymb3PNPU5Jzn7WiCx-cpeH_e4MzRIMV5l8_l8wJFWdpx/exec';
         
         fetch(googleAppsScriptURL, {
             method: 'POST',

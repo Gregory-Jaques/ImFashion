@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     console.log('Datos recibidos en contact.js:', JSON.stringify(requestData));
     
     // Enviar datos a Google Apps Script
-    const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbwW0G_YN184pcXbttzsm4e6W6EOPMSRpGH-NdQL76Inednie4-kDCC7DvzjP6MC20LU/exec';
+    const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbzK_XfU4u9ATFSRMrlOsxARNsWSyaTBLWujQCcyus-BD61oVSpxB-OkPVYODXKAClsS/exec';
     
     const response = await fetch(googleAppsScriptURL, {
       method: 'POST',

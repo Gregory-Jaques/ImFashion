@@ -11,6 +11,7 @@ class TestLogic {
         this.description = this.resultModal.querySelector('p');
         this.ctaButton = this.resultModal.querySelector('a');
         this.testResult = null; // Store test result
+        this.userAnswers = null; // Store user answers text
         
         this.init();
     }
@@ -98,7 +99,10 @@ class TestLogic {
         // Calculate and store the result
         this.testResult = this.calculateResult(answers);
         
-        // Show user data form instead of result
+        // Store user answers text
+        this.userAnswers = this.getAnswersText();
+        
+        // Show user data form
         this.showUserDataForm();
     }
 
@@ -114,6 +118,23 @@ class TestLogic {
         });
         
         return answers;
+    }
+
+    getAnswersText() {
+        const answersText = {};
+        const questions = ['question1', 'question2', 'question3', 'question4', 'question5'];
+        
+        questions.forEach(questionName => {
+            const checkedBox = document.querySelector(`input[name="${questionName}"]:checked`);
+            if (checkedBox) {
+                // Get the text content from the label's span element
+                const label = checkedBox.closest('label');
+                const span = label.querySelector('span');
+                answersText[questionName] = span ? span.textContent.trim() : '';
+            }
+        });
+        
+        return answersText;
     }
 
     validateAnswers(answers) {
@@ -179,10 +200,11 @@ class TestLogic {
     }
     
     sendUserData(userData) {
-        // Add test result info to user data
+        // Add test result info and user answers to user data
         const dataToSend = {
             ...userData,
             testResult: this.testResult,
+            userAnswers: this.userAnswers,
             mensaje: `Test completado - Resultado: Nivel ${this.testResult}`
         };
         
